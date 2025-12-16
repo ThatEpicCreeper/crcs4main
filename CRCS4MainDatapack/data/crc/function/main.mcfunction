@@ -29,6 +29,7 @@ scoreboard players set 8 constant 8
 scoreboard players set 9 constant 9
 scoreboard players set 10 constant 10
 scoreboard players set 11 constant 11
+scoreboard players set 12 constant 12
 
 
 #main timer
