@@ -75,3 +75,5 @@ scoreboard players set @a hrL7Minutes 0
 scoreboard players set @a hrL7Seconds 0
 scoreboard players set @a hrL7Miliseconds 0
 
+item replace entity @a container.0 with gray_stained_glass_pane[custom_name=[{"text":"Reserved Item Slot","italic":false,"color":"dark_gray"}],lore=[[{"text":"Currently no item... please do not move this item!","italic":false,"color":"gray"}],[{"text":"It will be replaced with an item when necessary.","italic":false,"color":"gray"}]]]
+
