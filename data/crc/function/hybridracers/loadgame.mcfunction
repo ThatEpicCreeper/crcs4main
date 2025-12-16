@@ -8,6 +8,7 @@ scoreboard players set dummy maxCheckpoints 5
 scoreboard players set dummy maxLaps 4
 
 ##
+title @s times 0 40 10
 
 tag @a remove hrFinished
 tag @a remove hrDNF
