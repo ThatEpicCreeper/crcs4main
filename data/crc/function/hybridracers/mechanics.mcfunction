@@ -29,15 +29,18 @@ execute as @a at @s run execute unless score @s hrTridentCDA matches ..-1 run sc
 execute as @a at @s run execute unless score @s hrBoatCD matches ..-1 run scoreboard players remove @s hrBoatCD 1
 
 #pads
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute if block ~ ~-0.9 ~ gold_block run effect give @s speed 3 1 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=..0}] at @s run execute if block ~ ~-0.9 ~ gold_block run effect give @s speed 3 1 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=1..}] at @s run execute if block ~ ~-0.9 ~ gold_block run effect give @s speed 3 3 true
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrGoldSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ gold_block run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1.5
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrGoldSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ gold_block run scoreboard players set @s hrGoldSFXCD 20
 
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute if block ~ ~-0.9 ~ diamond_block run effect give @s speed 3 3 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=..0}] at @s run execute if block ~ ~-0.9 ~ diamond_block run effect give @s speed 3 3 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=1..}] at @s run execute if block ~ ~-0.9 ~ diamond_block run effect give @s speed 3 5 true
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrDiamondSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ diamond_block run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1.8
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrDiamondSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ diamond_block run scoreboard players set @s hrDiamondSFXCD 20
 
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute if block ~ ~-0.9 ~ purpur_block run effect give @s speed 3 5 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=..0}] at @s run execute if block ~ ~-0.9 ~ purpur_block run effect give @s speed 3 5 true
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={inAmplify=1..}] at @s run execute if block ~ ~-0.9 ~ purpur_block run effect give @s speed 3 6 true
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrPurpurSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ purpur_block run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 2
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrPurpurSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ purpur_block run scoreboard players set @s hrPurpurSFXCD 20
 

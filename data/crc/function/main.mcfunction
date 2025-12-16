@@ -4,7 +4,7 @@ scoreboard objectives add mainInfo dummy
 scoreboard objectives setdisplay sidebar mainInfo
 scoreboard objectives modify mainInfo displayname {"text": " Creeper Championship S4 - 1 ","bold":true,"color":"yellow"}
 scoreboard players set  mainInfo 15
-scoreboard players set - mainInfo 12
+scoreboard players set - mainInfo 11
 
 scoreboard objectives add gameNumber dummy
 scoreboard objectives add inVoting dummy
@@ -60,6 +60,7 @@ team add votingDisp
 team modify votingDisp color gold
 team join votingDisp !
 team modify votingDisp prefix {"text":"Voting","color":"gold","bold":true}
+team modify votingDisp suffix ["",{"text":" (Game ","color":"gold","bold":false},{"score":{"name":"dummy","objective":"gameNumber"},"color":"gold","bold":false},{"text":"/4)","color":"gold","bold":false}]
 
 team add intermissDisp
 team modify intermissDisp color green
@@ -81,22 +82,26 @@ team modify channelDisp suffix {"text":"outube.com/@ThatEpicCreeper","color":"ye
 team add player1
 team modify player1 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
-execute if score dummy inGame matches 1 run execute as @r[team=player1] at @s run team modify player1 suffix ""
+#execute if score dummy inGame matches 1 run execute as @r[team=player1] at @s run team modify player1 suffix ""
+execute if score dummy hrInGame matches 1.. run execute as @r[team=player1] at @s run team modify player1 suffix ["",{"text":" - #","color":"blue"},{"score":{"name":"@s","objective":"hrCurrentPos"},"color":"blue"}]
 
 team add player2
 team modify player2 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
-execute if score dummy inGame matches 1 run execute as @r[team=player2] at @s run team modify player2 suffix ""
+#execute if score dummy inGame matches 1 run execute as @r[team=player2] at @s run team modify player2 suffix ""
+execute if score dummy hrInGame matches 1.. run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - #","color":"blue"},{"score":{"name":"@s","objective":"hrCurrentPos"},"color":"blue"}]
 
 team add player3
 team modify player3 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
-execute if score dummy inGame matches 1 run execute as @r[team=player3] at @s run team modify player3 suffix ""
+#execute if score dummy inGame matches 1 run execute as @r[team=player3] at @s run team modify player3 suffix ""
+execute if score dummy hrInGame matches 1.. run execute as @r[team=player3] at @s run team modify player3 suffix ["",{"text":" - #","color":"blue"},{"score":{"name":"@s","objective":"hrCurrentPos"},"color":"blue"}]
 
 team add player4
 team modify player4 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
-execute if score dummy inGame matches 1 run execute as @r[team=player4] at @s run team modify player4 suffix ""
+#execute if score dummy inGame matches 1 run execute as @r[team=player4] at @s run team modify player4 suffix ""
+execute if score dummy hrInGame matches 1.. run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - #","color":"blue"},{"score":{"name":"@s","objective":"hrCurrentPos"},"color":"blue"}]
 
 team add spec
 team modify spec color gray
@@ -126,15 +131,15 @@ execute if score dummy inLobby matches 1 run scoreboard players reset Game mainI
 
 
 #score display
-execute if score dummy inGame matches 0 run scoreboard players set Event mainInfo 11
+execute if score dummy inGame matches 0 run scoreboard players set Event mainInfo 10
 execute unless score dummy inGame matches 0 run scoreboard players reset Event mainInfo
 
 ##player scores
-execute if score dummy inGame matches 0 run scoreboard players set @a[tag=!spec] mainInfo 10 
+execute if score dummy inGame matches 0 run scoreboard players set @a[tag=!spec] mainInfo 9
 
 #show advert
-scoreboard players set = mainInfo 9
-scoreboard players set y mainInfo 8
+scoreboard players set = mainInfo 8
+scoreboard players set y mainInfo 7
 
 
 

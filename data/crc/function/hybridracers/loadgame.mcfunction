@@ -1,4 +1,4 @@
-
+clear @a[team=!spec]
 tp @a @e[type=armor_stand,limit=1,sort=random,tag=hrStartPoint]
 
 
@@ -8,23 +8,36 @@ scoreboard players set dummy maxCheckpoints 5
 scoreboard players set dummy maxLaps 4
 
 ##
+gamerule fallDamage false
+effect give @a resistance 10000 4 true
+effect give @a regeneration 10000 4 true
+effect give @a weakness 10000 4 true
+
 title @s times 0 40 10
+
+team modify player1 suffix ""
+team modify player2 suffix ""
+team modify player3 suffix ""
+team modify player4 suffix ""
 
 tag @a remove hrFinished
 tag @a remove hrDNF
 gamemode adventure @a[team=!spec]
 
 scoreboard players set H mainInfo 13
+scoreboard players set Map: mainInfo 12
 
-scoreboard players set @a hudSkipCD 1101
 scoreboard players set dummy hrStartTimer 1001
 scoreboard players set dummy inGame 1
 scoreboard players set dummy inLobby 0
 scoreboard players set dummy inVoting 0
 scoreboard players set dummy finishedPlayers 0
 
+scoreboard players set @a hrRacePos 0
+scoreboard players set @a hudSkipCD 1101
 scoreboard players set @a checkpoint 0
 scoreboard players set @a lap 1
+scoreboard players set @a hrCurrentPos 1
 
 scoreboard players set @a hrTotalMinutes 0
 scoreboard players set @a hrTotalSeconds 0

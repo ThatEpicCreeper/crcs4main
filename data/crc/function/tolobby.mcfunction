@@ -26,4 +26,8 @@ gamemode adventure @a[team=!spec]
 tag @a remove hrFinished
 tag @a remove hrDNF
 
+clear @a
+effect clear @a
+
 scoreboard players reset H mainInfo
+scoreboard players reset Map: mainInfo
