@@ -6,6 +6,8 @@ scoreboard objectives add bsLivesLeft dummy
 scoreboard objectives add bsOnDeath deathCount
 scoreboard objectives add bsStartTimer dummy
 scoreboard objectives add bsInGame dummy
+scoreboard objectives add bsTimeLeft dummy
+scoreboard objectives add bsInOvertime dummy
 scoreboard objectives add bsOnKill playerKillCount
 
 
@@ -13,6 +15,8 @@ scoreboard objectives add bsOnKill playerKillCount
 execute as @a[scores={bsOnKill=1..}] at @s run scoreboard players add @s thisGameScore 4
 execute as @a[scores={bsOnKill=1..}] at @s run tellraw @s ["",{"text":"+4 Score ","color":"green"},{"text":"(Kill)","color":"aqua"}]
 execute as @a[scores={bsOnKill=1..}] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.7 2
+execute as @a[scores={bsOnKill=1..}] at @s run effect give @s instant_health 1 2 true
+execute as @a[scores={bsOnKill=1..}] at @s run effect give @s strength 5 1 true
 execute as @a[scores={bsOnKill=1..}] at @s run scoreboard players set @s bsOnKill 0
 
 
