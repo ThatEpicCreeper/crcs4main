@@ -33,6 +33,7 @@ scoreboard players set dummy inLobby 0
 scoreboard players set dummy inVoting 0
 scoreboard players set dummy finishedPlayers 0
 
+scoreboard players set @a thisGameScore 0
 scoreboard players set @a hrRacePos 0
 scoreboard players set @a hudSkipCD 1101
 scoreboard players set @a checkpoint 0

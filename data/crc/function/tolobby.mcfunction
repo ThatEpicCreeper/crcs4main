@@ -14,6 +14,7 @@ execute as @a[team=!spec] run scoreboard players operation @s personalScore += @
 
 
 tp @a 0 50 0 0 0
+spawnpoint @a 0 50 0
 
 
 
@@ -31,3 +32,5 @@ effect clear @a
 
 scoreboard players reset H mainInfo
 scoreboard players reset Map: mainInfo
+
+gamerule fallDamage false
