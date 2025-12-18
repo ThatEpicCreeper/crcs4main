@@ -1,3 +1,4 @@
+effect clear @a
 clear @a[team=!spec]
 tp @a @e[type=armor_stand,limit=1,sort=random,tag=hrStartPoint]
 
@@ -9,6 +10,7 @@ scoreboard players set dummy maxLaps 4
 
 ##
 gamerule fallDamage false
+gamerule keepInventory true
 effect give @a resistance 10000 4 true
 effect give @a regeneration 10000 4 true
 effect give @a weakness 10000 4 true
@@ -26,6 +28,8 @@ gamemode adventure @a[team=!spec]
 
 scoreboard players set H mainInfo 13
 scoreboard players set Map: mainInfo 12
+team modify eventScoresDisp suffix {"text":"rrent Placements:","color":"gold"}
+scoreboard players set Cu mainInfo 10
 
 scoreboard players set dummy hrStartTimer 1001
 scoreboard players set dummy inGame 1

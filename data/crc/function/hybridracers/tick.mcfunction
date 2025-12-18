@@ -63,6 +63,12 @@ team modify hrDisplayMap color yellow
 team join hrDisplayMap Map:
 team modify hrDisplayMap suffix {"text":" MapName","color":"yellow"}
 
+#display current score text
+team join eventScoresDisp Cu
+execute if score dummy hrInGame matches 1.. run team modify eventScoresDisp suffix {"text":"rrent Placements:","color":"gold"}
+
+execute if score dummy hrInGame matches 1.. run scoreboard players set Cu mainInfo 10
+
 
 #split / total timer
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,tag=!hrFinished] at @s run function crc:hybridracers/igtsplit

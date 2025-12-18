@@ -31,6 +31,11 @@ clear @a
 effect clear @a
 
 scoreboard players reset H mainInfo
+scoreboard players reset B mainInfo
 scoreboard players reset Map: mainInfo
+scoreboard players reset Cu mainInfo
 
 gamerule fallDamage false
+gamerule keepInventory true
+worldborder set 999999
+scoreboard objectives setdisplay below_name

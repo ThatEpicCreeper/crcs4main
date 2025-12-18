@@ -1,0 +1,32 @@
+
+#spawnpoint
+- defined with armor stand of tag 'hrStartPoint'
+
+#checkpoints
+- defined with armor stand of tag 'hrCheckpointN', where N is the checkpoint number
+
+#finish line
+- defined with armor stand of tag 'hrFinishLine'
+
+#special blocks
+- gold block = mini speed
+- diamond block = big speed
+- purpur block = mega speed
+- emerald block = jump boost
+- coal block = slowness
+- chiseled quartz = levitation
+
+#special modes
+- trident giver is defined with armor stand 'giveTrident'
+- trident remover is defined with armor stand 'removeTrident'
+
+- elytra giver is defined with armor stand 'giveElytra'
+- elytra is automatically removed if a player is too close to the ground.
+
+- boats are given when a player does not have a boat in their inventory, and is far away from an existing boat.
+- the region of a boat must be manually defined, as it is different in every map.
+
+
+
+
+

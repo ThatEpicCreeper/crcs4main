@@ -1,0 +1,10 @@
+
+#spawnpoint
+- defined with armor stand of tag 'bsBusSpawn'
+- note that players spawn under the armor stand (4 blocks) when the game starts
+
+#chest loot
+- a chest should be defined with an armor stand with tag 'bsChestSpawn'
+- will randomly decide which chests are "mythic"
+
+
