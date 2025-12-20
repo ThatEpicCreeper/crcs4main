@@ -37,5 +37,6 @@ scoreboard players reset Cu mainInfo
 
 gamerule fallDamage false
 gamerule keepInventory true
+gamerule doTileDrops false
 worldborder set 999999
 scoreboard objectives setdisplay below_name

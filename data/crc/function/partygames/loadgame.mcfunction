@@ -8,6 +8,10 @@ scoreboard players set dummy pgLavaRunInGame 0
 scoreboard players set dummy pgTNTRunInGame 0
 scoreboard players set dummy pgPregameTimer 1001
 
+scoreboard players set @a oitcDeathCount 0
+scoreboard players set @a oitcKillCount 0
+scoreboard players set @a trFinalPlacement -1
+
 gamerule keepInventory true
 gamerule naturalRegeneration false
 
