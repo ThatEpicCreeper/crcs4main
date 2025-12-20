@@ -9,16 +9,17 @@ scoreboard objectives add trGracePeriod dummy
 scoreboard objectives add trFinalPlacement dummy
 
 #get y level
-execute as @a at @s run execute store result score @s test run data get entity @s Pos[1]
+execute as @a at @s run execute store result score @s trYLevel run data get entity @s Pos[1]
 
 
 #saturation
 execute if score dummy pgTNTRunInGame matches 1.. run effect give @a saturation 10 4 true
 
+effect give @a weakness 2 4 true
 
 #start timer
 execute if score dummy pgPregameTimer matches 600 run say rules
-execute if score dummy pgPregameTimer matches 600 run gamerule doTileDrops true
+execute if score dummy pgPregameTimer matches 600 run gamerule doTileDrops false
 execute if score dummy pgPregameTimer matches 600 run gamerule naturalRegeneration true
 execute if score dummy pgPregameTimer matches 600 run scoreboard players operation dummy trAlivePlayers = dummy totalPlayers
 execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,limit=1,tag=trSpawn]
@@ -41,7 +42,7 @@ execute if score dummy pgPregameTimer matches 0 run scoreboard players set dummy
 
 
 #disappear floor
-execute if score dummy trGracePeriod matches 0.. run scoreboard players set dummy trGracePeriod 1
+execute if score dummy trGracePeriod matches 0.. run scoreboard players remove dummy trGracePeriod 1
 execute if score dummy trDisappearInterval matches 4.. run scoreboard players set dummy trDisappearInterval 1
 scoreboard players add dummy trDisappearInterval 1
 
@@ -72,15 +73,17 @@ execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,g
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.22 2
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run tellraw @s ["",{"selector":"@s","bold":true,"color":"dark_red"},{"text":" fell off the map!","bold":true,"color":"red"}]
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run gamemode spectator @s
+execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=spectator,scores={trYLevel=..-60}] at @s run tp @s @r[team=!spec]
 
 
 #end game sequence
 execute if score dummy trEndSequence matches 0.. run scoreboard players remove dummy trEndSequence 1
 
-execute if score dummy trAlivePlayers matches 1 run scoreboard players add @a[team=!spec,gamemode=adventure] thisGameScore 16
-execute if score dummy trAlivePlayers matches 1 run tellraw @a[team=!spec,gamemode=adventure] ["",{"text":"+16 Score ","color":"green"},{"text":"(Placed 1st)","color":"aqua"}]
-execute if score dummy trAlivePlayers matches 1 run scoreboard players set @a[team=!spec,gamemode=adventure] trFinalPlacement 1
-execute if score dummy trAlivePlayers matches 1 run scoreboard players set dummy trEndSequence 301
+execute if score dummy pgTNTRunInGame matches 1.. run execute if score dummy trAlivePlayers matches 1 run scoreboard players add @a[team=!spec,gamemode=adventure] thisGameScore 16
+execute if score dummy pgTNTRunInGame matches 1.. run execute if score dummy trAlivePlayers matches 1 run tellraw @a[team=!spec,gamemode=adventure] ["",{"text":"+16 Score ","color":"green"},{"text":"(Placed 1st)","color":"aqua"}]
+execute if score dummy pgTNTRunInGame matches 1.. run execute if score dummy trAlivePlayers matches 1 run scoreboard players set @a[team=!spec,gamemode=adventure] trFinalPlacement 1
+execute if score dummy pgTNTRunInGame matches 1.. run execute if score dummy trAlivePlayers matches 1 run scoreboard players set dummy trEndSequence 301
+execute if score dummy pgTNTRunInGame matches 1.. run execute if score dummy trAlivePlayers matches 1 run scoreboard players set dummy pgTNTRunInGame 0
 
 execute if score dummy trEndSequence matches 300 run title @a title {"text":"Game Over!","bold":true,"color":"red"}
 execute if score dummy trEndSequence matches 300 run title @a times 0 100 10

@@ -23,6 +23,7 @@ scoreboard players set dummy inLobby 1
 scoreboard players set dummy inVoting 0
 scoreboard players set dummy inGame 0
 scoreboard players add dummy gameNumber 1
+scoreboard players set dummy pgInGame 0
 gamemode adventure @a[team=!spec]
 tag @a remove hrFinished
 tag @a remove hrDNF
@@ -34,9 +35,12 @@ scoreboard players reset H mainInfo
 scoreboard players reset B mainInfo
 scoreboard players reset Map: mainInfo
 scoreboard players reset Cu mainInfo
+scoreboard players reset Pa mainInfo
+scoreboard players reset Round: mainInfo
 
 gamerule fallDamage false
 gamerule keepInventory true
 gamerule doTileDrops false
+gamerule naturalRegeneration true
 worldborder set 999999
 scoreboard objectives setdisplay below_name

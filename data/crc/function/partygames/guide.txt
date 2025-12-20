@@ -4,8 +4,8 @@
 
 
 ##OITC (one in the chamber)
-- p1 to p4 spawns at the armor stands with tag 'respawnN' (where N = player number)
-- also must place addition armor stands (for randomised respawning), tag these armor stands and the p1 to p4 spawns with the tag 'respawnGen'
+- p1 to p4 spawns at the *markers* with tag 'respawnN' (where N = player number)
+- also must place addition *markers* (for randomised respawning), tag these *markers* with the tag 'respawnGen'
 
 
 ##TNT run
@@ -13,3 +13,12 @@
 - when the game starts, teleports all players to the armor stand with tag 'trGameSpawn'
 
 
+##Lava run
+- players spawn in the lava run "lobby" at the armor stand with tag 'lrSpawn'
+- when the game starts, teleports all players to the armor stand with tag 'lrGameSpawn'
+
+- use *markers* with the tag 'roomN', where N is the room number from 1-10, placed at the floor of the centre of room, on ground level (standing ground)
+- rooms should be 15x15 inside (17x17 including walls) [225 sq blocks]
+
+- use *markers* with the tag 'exitN', where N is the room number from 1-10, placed at the doorway exit of each room, on ground level (standing ground)
+- passing through each one grants the score for that room.
