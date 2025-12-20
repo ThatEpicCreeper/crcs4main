@@ -13,6 +13,7 @@ gamerule fallDamage false
 gamerule keepInventory true
 effect give @a resistance 10000 4 true
 effect give @a regeneration 10000 4 true
+effect give @a saturation 10000 4 true
 effect give @a weakness 10000 4 true
 
 title @s times 0 40 10

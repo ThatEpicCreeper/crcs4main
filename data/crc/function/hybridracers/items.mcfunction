@@ -23,7 +23,7 @@ scoreboard objectives add inBlueMissile dummy
 scoreboard objectives add useLightningRod minecraft.used:minecraft.blaze_rod
 scoreboard objectives add inShrink dummy
 scoreboard objectives add useBlinding minecraft.used:minecraft.ink_sac
-
+scoreboard objectives add useReset minecraft.used:minecraft.barrier
 
 #remove score
 execute as @a at @s run execute unless score @s normalItemRoll matches ..-1 run scoreboard players remove @s normalItemRoll 1 
@@ -38,6 +38,23 @@ execute as @a at @s run execute unless score @s inAmplify matches ..-1 run score
 
 execute as @a at @s run execute unless score @s inBlueMissile matches ..-1 run scoreboard players remove @s inBlueMissile 1 
 execute as @a at @s run execute unless score @s inShrink matches ..-1 run scoreboard players remove @s inShrink 1 
+
+#reset to checkpoint
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 0 run tp @s @e[type=armor_stand,tag=hrFinishLine,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 1 run tp @s @e[type=armor_stand,tag=hrCheckpoint1,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 2 run tp @s @e[type=armor_stand,tag=hrCheckpoint2,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 3 run tp @s @e[type=armor_stand,tag=hrCheckpoint3,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 4 run tp @s @e[type=armor_stand,tag=hrCheckpoint4,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 5 run tp @s @e[type=armor_stand,tag=hrCheckpoint5,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 6 run tp @s @e[type=armor_stand,tag=hrCheckpoint6,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 7 run tp @s @e[type=armor_stand,tag=hrCheckpoint7,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 8 run tp @s @e[type=armor_stand,tag=hrCheckpoint8,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 9 run tp @s @e[type=armor_stand,tag=hrCheckpoint9,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 10 run tp @s @e[type=armor_stand,tag=hrCheckpoint10,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 0.5
+scoreboard players set @a useReset 0
+
+
 
 #-abilities
 #mini speed

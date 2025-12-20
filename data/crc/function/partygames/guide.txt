@@ -1,0 +1,10 @@
+
+#lobby spawn
+- teleports players to lobby with armor stand having tag 'pgSpawn'
+
+
+##OITC (one in the chamber)
+- p1 to p4 spawns at the armor stands with tag 'respawnN' (where N = player number)
+- also must place addition armor stands (for randomised respawning), tag these armor stands and the p1 to p4 spawns with the tag 'respawnGen'
+
+

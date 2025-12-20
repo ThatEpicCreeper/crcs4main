@@ -142,6 +142,7 @@ execute if score dummy bsStartTimer matches 0 run tellraw @a {"text":"The game h
 execute if score dummy bsStartTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy bsStartTimer matches 0 run scoreboard players set dummy bsInGame 1
 execute if score dummy bsStartTimer matches 0 run execute as @e[type=armor_stand,tag=bsBusSpawn] at @s run tp @a[team=!spec] ~ ~-4.5 ~
+execute if score dummy bsStartTimer matches 0 run effect give @a[team=!spec] minecraft:weakness 20 10 true
 execute if score dummy bsStartTimer matches 0 run effect give @a[team=!spec] slow_falling 50 0 true
 
 #no slow falling

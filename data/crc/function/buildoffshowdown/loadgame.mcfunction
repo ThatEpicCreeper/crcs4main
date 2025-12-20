@@ -10,6 +10,7 @@ gamemode adventure @a[team=!spec]
 
 effect give @a minecraft:health_boost 10000 4 true
 effect give @a minecraft:instant_health 1 4 true
+effect give @a minecraft:weakness 60 10 true
 
 scoreboard players set B mainInfo 13
 scoreboard players set Map: mainInfo 12

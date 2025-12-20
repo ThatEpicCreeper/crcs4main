@@ -7,3 +7,6 @@ function crc:hybridracers/tick
 #buildoff showdown
 function crc:buildoffshowdown/tick
 
+#party arena
+function crc:partygames/tick
+
