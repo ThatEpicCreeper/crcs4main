@@ -30,7 +30,7 @@ gamemode adventure @a[team=!spec]
 scoreboard players set H mainInfo 13
 scoreboard players set Map: mainInfo 12
 team modify eventScoresDisp suffix {"text":"rrent Placements:","color":"gold"}
-scoreboard players set Cu mainInfo 10
+scoreboard players set Cu mainInfo 9
 
 scoreboard players set dummy hrStartTimer 1001
 scoreboard players set dummy inGame 1

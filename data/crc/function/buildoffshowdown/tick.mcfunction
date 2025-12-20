@@ -22,7 +22,7 @@ scoreboard objectives add bsDeathSequence dummy
 team join eventScoresDisp Cu
 execute if score dummy bsInGame matches 1.. run team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
 
-execute if score dummy bsInGame matches 1.. run scoreboard players set Cu mainInfo 10
+execute if score dummy bsInGame matches 1.. run scoreboard players set Cu mainInfo 9
 
 #display game
 team add bsDisplay

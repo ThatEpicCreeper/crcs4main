@@ -10,3 +10,7 @@ function crc:buildoffshowdown/tick
 #party arena
 function crc:partygames/tick
 
+#chaotic spleef
+function crc:chaoticspleef/tick
+
+

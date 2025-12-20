@@ -1,0 +1,6 @@
+
+#spawnpoint (lobby)
+- defined with armor stand of tag 'csSpawn'
+
+
+

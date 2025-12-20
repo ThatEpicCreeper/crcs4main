@@ -21,7 +21,7 @@ execute if score dummy partyGameNumber matches 3 run function crc:partygames/lav
 execute if score dummy pgInGame matches 1.. run scoreboard players set Pa mainInfo 13
 execute if score dummy pgInGame matches 1.. run scoreboard players set Round: mainInfo 12
 execute if score dummy pgInGame matches 1.. run team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
-execute if score dummy pgInGame matches 1.. run scoreboard players set Cu mainInfo 10
+execute if score dummy pgInGame matches 1.. run scoreboard players set Cu mainInfo 9
 
 #display game
 team add pgDisplay

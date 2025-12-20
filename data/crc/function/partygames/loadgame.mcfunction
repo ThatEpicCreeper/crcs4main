@@ -13,6 +13,7 @@ scoreboard players set dummy oitcEndSequence -10
 scoreboard players set dummy pgInGame 1
 scoreboard players set dummy lrLavaTimer -100
 
+scoreboard players set @a thisGameScore 0
 scoreboard players set @a oitcDeathCount 0
 scoreboard players set @a oitcKillCount 0
 scoreboard players set @a trFinalPlacement -1
@@ -23,7 +24,7 @@ scoreboard players set dummy inGame 1
 scoreboard players set dummy inLobby 0
 scoreboard players set dummy inVoting 0
 
-scoreboard players set @e lrRiseTimer -1
+scoreboard players set @e[type=marker] lrRiseTimer -1
 
 gamemode adventure @a[team=!spec]
 

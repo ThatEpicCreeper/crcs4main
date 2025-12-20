@@ -4,7 +4,7 @@ scoreboard objectives add mainInfo dummy
 scoreboard objectives setdisplay sidebar mainInfo
 scoreboard objectives modify mainInfo displayname {"text": " Creeper Championship S4 - 1 ","bold":true,"color":"yellow"}
 scoreboard players set  mainInfo 15
-scoreboard players set - mainInfo 11
+scoreboard players set - mainInfo 10
 
 scoreboard objectives add gameNumber dummy
 scoreboard objectives add inVoting dummy
@@ -140,15 +140,15 @@ execute if score dummy inLobby matches 1 run scoreboard players reset Game mainI
 
 
 #score display
-execute if score dummy inGame matches 0 run scoreboard players set Event mainInfo 10
+execute if score dummy inGame matches 0 run scoreboard players set Event mainInfo 9
 execute unless score dummy inGame matches 0 run scoreboard players reset Event mainInfo
 
 ##player scores
-execute if score dummy inGame matches 0 run scoreboard players set @a[tag=!spec] mainInfo 9
+execute if score dummy inGame matches 0 run scoreboard players set @a[tag=!spec] mainInfo 8
 
 #show advert
-scoreboard players set = mainInfo 8
-scoreboard players set y mainInfo 7
+scoreboard players set = mainInfo 7
+scoreboard players set y mainInfo 6
 
 
 

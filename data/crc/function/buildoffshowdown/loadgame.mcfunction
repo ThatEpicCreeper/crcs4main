@@ -15,7 +15,7 @@ effect give @a minecraft:weakness 60 10 true
 scoreboard players set B mainInfo 13
 scoreboard players set Map: mainInfo 12
 team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
-scoreboard players set Cu mainInfo 10
+scoreboard players set Cu mainInfo 9
 
 scoreboard players set @a thisGameScore 0
 scoreboard players set @a[team=!spec] bsLivesLeft 3
