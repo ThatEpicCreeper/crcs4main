@@ -11,11 +11,27 @@ scoreboard objectives add bbTeamOneWins dummy
 scoreboard objectives add bbTeamTwoWins dummy
 scoreboard objectives add bbTieTimer dummy
 scoreboard objectives add bbRandomMap dummy
-scoreboard objectives add bbOnDeath dummy
+scoreboard objectives add bbOnDeath deathCount
 scoreboard objectives add bbRoundCD dummy
 scoreboard objectives add bbTNTCount dummy
 scoreboard objectives add bbCrystalCount dummy
 scoreboard objectives add bbSnowballCount dummy
+
+# execute if score dummy bbInGame matches 1.. run team modify player1 suffix ""
+# execute if score dummy bbInGame matches 1.. run team modify player2 suffix ""
+# execute if score dummy bbInGame matches 1.. run team modify player3 suffix ""
+# execute if score dummy bbInGame matches 1.. run team modify player4 suffix ""
+
+#display game
+team add bbDisplay
+team modify bbDisplay color gold
+team join bbDisplay Bl
+team modify bbDisplay suffix {"text":"itz Bombs","color":"gold"}
+
+team add bbDisplayMap
+team modify bbDisplayMap color yellow
+team join bbDisplayMap Map:
+team modify bbDisplayMap suffix {"text":" Classic","color":"yellow"}
 
 #inv count
 execute as @a at @s run execute store result score @s bbTNTCount run clear @s minecraft:tnt 0
@@ -24,6 +40,8 @@ execute as @a at @s run execute store result score @s bbSnowballCount run clear 
 
 #effects in game
 execute if score dummy bbInGame matches 1.. run effect give @a saturation 20 4 true
+
+execute if score dummy bbInGame matches 1.. run execute as @a at @s run fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:command_block{auto:1b,Command:"function crc:blitzbombs/ignite"} replace minecraft:tnt
 
 #remove score
 execute if score dummy bbStartTimer matches -10.. run scoreboard players remove dummy bbStartTimer 1
@@ -34,6 +52,7 @@ execute if score dummy bbRoundCD matches -10.. run scoreboard players remove dum
 execute if score dummy bbInRound matches 1.. run execute as @a[tag=bbTeam1,scores={bbOnDeath=1..},gamemode=adventure] at @s run scoreboard players remove dummy bbTeamOnePlayersAlive 1
 execute if score dummy bbInRound matches 1.. run execute as @a[tag=bbTeam2,scores={bbOnDeath=1..},gamemode=adventure] at @s run scoreboard players remove dummy bbTeamTwoPlayersAlive 1
 execute if score dummy bbInRound matches 1.. run execute as @a[scores={bbOnDeath=1..},gamemode=adventure] at @s run scoreboard players set dummy bbTieTimer 3
+execute if score dummy bbInRound matches 1.. run execute as @a[scores={bbOnDeath=1..}] at @s run tp @s @r[distance=0.1..]
 execute if score dummy bbInRound matches 1.. run execute as @a[scores={bbOnDeath=1..}] at @s run gamemode spectator @s
 scoreboard players set @a bbOnDeath 0
 
@@ -43,8 +62,12 @@ execute if score dummy bbStartTimer matches 600 run say rules
 execute if score dummy bbStartTimer matches 600 run gamerule keepInventory true
 execute if score dummy bbStartTimer matches 303 run tp @a[team=spec] @e[type=marker,tag=bbTeamOneSpawn,limit=1,sort=nearest]
 
-execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbTeamOnePlayersAlive run tag @a[tag=bbTeam1] list
-execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbTeamTwoPlayersAlive run tag @a[tag=bbTeam2] list
+execute if score dummy bbStartTimer matches 301 run execute as @e[type=marker,limit=1,sort=nearest,tag=bbMapCenter] at @s run worldborder center ~ ~
+execute if score dummy bbStartTimer matches 301 run worldborder set 50
+# execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbTeamOnePlayersAlive run tag @a[tag=bbTeam1] list
+# execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbTeamTwoPlayersAlive run tag @a[tag=bbTeam2] list
+execute if score dummy bbStartTimer matches 301 run scoreboard players set dummy bbTeamOnePlayersAlive 1
+execute if score dummy bbStartTimer matches 301 run scoreboard players set dummy bbTeamTwoPlayersAlive 1
 execute if score dummy bbStartTimer matches 301 run gamemode adventure @a[tag=bbTeam1]
 execute if score dummy bbStartTimer matches 301 run gamemode adventure @a[tag=bbTeam2]
 execute if score dummy bbStartTimer matches 301 run tp @a[tag=bbTeam1] @e[type=marker,tag=bbTeamOneSpawn,limit=1,sort=nearest]
@@ -66,6 +89,8 @@ execute if score dummy bbStartTimer matches 40 run execute as @a at @s run plays
 execute if score dummy bbStartTimer matches 20 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy bbStartTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 
+execute if score dummy bbStartTimer matches 1 run worldborder set 5 83
+execute if score dummy bbStartTimer matches 1 run effect give @a weakness 1000 4 true
 execute if score dummy bbStartTimer matches 1 run give @a[gamemode=adventure] shield[custom_name=[{"text":"Shield","bold":true,"italic":false,"color":"aqua"}],damage=300]
 execute if score dummy bbStartTimer matches 0 run tellraw @a {"text":"The round has started!","color":"green"}
 execute if score dummy bbStartTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.6 1
@@ -78,7 +103,7 @@ execute if score dummy bbInRound matches 1.. run execute as @a[gamemode=adventur
 
 
 #round ending
-execute if score dummy bbInRound matches 1.. run execute if score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamOnePlayersAlive matches 0 run execute if score dummy bbTeamTwoPlayersAlive matches 0 run tellraw @s {"text":"Too close to call! No one gains a point...","bold":true,"color":"gold"}
+execute if score dummy bbInRound matches 1.. run execute if score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamOnePlayersAlive matches 0 run execute if score dummy bbTeamTwoPlayersAlive matches 0 run tellraw @a {"text":"Too close to call! No one gains a point...","bold":true,"color":"gold"}
 execute if score dummy bbInRound matches 1.. run execute if score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamOnePlayersAlive matches 0 run execute if score dummy bbTeamTwoPlayersAlive matches 0 run scoreboard players set dummy bbRoundCD 101
 execute if score dummy bbInRound matches 1.. run execute unless score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamOnePlayersAlive matches 0 run tellraw @a ["",{"selector":"@a[tag=bbTeam2]","bold":true,"color":"blue"},{"text":" won the round!","color":"blue"}]
 execute if score dummy bbInRound matches 1.. run execute unless score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamOnePlayersAlive matches 0 run scoreboard players add dummy bbTeamTwoWins 1 
@@ -99,5 +124,5 @@ execute if score dummy bbRoundCD matches 100 run effect give @a[gamemode=adventu
 execute if score dummy bbRoundCD matches 1 run scoreboard players set dummy bbStartTimer 302
 
 #game end  (FT5)
-
-
+execute if score dummy bbRoundCD matches 99 run execute if score dummy bbTeamOneWins matches 5.. run execute as @r[tag=bbTeam1] at @s run function crc:blitzbombs/endevent
+execute if score dummy bbRoundCD matches 99 run execute if score dummy bbTeamTwoWins matches 5.. run execute as @r[tag=bbTeam2] at @s run function crc:blitzbombs/endevent

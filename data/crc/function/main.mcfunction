@@ -93,6 +93,9 @@ execute if score dummy bsInGame matches 1.. run execute as @r[team=player1] at @
 execute if score dummy pgInGame matches 1.. run execute as @r[team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 execute if score dummy csInGame matches 1.. run execute as @r[team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player1,tag=bbTeam1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player1,tag=bbTeam2] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamTwoWins"},"color":"blue"}]
+
 team add player2
 team modify player2 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
@@ -101,6 +104,9 @@ execute if score dummy hrInGame matches 1.. run execute as @r[team=player2] at @
 execute if score dummy bsInGame matches 1.. run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 execute if score dummy pgInGame matches 1.. run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 execute if score dummy csInGame matches 1.. run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
+
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player2,tag=bbTeam1] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player2,tag=bbTeam2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamTwoWins"},"color":"blue"}]
 
 team add player3
 team modify player3 color light_purple
@@ -111,6 +117,9 @@ execute if score dummy bsInGame matches 1.. run execute as @r[team=player3] at @
 execute if score dummy pgInGame matches 1.. run execute as @r[team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 execute if score dummy csInGame matches 1.. run execute as @r[team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player3,tag=bbTeam1] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player3,tag=bbTeam2] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamTwoWins"},"color":"blue"}]
+
 team add player4
 team modify player4 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
@@ -120,20 +129,12 @@ execute if score dummy bsInGame matches 1.. run execute as @r[team=player4] at @
 execute if score dummy pgInGame matches 1.. run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 execute if score dummy csInGame matches 1.. run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player4,tag=bbTeam1] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[team=player4,tag=bbTeam2] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"dummy","objective":"bbTeamTwoWins"},"color":"blue"}]
+
 team add spec
 team modify spec color gray
 team modify spec prefix {"text":"[Spectator] ","color":"gray"}
-
-
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
-
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
-execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
 
 
 #game and game number display
@@ -146,7 +147,7 @@ execute if score dummy inGame matches 1 run scoreboard players set Game mainInfo
 execute if score dummy inGame matches 1 run execute unless score dummy gameNumber matches 5 run scoreboard players set Game mainInfo 14
 execute if score dummy inGame matches 1 run execute if score dummy gameNumber matches 5 run scoreboard players reset Game mainInfo
 execute if score dummy inGame matches 1 run execute if score dummy gameNumber matches 5 run scoreboard players set Final mainInfo 14
-execute if score dummy inGame matches 1 run execute unless score dummy gameNumber matches 5 run scoreboard players reset Final mainInfo
+execute unless score dummy gameNumber matches 5 run scoreboard players reset Final mainInfo
 
 execute if score dummy inVoting matches 1 run scoreboard players set ! mainInfo 14
 execute unless score dummy inVoting matches 1 run scoreboard players reset ! mainInfo

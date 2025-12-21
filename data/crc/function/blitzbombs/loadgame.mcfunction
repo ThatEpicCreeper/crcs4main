@@ -4,6 +4,7 @@ tag @a remove setFinalist
 effect clear @a
 clear @a[team=!spec]
 tp @a @e[type=armor_stand,limit=1,sort=random,tag=bbSpawn]
+execute as @e[type=armor_stand,limit=1,sort=random,tag=bbSpawn] at @s run spawnpoint @a ~ ~ ~
 
 scoreboard players set dummy bbStartTimer 602
 scoreboard players set dummy bbInGame 1
@@ -12,6 +13,10 @@ scoreboard players set dummy bbTeamOneWins 0
 scoreboard players set dummy bbTeamTwoWins 0
 scoreboard players set dummy bbTieTimer -10
 scoreboard players set dummy bbRoundCD -10
+
+scoreboard players set dummy inGame 1
+scoreboard players set dummy inLobby 0
+scoreboard players set dummy inVoting 0
 
 gamerule fallDamage true
 gamerule keepInventory true
@@ -37,6 +42,8 @@ team modify player3 suffix ""
 team modify player4 suffix ""
 
 function crc:blitzbombs/findpos
+
+worldborder damage amount 5
 
 
 

@@ -25,15 +25,15 @@ execute if score dummy bsInGame matches 1.. run team modify eventScoresDisp suff
 execute if score dummy bsInGame matches 1.. run scoreboard players set Cu mainInfo 9
 
 #display game
-team add csDisplay
-team modify csDisplay color gold
-team join csDisplay Ch
-team modify csDisplay suffix {"text":"aotic Spleef","color":"gold"}
+team add bsDisplay
+team modify bsDisplay color gold
+team join bsDisplay B
+team modify bsDisplay suffix {"text":"uildoff Showdown II","color":"gold"}
 
-team add csDisplayMap
-team modify csDisplayMap color yellow
-team join csDisplayMap Map:
-team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
+team add bsDisplayMap
+team modify bsDisplayMap color yellow
+team join bsDisplayMap Map:
+team modify bsDisplayMap suffix {"text":" MapName","color":"yellow"}
 
 #zone
 execute if score dummy bsInGame matches 1.. run scoreboard players remove dummy bsTimeLeft 1
