@@ -24,6 +24,7 @@ scoreboard players set @a thisGameScore 0
 scoreboard players set @a csRoundsWon 0
 
 gamemode adventure @a[team=!spec]
+gamemode spectator @a[team=spec]
 
 gamerule keepInventory true
 gamerule naturalRegeneration true

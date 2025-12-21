@@ -1,0 +1,14 @@
+
+#spawnpoint
+- define using an armor stand of tag 'bbSpawn'
+
+#team 1 spawn
+- marker with tag 'bbTeamOneSpawn'
+
+#team 2 spawn
+- marker with tag 'bbTeamTwoSpawn'
+
+#map center
+- marker with tag 'bbMapCenter'
+
+

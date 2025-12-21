@@ -7,6 +7,7 @@ execute as @a at @e[type=armor_stand,limit=1,sort=random,tag=bsBusSpawn] run spa
 gamerule fallDamage true
 gamerule keepInventory false
 gamemode adventure @a[team=!spec]
+gamemode spectator @a[team=spec]
 
 effect give @a minecraft:health_boost 10000 4 true
 effect give @a minecraft:instant_health 1 4 true

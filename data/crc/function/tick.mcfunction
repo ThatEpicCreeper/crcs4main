@@ -13,4 +13,6 @@ function crc:partygames/tick
 #chaotic spleef
 function crc:chaoticspleef/tick
 
+#blitz bombs
+function crc:blitzbombs/tick
 

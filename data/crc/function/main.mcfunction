@@ -125,6 +125,16 @@ team modify spec color gray
 team modify spec prefix {"text":"[Spectator] ","color":"gray"}
 
 
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam1,team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamOneWins"},"color":"blue"}]
+
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
+execute if score dummy bbInGame matches 1.. run execute as @r[tag=bbTeam2,team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"bbTeamTwoWins"},"color":"blue"}]
+
 
 #game and game number display
 execute if score dummy gameNumber matches 1 run team modify gameColorDisp suffix ["",{"text":" 1/4 ","color":"aqua"},{"text":"(1.0x):","color":"dark_aqua"}]

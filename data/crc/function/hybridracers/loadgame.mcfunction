@@ -26,6 +26,7 @@ team modify player4 suffix ""
 tag @a remove hrFinished
 tag @a remove hrDNF
 gamemode adventure @a[team=!spec]
+gamemode spectator @a[team=spec]
 
 scoreboard players set H mainInfo 13
 scoreboard players set Map: mainInfo 12
