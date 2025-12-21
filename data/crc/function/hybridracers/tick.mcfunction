@@ -108,6 +108,7 @@ execute if score dummy hrStartTimer matches 40 run execute as @a at @s run plays
 execute if score dummy hrStartTimer matches 20 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy hrStartTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 execute if score dummy hrStartTimer matches 1 run item replace entity @a[team=!spec] armor.feet with diamond_boots[custom_name=[{"text":"Diamond Boots","italic":false,"color":"aqua"}],lore=[[{"text":"Depth Strider III","italic":false,"color":"blue"}]],enchantments={depth_strider:3,binding_curse:1},unbreakable={},tooltip_display={hidden_components:[attribute_modifiers,enchantments,unbreakable]}]
+# execute if score dummy hrStartTimer matches 1..1010 run tp @a[team=!spec] @e[type=marker,limit=1,sort=random,tag=hrStartPoint]
 execute if score dummy hrStartTimer matches 0 run tellraw @a {"text":"The race has started!","color":"green"}
 execute if score dummy hrStartTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy hrStartTimer matches 0 run scoreboard players set dummy hrInGame 1

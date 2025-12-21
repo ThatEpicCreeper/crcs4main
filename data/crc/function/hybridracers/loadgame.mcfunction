@@ -1,6 +1,6 @@
 effect clear @a
 clear @a[team=!spec]
-tp @a @e[type=armor_stand,limit=1,sort=random,tag=hrStartPoint]
+tp @a @e[type=marker,limit=1,sort=random,tag=hrStartPoint]
 
 
 ##CUSTOMISABLE

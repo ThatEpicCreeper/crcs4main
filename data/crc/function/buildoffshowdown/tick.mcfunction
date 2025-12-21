@@ -25,15 +25,15 @@ execute if score dummy bsInGame matches 1.. run team modify eventScoresDisp suff
 execute if score dummy bsInGame matches 1.. run scoreboard players set Cu mainInfo 9
 
 #display game
-team add bsDisplay
-team modify bsDisplay color gold
-team join bsDisplay B
-team modify bsDisplay suffix {"text":"uildoff Showdown II","color":"gold"}
+team add csDisplay
+team modify csDisplay color gold
+team join csDisplay Ch
+team modify csDisplay suffix {"text":"aotic Spleef","color":"gold"}
 
-team add bsDisplayMap
-team modify bsDisplayMap color yellow
-team join bsDisplayMap Map:
-team modify bsDisplayMap suffix {"text":" MapName","color":"yellow"}
+team add csDisplayMap
+team modify csDisplayMap color yellow
+team join csDisplayMap Map:
+team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
 
 #zone
 execute if score dummy bsInGame matches 1.. run scoreboard players remove dummy bsTimeLeft 1
@@ -107,8 +107,8 @@ execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsOnDe
 #lives check
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.4 2
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"red"},{"text":" was eliminated!","bold":true,"color":"red"}]
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 4 run scoreboard players add @s thisGameScore 5
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 4 run tellraw @s ["",{"text":"+5 Score ","color":"green"},{"text":"(Placed 4th)","color":"aqua"}]
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 4 run scoreboard players add @s thisGameScore 6
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 4 run tellraw @s ["",{"text":"+6 Score ","color":"green"},{"text":"(Placed 4th)","color":"aqua"}]
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 3 run scoreboard players add @s thisGameScore 8
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 3 run tellraw @s ["",{"text":"+8 Score ","color":"green"},{"text":"(Placed 3rd)","color":"aqua"}]
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 2 run scoreboard players add @s thisGameScore 12

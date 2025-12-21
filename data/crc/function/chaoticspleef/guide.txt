@@ -1,6 +1,16 @@
 
 #spawnpoint (lobby)
-- defined with armor stand of tag 'csSpawn'
+- defined with *marker* of tag 'csSpawn'
 
+#map spawning
+- defined with a *marker* of tag 'csGameSpawn'
+- this ideally should include the map that covers a 6-7 block radius minimum, it will spread players around the marker when the game starts
 
+#map copying
+- define the center of the map to copy placed exactly on the *marker* of 'csGameSpawn', plus 100 on the x-axis. (eg. if csGameSpawn is at 123 45 67, then place center of map at 223 45 67)
+- will copy a 31x31x31 (31^3) volume to the actual arena (must fit map inside this)
+
+#tnt & mob spawning
+- define the center of the tnt spawn area with a *marker* of tag 'csChaosSpawn'
+- ideally ~20 blocks above center of map from ground level
 

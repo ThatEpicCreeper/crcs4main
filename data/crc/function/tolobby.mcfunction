@@ -37,10 +37,13 @@ scoreboard players reset Map: mainInfo
 scoreboard players reset Cu mainInfo
 scoreboard players reset Pa mainInfo
 scoreboard players reset Round: mainInfo
+scoreboard players reset Ch mainInfo
 
 gamerule fallDamage false
 gamerule keepInventory true
 gamerule doTileDrops false
 gamerule naturalRegeneration true
+gamerule doMobLoot true
+gamerule mobGriefing false
 worldborder set 999999
 scoreboard objectives setdisplay below_name

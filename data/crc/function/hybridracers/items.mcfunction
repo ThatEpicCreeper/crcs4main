@@ -40,17 +40,17 @@ execute as @a at @s run execute unless score @s inBlueMissile matches ..-1 run s
 execute as @a at @s run execute unless score @s inShrink matches ..-1 run scoreboard players remove @s inShrink 1 
 
 #reset to checkpoint
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 0 run tp @s @e[type=armor_stand,tag=hrFinishLine,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 1 run tp @s @e[type=armor_stand,tag=hrCheckpoint1,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 2 run tp @s @e[type=armor_stand,tag=hrCheckpoint2,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 3 run tp @s @e[type=armor_stand,tag=hrCheckpoint3,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 4 run tp @s @e[type=armor_stand,tag=hrCheckpoint4,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 5 run tp @s @e[type=armor_stand,tag=hrCheckpoint5,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 6 run tp @s @e[type=armor_stand,tag=hrCheckpoint6,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 7 run tp @s @e[type=armor_stand,tag=hrCheckpoint7,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 8 run tp @s @e[type=armor_stand,tag=hrCheckpoint8,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 9 run tp @s @e[type=armor_stand,tag=hrCheckpoint9,limit=1,sort=nearest]
-execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 10 run tp @s @e[type=armor_stand,tag=hrCheckpoint10,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 0 run tp @s @e[type=marker,tag=hrFinishLine,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 1 run tp @s @e[type=marker,tag=hrCheckpoint1,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 2 run tp @s @e[type=marker,tag=hrCheckpoint2,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 3 run tp @s @e[type=marker,tag=hrCheckpoint3,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 4 run tp @s @e[type=marker,tag=hrCheckpoint4,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 5 run tp @s @e[type=marker,tag=hrCheckpoint5,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 6 run tp @s @e[type=marker,tag=hrCheckpoint6,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 7 run tp @s @e[type=marker,tag=hrCheckpoint7,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 8 run tp @s @e[type=marker,tag=hrCheckpoint8,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 9 run tp @s @e[type=marker,tag=hrCheckpoint9,limit=1,sort=nearest]
+execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 10 run tp @s @e[type=marker,tag=hrCheckpoint10,limit=1,sort=nearest]
 execute as @a at @s run execute if score @s useReset matches 1.. run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 0.5
 scoreboard players set @a useReset 0
 

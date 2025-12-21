@@ -1,9 +1,9 @@
 
 #spawnpoint
-- defined with armor stand of tag 'hrStartPoint'
+- defined with *marker* of tag 'hrStartPoint'
 
 #checkpoints
-- defined with armor stand of tag 'hrCheckpointN', where N is the checkpoint number
+- defined with *marker* of tag 'hrCheckpointN', where N is the checkpoint number
 
 #finish line
 - defined with armor stand of tag 'hrFinishLine'
