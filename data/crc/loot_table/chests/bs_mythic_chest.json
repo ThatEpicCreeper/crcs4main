@@ -133,6 +133,16 @@
           "type": "minecraft:item",
           "weight": 7,
           "name": "minecraft:brick"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:experience_bottle"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:lapis_lazuli"
         }
       ]
     }

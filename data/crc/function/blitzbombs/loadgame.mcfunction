@@ -14,7 +14,7 @@ scoreboard players set dummy bbTieTimer -10
 scoreboard players set dummy bbRoundCD -10
 
 gamerule fallDamage true
-gamerule keepInventory false
+gamerule keepInventory true
 gamerule naturalRegeneration false
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
