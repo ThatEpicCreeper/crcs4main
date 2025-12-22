@@ -66,8 +66,8 @@ execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores=
 
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrElytraCDA=49}] at @s run title @s title ""
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrElytraCDA=49}] at @s run title @s subtitle {"text":"-Elytra","bold":true,"color":"red"}
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrElytraCDA=..0}] at @s run execute unless block ~ ~-0.56 ~ air run execute unless entity @e[team=!spec,type=marker,tag=giveElytra,distance=..3,limit=1] run execute if items entity @s armor.chest minecraft:elytra run scoreboard players set @s hrElytraCDA 50
-execute if score dummy hrInGame matches 1.. run execute as @a at @s run execute unless block ~ ~-0.56 ~ air run execute unless entity @e[team=!spec,type=marker,tag=giveElytra,distance=..3,limit=1] run clear @s elytra
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrElytraCDA=..0}] at @s run execute unless block ~ ~-0.22 ~ air run execute unless entity @e[team=!spec,type=marker,tag=giveElytra,distance=..3,limit=1] run execute if items entity @s armor.chest minecraft:elytra run scoreboard players set @s hrElytraCDA 50
+execute if score dummy hrInGame matches 1.. run execute as @a at @s run execute unless block ~ ~-0.22 ~ air run execute unless entity @e[team=!spec,type=marker,tag=giveElytra,distance=..3,limit=1] run clear @s elytra
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrElytraCDA=1}] at @s run title @s subtitle ""
 
 
