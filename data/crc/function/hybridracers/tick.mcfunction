@@ -61,7 +61,7 @@ team modify hrDisplay suffix {"text":"ybrid Racers","color":"gold"}
 team add hrDisplayMap
 team modify hrDisplayMap color yellow
 team join hrDisplayMap Map:
-team modify hrDisplayMap suffix {"text":" MapName","color":"yellow"}
+team modify hrDisplayMap suffix {"text":" Abyssal Descent","color":"yellow"}
 
 #display current score text
 team join eventScoresDisp Cu
@@ -89,6 +89,16 @@ function crc:hybridracers/mechanics
 function crc:hybridracers/items
 execute unless score dummy hrInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:yellow_dye"}}]
 
+
+#race position
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if entity @e[type=marker,tag=racePos,limit=1,sort=nearest] run execute store result score @s hrRacePos run scoreboard players get @e[type=marker,tag=racePos,limit=1,sort=nearest] hrRacePos
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=2..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=3..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=4..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=5..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=6..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=7..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+
 #find position
 execute if score dummy tickTimer matches 11 run function crc:hybridracers/findpos
 
@@ -112,6 +122,9 @@ execute if score dummy hrStartTimer matches 1 run item replace entity @a[team=!s
 execute if score dummy hrStartTimer matches 0 run tellraw @a {"text":"The race has started!","color":"green"}
 execute if score dummy hrStartTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy hrStartTimer matches 0 run scoreboard players set dummy hrInGame 1
+
+#abyssal descent
+execute if score dummy hrStartTimer matches 0 run fill -302 119 164 -308 118 167 air replace minecraft:red_stained_glass
 
 #finish race
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run scoreboard players add dummy finishedPlayers 1
@@ -232,3 +245,12 @@ execute if score dummy hrEndSequencing matches 100 run tellraw @a {"text":"Retur
 execute if score dummy hrEndSequencing matches 100 run tag @a remove hrDNF
 
 execute if score dummy hrEndSequencing matches 1 run function crc:tolobby
+
+
+
+
+
+
+
+
+

@@ -159,6 +159,7 @@ execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execu
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run playsound minecraft:entity.generic.explode master @s ~ ~ ~ 0.7 0.8
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run tellraw @s {"text":"You were hit by a Blue Missile! (3+2s)","color":"red"}
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run tellraw @a ["",{"selector":"@s","color":"dark_red"},{"text":" sent a ","color":"dark_red"},{"text":"Blue Missile","bold":true,"color":"blue"},{"text":" to ","color":"dark_red"},{"selector":"@a[scores={hrCurrentPos=1}]","color":"dark_red"},{"text":"!","color":"dark_red"}]
+execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run kill @e[type=oak_chest_boat,distance=..0.44]
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run effect give @s blindness 4 0 true
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run effect give @s slowness 5 1 true
 execute as @a at @s run execute if score @s useBlueMissile matches 1.. run execute as @a[scores={hrCurrentPos=1}] at @s run scoreboard players set @s inBlueMissile 61

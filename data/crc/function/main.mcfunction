@@ -32,6 +32,7 @@ scoreboard players set 9 constant 9
 scoreboard players set 10 constant 10
 scoreboard players set 11 constant 11
 scoreboard players set 12 constant 12
+scoreboard players set 1000 constant 1000
 
 #lobby
 execute if score dummy inLobby matches 1.. run effect give @a resistance 30 4 true

@@ -6,7 +6,7 @@
 - defined with *marker* of tag 'hrCheckpointN', where N is the checkpoint number
 
 #finish line
-- defined with armor stand of tag 'hrFinishLine'
+- defined with *marker* of tag 'hrFinishLine'
 
 #special blocks
 - gold block = mini speed

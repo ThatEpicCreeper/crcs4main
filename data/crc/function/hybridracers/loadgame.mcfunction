@@ -5,7 +5,7 @@ tp @a @e[type=marker,limit=1,sort=random,tag=hrStartPoint]
 
 ##CUSTOMISABLE
 
-scoreboard players set dummy maxCheckpoints 5
+scoreboard players set dummy maxCheckpoints 9
 scoreboard players set dummy maxLaps 4
 
 ##

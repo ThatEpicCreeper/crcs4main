@@ -89,11 +89,11 @@ execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s 
 
 #give boat on ice when not nearby and in region (define region later, hard coded region)
 # when not in region, clear boats
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run title @s title ""
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.7 0.6
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run title @s subtitle {"text":"+Boat","bold":true,"color":"gold"}
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run scoreboard players set @s hrBoatCD 50
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run item replace entity @s container.0 with oak_chest_boat
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run title @s title ""
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.7 0.6
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run title @s subtitle {"text":"+Boat","bold":true,"color":"gold"}
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run scoreboard players set @s hrBoatCD 50
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run item replace entity @s container.0 with oak_chest_boat
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrBoatCD=1}] at @s run title @s subtitle ""
 execute if score dummy hrInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:oak_chest_boat"}}]
 
@@ -101,3 +101,7 @@ execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s 
 
 
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless items entity @s container.8 barrier run item replace entity @s container.8 with barrier[custom_name=[{"text":"Return to Last Checkpoint ","italic":false,"color":"red"},{"text":"(Right-Click)","italic":false,"color":"dark_gray"}],lore=[[{"text":"exactly as it says...","italic":false,"color":"gray"}]],food={can_always_eat:1b,nutrition:1,saturation:1},consumable={consume_seconds:0},unbreakable={},tooltip_display={hidden_components:[unbreakable]}]
+
+
+#hr
+# [x=-187,y=46,z=162,dz=80,dx=114,dy=34]
