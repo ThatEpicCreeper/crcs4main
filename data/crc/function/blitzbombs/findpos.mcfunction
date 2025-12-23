@@ -10,7 +10,8 @@ execute as @a[team=!spec] at @s run execute if score @s personalScore > $1highes
 execute as @a[team=!spec] at @s run execute if score @s personalScore = $1highest personalScore run tag @s add setFinalist
 execute as @a[team=!spec] at @s run execute if score @s personalScore = $1highest personalScore run tag @s add finalist
 
-execute store result score dummy finalistCount run tag @a[tag=finalist] list
+
+#execute store result score dummy finalistCount run tag @a[tag=finalist] list
 
 scoreboard players set $2highest personalScore -500
 execute unless score dummy finalistCount matches 2.. run execute as @a[team=!spec,tag=!finalist] at @s run execute if score @s personalScore > $2highest personalScore run scoreboard players operation $2highest personalScore = @s personalScore

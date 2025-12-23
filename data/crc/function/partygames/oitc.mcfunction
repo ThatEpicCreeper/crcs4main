@@ -34,7 +34,7 @@ execute as @a at @s run execute if score @s oitcDeathSequence matches 1.. run sc
 execute as @a[team=!spec,scores={oitcOnDeath=1..}] at @s run scoreboard players set @s oitcDeathSequence 4
 scoreboard players set @a oitcOnDeath 0
 
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
+execute as @a at @s run execute if score @s oitcDeathSequence matches 1 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run clear @s arrow
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run give @s arrow
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s regeneration 1000 0 true
@@ -77,6 +77,9 @@ execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run gamerule naturalRegeneration false
 execute if score dummy pgPregameTimer matches 1 run effect give @a regeneration 1000 0 true
 execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn1] at @s run setblock ~ ~-1 ~ air
+execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn2] at @s run setblock ~ ~-1 ~ air
+execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn3] at @s run setblock ~ ~-1 ~ air
+execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn4] at @s run setblock ~ ~-1 ~ air
 execute if score dummy pgPregameTimer matches 0 run tellraw @a {"text":"The game has started!","color":"green"}
 execute if score dummy pgPregameTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy pgPregameTimer matches 0 run scoreboard players set dummy pgOITCInGame 1
@@ -116,7 +119,7 @@ execute if score dummy oitcEndSequence matches 200 run tellraw @a {"text":"=====
 execute if score dummy oitcEndSequence matches 100 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy oitcEndSequence matches 100 run tellraw @a {"text":"Next minigame in 5 seconds...","color":"red"}
 
-execute if score dummy oitcEndSequence matches 1 run scoreboard players set dummy pgPregameTimer 601
+execute if score dummy oitcEndSequence matches 1 run scoreboard players set dummy pgPregameTimer 610
 execute if score dummy oitcEndSequence matches 1 run scoreboard players add dummy partyGameNumber 1
 execute if score dummy oitcEndSequence matches 1 run scoreboard players set dummy oitcEndSequence -1
 

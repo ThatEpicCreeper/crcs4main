@@ -211,6 +211,11 @@ execute if score dummy lrEndSequence matches 400 run clear @a
 execute if score dummy lrEndSequence matches 400 run effect give @a resistance 45 4 true
 execute if score dummy lrEndSequence matches 400 run effect give @a regeneration 45 4 true
 
+execute if score dummy lrEndSequence matches 400 run team modify player1 suffix ""
+execute if score dummy lrEndSequence matches 400 run team modify player2 suffix ""
+execute if score dummy lrEndSequence matches 400 run team modify player3 suffix ""
+execute if score dummy lrEndSequence matches 400 run team modify player4 suffix ""
+
 execute if score dummy lrEndSequence matches 300 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy lrEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 execute if score dummy lrEndSequence matches 300 run tellraw @a {"text":"Rooms Completed:","bold":true,"color":"light_purple"}

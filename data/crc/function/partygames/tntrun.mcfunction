@@ -51,11 +51,11 @@ execute if score dummy pgTNTRunInGame matches 1.. run execute unless score dummy
 scoreboard players add @e[type=armor_stand,tag=disappearBlock] trDisappearTimer 1
 
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-1.2 ~0.299 ~-0.299 ~1 ~-0.299 air replace tnt
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace sand
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace gravel
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace red_sand
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace light_gray_concrete_powder
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace gray_concrete_powder
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace sand
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace gravel
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace red_sand
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace light_gray_concrete_powder
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace gray_concrete_powder
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 9.. run kill @s
 
 
@@ -105,7 +105,7 @@ execute if score dummy trEndSequence matches 200 run tellraw @a {"text":"=======
 execute if score dummy trEndSequence matches 100 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy trEndSequence matches 100 run tellraw @a {"text":"Next minigame in 5 seconds...","color":"red"}
 
-execute if score dummy trEndSequence matches 1 run scoreboard players set dummy pgPregameTimer 601
+execute if score dummy trEndSequence matches 2 run scoreboard players set dummy pgPregameTimer 605
 execute if score dummy trEndSequence matches 1 run scoreboard players add dummy partyGameNumber 1
 execute if score dummy trEndSequence matches 1 run scoreboard players set dummy trEndSequence -1
 

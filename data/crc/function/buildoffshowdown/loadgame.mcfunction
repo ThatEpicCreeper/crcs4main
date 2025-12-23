@@ -16,7 +16,7 @@ effect give @a minecraft:weakness 60 10 true
 scoreboard players set B mainInfo 13
 scoreboard players set Map mainInfo 12
 team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
-team modify bsDisplayMap suffix {"text":": MapName","color":"yellow"}
+team modify bsDisplayMap suffix {"text":": Towns","color":"yellow"}
 scoreboard players set Cu mainInfo 9
 
 scoreboard players set @a thisGameScore 0
@@ -48,7 +48,7 @@ team modify player2 suffix ""
 team modify player3 suffix ""
 team modify player4 suffix ""
 
-worldborder set 599
+worldborder set 310
 execute as @e[type=minecraft:armor_stand,tag=bsBusSpawn] at @s run worldborder center ~ ~
 worldborder damage amount 2
 

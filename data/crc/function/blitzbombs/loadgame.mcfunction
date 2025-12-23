@@ -21,6 +21,7 @@ scoreboard players set dummy inVoting 0
 gamerule fallDamage true
 gamerule keepInventory true
 gamerule naturalRegeneration false
+gamerule doTileDrops false
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 

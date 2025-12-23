@@ -18,7 +18,7 @@
 - when the game starts, teleports all players to the armor stand with tag 'lrGameSpawn'
 
 - use *markers* with the tag 'roomN', where N is the room number from 1-10, placed at the floor of the centre of room, on ground level (standing ground)
-- rooms should be 15x15 inside (17x17 including walls) [225 sq blocks]
+- rooms should be 15x15 inside (17x17 including walls) [225 sq blocks] (and 10 high)
 
 - use *markers* with the tag 'exitN', where N is the room number from 1-10, placed at the doorway exit of each room, on ground level (standing ground)
 - passing through each one grants the score for that room.

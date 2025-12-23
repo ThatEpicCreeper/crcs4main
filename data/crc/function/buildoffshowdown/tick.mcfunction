@@ -33,7 +33,7 @@ team modify bsDisplay suffix {"text":"uildoff Showdown II","color":"gold"}
 team add bsDisplayMap
 team modify bsDisplayMap color yellow
 execute if score dummy bsInGame matches 1.. run team join bsDisplayMap Map
-execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix {"text":": MapName","color":"yellow"}
+execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix {"text":": Towns","color":"yellow"}
 
 #zone
 execute if score dummy bsInGame matches 1.. run scoreboard players remove dummy bsTimeLeft 1

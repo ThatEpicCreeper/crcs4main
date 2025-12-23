@@ -62,6 +62,14 @@ execute if score dummy bbStartTimer matches 600 run say rules
 execute if score dummy bbStartTimer matches 600 run gamerule keepInventory true
 execute if score dummy bbStartTimer matches 303 run tp @a[team=spec] @e[type=marker,tag=bbTeamOneSpawn,limit=1,sort=nearest]
 
+execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbRandomMap run random value 1..5
+
+execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 1 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-10 ~10 ~-10 ~-5 ~-10 ~-10 ~ ~-10
+execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 2 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-20 ~10 ~-10 ~-15 ~-10 ~-10 ~ ~-10
+execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 3 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-30 ~10 ~-10 ~-25 ~-10 ~-10 ~ ~-10
+execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 4 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-40 ~10 ~-10 ~-35 ~-10 ~-10 ~ ~-10
+execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 5 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-50 ~10 ~-10 ~-45 ~-10 ~-10 ~ ~-10
+
 execute if score dummy bbStartTimer matches 301 run execute as @e[type=marker,limit=1,sort=nearest,tag=bbMapCenter] at @s run worldborder center ~ ~
 execute if score dummy bbStartTimer matches 301 run worldborder set 50
 # execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbTeamOnePlayersAlive run tag @a[tag=bbTeam1] list

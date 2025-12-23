@@ -6,7 +6,7 @@ scoreboard players set Ch mainInfo 13
 scoreboard players set Map: mainInfo 12
 team join csDisplayMap Map:
 team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
-team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
+team modify csDisplayMap suffix {"text":" Isolated Island","color":"yellow"}
 scoreboard players set Cu mainInfo 9
 
 
