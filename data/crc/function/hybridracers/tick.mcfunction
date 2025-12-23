@@ -60,8 +60,8 @@ team modify hrDisplay suffix {"text":"ybrid Racers","color":"gold"}
 
 team add hrDisplayMap
 team modify hrDisplayMap color yellow
-team join hrDisplayMap Map:
-team modify hrDisplayMap suffix {"text":" Abyssal Descent","color":"yellow"}
+execute if score dummy hrInGame matches 1.. run team join hrDisplayMap Map:
+execute if score dummy hrInGame matches 1.. run team modify hrDisplayMap suffix {"text":" Abyssal Descent","color":"yellow"}
 
 #display current score text
 team join eventScoresDisp Cu
@@ -88,6 +88,7 @@ function crc:hybridracers/mechanics
 #items
 function crc:hybridracers/items
 execute unless score dummy hrInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:yellow_dye"}}]
+execute if score dummy hrInGame matches 1.. run effect give @a minecraft:water_breathing 10 4 true
 
 
 #race position

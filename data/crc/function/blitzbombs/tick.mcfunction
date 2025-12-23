@@ -30,8 +30,8 @@ team modify bbDisplay suffix {"text":"itz Bombs","color":"gold"}
 
 team add bbDisplayMap
 team modify bbDisplayMap color yellow
-team join bbDisplayMap Map:
-team modify bbDisplayMap suffix {"text":" Classic","color":"yellow"}
+execute if score dummy bbInGame matches 1.. run team join bbDisplayMap Map:
+execute if score dummy bbInGame matches 1.. run team modify bbDisplayMap suffix {"text":" Classic","color":"yellow"}
 
 #inv count
 execute as @a at @s run execute store result score @s bbTNTCount run clear @s minecraft:tnt 0

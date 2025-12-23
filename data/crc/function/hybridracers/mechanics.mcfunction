@@ -49,7 +49,7 @@ execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores=
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrEmeraldSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ emerald_block run scoreboard players set @s hrEmeraldSFXCD 20
 
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute if block ~ ~-0.9 ~ coal_block run effect give @s slowness 3 1 true
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrCoalSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ coal_block run playsound minecraft:block.anvil.land master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrCoalSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ coal_block run playsound minecraft:block.anvil.land master @s ~ ~ ~ 0.2 0.5
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrCoalSFXCD=..0}] at @s run execute if block ~ ~-0.9 ~ coal_block run scoreboard players set @s hrCoalSFXCD 20
 
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute if block ~ ~-0.9 ~ chiseled_quartz_block run effect give @s levitation 2 5 true

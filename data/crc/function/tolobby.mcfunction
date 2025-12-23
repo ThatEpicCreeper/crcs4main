@@ -34,6 +34,7 @@ effect clear @a
 scoreboard players reset H mainInfo
 scoreboard players reset B mainInfo
 scoreboard players reset Map: mainInfo
+scoreboard players reset Map mainInfo
 scoreboard players reset Cu mainInfo
 scoreboard players reset Pa mainInfo
 scoreboard players reset Round: mainInfo

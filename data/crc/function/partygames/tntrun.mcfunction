@@ -16,6 +16,7 @@ execute as @a at @s run execute store result score @s trYLevel run data get enti
 execute if score dummy pgTNTRunInGame matches 1.. run effect give @a saturation 10 4 true
 
 effect give @a weakness 2 4 true
+effect give @a night_vision 30 0 true
 
 #start timer
 execute if score dummy pgPregameTimer matches 600 run say rules
@@ -49,12 +50,12 @@ scoreboard players add dummy trDisappearInterval 1
 execute if score dummy pgTNTRunInGame matches 1.. run execute unless score dummy trGracePeriod matches 2.. run execute if score dummy trDisappearInterval matches 2 run execute as @a[team=!spec,gamemode=adventure] at @s run summon minecraft:armor_stand ~ ~-1 ~ {Invisible:true,Invulnerable:true,PersistenceRequired:true,NoBasePlate:true,NoGravity:true,Small:true,Tags:["disappearBlock"]}
 scoreboard players add @e[type=armor_stand,tag=disappearBlock] trDisappearTimer 1
 
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-1.2 ~ ~ ~1 ~ air replace tnt
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-0.2 ~ ~ ~2 ~ air replace sand
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-0.2 ~ ~ ~2 ~ air replace gravel
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-0.2 ~ ~ ~2 ~ air replace red_sand
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-0.2 ~ ~ ~2 ~ air replace light_gray_concrete_powder
-execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~ ~-0.2 ~ ~ ~2 ~ air replace gray_concrete_powder
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-1.2 ~0.299 ~-0.299 ~1 ~-0.299 air replace tnt
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace sand
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace gravel
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace red_sand
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace light_gray_concrete_powder
+execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2  ~-0.299 air replace gray_concrete_powder
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 9.. run kill @s
 
 

@@ -14,8 +14,9 @@ effect give @a minecraft:instant_health 1 4 true
 effect give @a minecraft:weakness 60 10 true
 
 scoreboard players set B mainInfo 13
-scoreboard players set Map: mainInfo 12
+scoreboard players set Map mainInfo 12
 team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
+team modify bsDisplayMap suffix {"text":": MapName","color":"yellow"}
 scoreboard players set Cu mainInfo 9
 
 scoreboard players set @a thisGameScore 0

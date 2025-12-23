@@ -2,6 +2,7 @@ effect clear @a
 clear @a[team=!spec]
 tp @a @e[type=marker,limit=1,sort=random,tag=hrStartPoint]
 
+function crc:hybridracers/resetstart
 
 ##CUSTOMISABLE
 
@@ -30,7 +31,9 @@ gamemode spectator @a[team=spec]
 
 scoreboard players set H mainInfo 13
 scoreboard players set Map: mainInfo 12
+team join hrDisplayMap Map:
 team modify eventScoresDisp suffix {"text":"rrent Placements:","color":"gold"}
+team modify hrDisplayMap suffix {"text":" Abyssal Descent","color":"yellow"}
 scoreboard players set Cu mainInfo 9
 
 scoreboard players set dummy hrStartTimer 1001

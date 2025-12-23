@@ -52,6 +52,7 @@ execute as @a at @s run execute if score @s useReset matches 1.. run execute if 
 execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 9 run tp @s @e[type=marker,tag=hrCheckpoint9,limit=1,sort=nearest]
 execute as @a at @s run execute if score @s useReset matches 1.. run execute if score @s checkpoint matches 10 run tp @s @e[type=marker,tag=hrCheckpoint10,limit=1,sort=nearest]
 execute as @a at @s run execute if score @s useReset matches 1.. run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 0.5
+execute as @a at @s run execute if score @s useReset matches 1.. run scoreboard players set @s hudSkipCD 40
 scoreboard players set @a useReset 0
 
 

@@ -29,8 +29,8 @@ team modify csDisplay suffix {"text":"aotic Spleef","color":"gold"}
 
 team add csDisplayMap
 team modify csDisplayMap color yellow
-team join csDisplayMap Map:
-team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
+execute if score dummy csInRound matches 1.. run team join csDisplayMap Map:
+execute if score dummy csInRound matches 1.. run team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
 
 #remove score
 execute if score dummy tickTimer matches 11 run execute if score dummy csTNTTimer matches 1.. run scoreboard players remove dummy csTNTTimer 1 

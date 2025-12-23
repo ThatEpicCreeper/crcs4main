@@ -4,7 +4,9 @@ tp @a @e[type=marker,limit=1,sort=random,tag=csSpawn]
 
 scoreboard players set Ch mainInfo 13
 scoreboard players set Map: mainInfo 12
+team join csDisplayMap Map:
 team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
+team modify csDisplayMap suffix {"text":" MapName","color":"yellow"}
 scoreboard players set Cu mainInfo 9
 
 

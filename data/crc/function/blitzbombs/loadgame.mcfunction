@@ -29,6 +29,7 @@ effect give @a minecraft:weakness 60 10 true
 
 scoreboard players set Bl mainInfo 13
 scoreboard players set Map: mainInfo 12
+team join bbDisplayMap Map:
 # team modify eventScoresDisp suffix {"text":"rrent Scores:","color":"gold"}
 # scoreboard players set Cu mainInfo 9
 
