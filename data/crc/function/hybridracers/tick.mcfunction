@@ -109,6 +109,9 @@ execute unless score dummy hrStartTimer matches ..-101 run scoreboard players re
 execute if score dummy hrStartTimer matches 900 run say game rules fill
 execute if score dummy hrStartTimer matches 300 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy hrStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
+
+execute if score dummy hrStartTimer matches 205 run execute as @a at @s run function hybridracersost:play
+
 execute if score dummy hrStartTimer matches 200 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]
 execute if score dummy hrStartTimer matches 100 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"5 seconds.","color":"gold"}]
 execute if score dummy hrStartTimer matches 80 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"4 seconds.","color":"gold"}]
