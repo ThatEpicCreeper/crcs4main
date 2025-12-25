@@ -173,6 +173,7 @@ execute if score dummy hrEndSequencing matches ..-5 run execute if score dummy h
 execute unless score dummy hrEndSequencing matches ..-5 run scoreboard players remove dummy hrEndSequencing 1
 
 execute if score dummy hrEndSequencing matches 500 run title @a title {"text":"The Race has Ended!","bold":true,"color":"green"}
+execute if score dummy hrEndSequencing matches 500 run execute as @a at @s run function hybridracersost:stop
 execute if score dummy hrEndSequencing matches 500 run title @a times 0 100 10
 execute if score dummy hrEndSequencing matches 500 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.5 1
 
