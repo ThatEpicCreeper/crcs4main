@@ -48,3 +48,7 @@ gamerule doMobLoot true
 gamerule mobGriefing false
 worldborder set 999999
 scoreboard objectives setdisplay below_name
+
+#st reset
+execute as @a at @s run function hybridracersost:stop
+

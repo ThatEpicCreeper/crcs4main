@@ -106,7 +106,33 @@ execute if score dummy tickTimer matches 11 run function crc:hybridracers/findpo
 #start timer
 execute unless score dummy hrStartTimer matches ..-101 run scoreboard players remove dummy hrStartTimer 1
 
-execute if score dummy hrStartTimer matches 900 run say game rules fill
+execute if score dummy hrStartTimer matches 900 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy hrStartTimer matches 900 run tellraw @a ["",{"text":"Welcome to Hybrid Racers!","bold":true,"color":"aqua"},{"text":"\n\n"},{"text":"In this game, the simple objective is to finish\nthe race course as quickly as possible!","color":"green"}]
+execute if score dummy hrStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy hrStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy hrStartTimer matches 800 run tellraw @a ["",{"text":"Cross each checkpoint and the finish line the required number of times to finish!\n\nYou will obtain an item after crossing a checkpoint.","color":"green"},{"text":"\n "}]
+execute if score dummy hrStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy hrStartTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy hrStartTimer matches 700 run tellraw @a {"text":"Items can be used to boost yourself further into the course,\nor disturb your opponents! Use them wisely and efficiently!","color":"green"}
+execute if score dummy hrStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy hrStartTimer matches 630 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrStartTimer matches 630 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy hrStartTimer matches 630 run tellraw @a ["",{"text":"There are different movement mechanics in the game.","color":"green"},{"text":"\n\n"},{"text":"Gold Block < ","color":"yellow"},{"text":"Diamond Block < ","color":"aqua"},{"text":"Purpur Block ","color":"light_purple"},{"text":"=> Speed Boost","color":"gray"},{"text":"\n"},{"text":"Emerald Block ","color":"green"},{"text":"=> Speed Boost","color":"gray"},{"text":"\n"},{"text":"Chiseled Quartz ","color":"white"},{"text":"=> Levitation","color":"gray"},{"text":"\n"},{"text":"Coal Blocks ","color":"dark_gray"},{"text":"=> Slowness ","color":"gray"},{"text":"(Avoid These!)","color":"red"},{"text":"\n\n"},{"text":"- Elytra Givers: Press [","color":"gray"},{"keybind":"key.jump","color":"gray"},{"text":"] mid-air to activate!","color":"gray"},{"text":"\n"},{"text":"- Trident: Has Riptide! Hold [","color":"dark_aqua"},{"keybind":"key.use","color":"dark_aqua"},{"text":"] to charge and launch!","color":"dark_aqua"},{"text":"\n"},{"text":"- Swim Speed: Grants Dolphin's Grace for 2s!","color":"aqua"},{"text":"\n"},{"text":"- Boat: Place down and paddle across Icy sections to move across quickly!","color":"gold"}]
+execute if score dummy hrStartTimer matches 630 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy hrStartTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy hrStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy hrStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game is as follows (Unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"1st - 45 Score","color":"yellow"},{"text":"\n"},{"text":"2nd - 32 Score","color":"gray"},{"text":"\n"},{"text":"3rd - 20 Score","color":"red"},{"text":"\n"},{"text":"4th - 12 Score","color":"dark_gray"},{"text":"\n"},{"text":"DNF - 0 Score","color":"blue"}]
+execute if score dummy hrStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy hrStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
+
 execute if score dummy hrStartTimer matches 300 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy hrStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
 
@@ -128,15 +154,15 @@ execute if score dummy hrStartTimer matches 0 run execute as @a at @s run playso
 execute if score dummy hrStartTimer matches 0 run scoreboard players set dummy hrInGame 1
 
 #abyssal descent
-execute if score dummy hrStartTimer matches 0 run fill -302 119 164 -308 118 167 air replace minecraft:red_stained_glass
+execute if score dummy hrStartTimer matches 0 run fill -302 119 164 -309 118 167 air replace minecraft:red_stained_glass
 
 #finish race
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run scoreboard players add dummy finishedPlayers 1
 
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 1 run scoreboard players add @s thisGameScore 45
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 1 run tellraw @s ["",{"text":"+45 Score ","color":"green"},{"text":"(Placed 1st)","color":"aqua"}]
-execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 2 run scoreboard players add @s thisGameScore 30
-execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 2 run tellraw @s ["",{"text":"+30 Score ","color":"green"},{"text":"(Placed 2nd)","color":"aqua"}]
+execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 2 run scoreboard players add @s thisGameScore 32
+execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 2 run tellraw @s ["",{"text":"+32 Score ","color":"green"},{"text":"(Placed 2nd)","color":"aqua"}]
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 3 run scoreboard players add @s thisGameScore 20
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 3 run tellraw @s ["",{"text":"+20 Score ","color":"green"},{"text":"(Placed 3rd)","color":"aqua"}]
 execute if score dummy hrInGame matches 1 run execute as @a[team=!spec,tag=!hrFinished] at @s run execute if score @s lap > dummy maxLaps run execute if score dummy finishedPlayers matches 4 run scoreboard players add @s thisGameScore 12
