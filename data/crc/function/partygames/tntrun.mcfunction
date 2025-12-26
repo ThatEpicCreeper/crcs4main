@@ -19,11 +19,24 @@ effect give @a weakness 2 4 true
 effect give @a night_vision 30 0 true
 
 #start timer
-execute if score dummy pgPregameTimer matches 600 run say rules
 execute if score dummy pgPregameTimer matches 600 run gamerule doTileDrops false
 execute if score dummy pgPregameTimer matches 600 run gamerule naturalRegeneration true
 execute if score dummy pgPregameTimer matches 600 run scoreboard players operation dummy trAlivePlayers = dummy totalPlayers
 execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,limit=1,tag=trSpawn]
+
+execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: TNT Run","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Run across layers of blocks as they disappear\n- Blocks disappear very shortly after you step on one, so keep moving!\n- Survive as long as possible, and outlast other players!","color":"green"},{"text":"\n\n "}]
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 400 run tellraw @a ["",{"text":"Scoring for this minigame (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"1st - 16","color":"yellow"},{"text":"\n"},{"text":"2nd - 12","color":"gray"},{"text":"\n"},{"text":"3rd - 8","color":"red"},{"text":"\n"},{"text":"4th - 4","color":"dark_gray"}]
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 340 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 340 run tellraw @a {"text":"The minigame will begin shortly...","color":"red"}
+
 execute if score dummy pgPregameTimer matches 300 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy pgPregameTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
 execute if score dummy pgPregameTimer matches 200 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]

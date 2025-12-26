@@ -32,6 +32,20 @@ execute if score dummy pgPregameTimer matches 600 run gamerule naturalRegenerati
 execute if score dummy pgPregameTimer matches 600 run scoreboard players operation dummy lrAlivePlayers = dummy totalPlayers
 execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,limit=1,tag=lrSpawn]
 execute if score dummy pgPregameTimer matches 600 run gamemode adventure @a[team=!spec]
+
+execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: Lava Run","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Make your way through the obstacles in each room\n- Lava will start to rise in each room, one after the other, shortly after the game begins.\n- Complete as many rooms as you can before the lava catches up!","color":"green"}]
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 400 run tellraw @a ["",{"text":"Scoring for this minigame (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"Each room completed - 2","color":"aqua"}]
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 340 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 340 run tellraw @a {"text":"The minigame will begin shortly...","color":"red"}
+
 execute if score dummy pgPregameTimer matches 300 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy pgPregameTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
 execute if score dummy pgPregameTimer matches 200 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]

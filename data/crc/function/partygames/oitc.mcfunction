@@ -54,8 +54,21 @@ execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run cle
 
 
 #game start
-execute if score dummy pgPregameTimer matches 600 run say rules
 execute if score dummy pgPregameTimer matches 600 run gamerule keepInventory true
+
+execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: One in the Chamber","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- One arrow shot, one kill!\n- Get an arrow after each kill, or when you respawn.\n- Players can only have up to one arrow at a time.\n- If you have no arrows left, fight with your sword.\n- Players have 2.5s invulnerability when they respawn.\n- Earn as many kills as possible!","color":"green"}]
+execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy pgPregameTimer matches 400 run tellraw @a ["",{"text":"Scoring for this minigame (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Each Kill -> 1","color":"red"}]
+execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy pgPregameTimer matches 340 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy pgPregameTimer matches 340 run tellraw @a {"text":"The minigame will begin shortly...","color":"red"}
+
 execute if score dummy pgPregameTimer matches 1..1200 run tp @a[team=player1] @e[type=marker,limit=1,tag=respawn1]
 execute if score dummy pgPregameTimer matches 1..1200 run tp @a[team=player2] @e[type=marker,limit=1,tag=respawn2]
 execute if score dummy pgPregameTimer matches 1..1200 run tp @a[team=player3] @e[type=marker,limit=1,tag=respawn3]
@@ -76,6 +89,10 @@ execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run give @s arrow
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run gamerule naturalRegeneration false
 execute if score dummy pgPregameTimer matches 1 run effect give @a regeneration 1000 0 true
+execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn1] at @s run setblock ~ ~-1 ~ glass
+execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn2] at @s run setblock ~ ~-1 ~ glass
+execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn3] at @s run setblock ~ ~-1 ~ glass
+execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn4] at @s run setblock ~ ~-1 ~ glass
 execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn1] at @s run setblock ~ ~-1 ~ air
 execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn2] at @s run setblock ~ ~-1 ~ air
 execute if score dummy pgPregameTimer matches 1 run execute as @e[type=marker,tag=respawn3] at @s run setblock ~ ~-1 ~ air

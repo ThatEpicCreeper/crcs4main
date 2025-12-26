@@ -128,9 +128,10 @@ execute if score dummy hrStartTimer matches 630 run tellraw @a {"text":"========
 
 execute if score dummy hrStartTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy hrStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy hrStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game is as follows (Unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"1st - 45 Score","color":"yellow"},{"text":"\n"},{"text":"2nd - 32 Score","color":"gray"},{"text":"\n"},{"text":"3rd - 20 Score","color":"red"},{"text":"\n"},{"text":"4th - 12 Score","color":"dark_gray"},{"text":"\n"},{"text":"DNF - 0 Score","color":"blue"}]
+execute if score dummy hrStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game (Unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"1st - 45 Score","color":"yellow"},{"text":"\n"},{"text":"2nd - 32 Score","color":"gray"},{"text":"\n"},{"text":"3rd - 20 Score","color":"red"},{"text":"\n"},{"text":"4th - 12 Score","color":"dark_gray"},{"text":"\n"},{"text":"DNF - 0 Score","color":"blue"}]
 execute if score dummy hrStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
+execute if score dummy hrStartTimer matches 330 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy hrStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
 
 execute if score dummy hrStartTimer matches 300 run tellraw @a ["",{"text":"The race will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
