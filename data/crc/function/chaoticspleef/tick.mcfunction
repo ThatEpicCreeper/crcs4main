@@ -56,13 +56,31 @@ execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemo
 # scoreboard players set @a csOnDeath 0
 
 #display hud
-execute if score dummy csInRound matches 1.. run execute if score dummy csTNTTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"TNT Rain Starts in ","bold":true,"color":"red"},{"score":{"name":"dummy","objective":"csTNTTimer"},"bold":true,"color":"gold"},{"text":" Seconds ","bold":true,"color":"gold"},{"text":"| ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/10","bold":true,"color":"aqua"}]
-execute if score dummy csInRound matches 1.. run execute unless score dummy csTNTTimer matches 1.. run execute if score dummy csChaosTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"Total Chaos Starts in","bold":true,"color":"dark_purple"},{"text":" ","bold":true,"color":"red"},{"score":{"name":"dummy","objective":"csChaosTimer"},"bold":true,"color":"light_purple"},{"text":" Seconds ","bold":true,"color":"light_purple"},{"text":"| ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/10","bold":true,"color":"aqua"}]
-execute if score dummy csInRound matches 1.. run execute unless score dummy csChaosTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"TOTAL CHAOS ACTIVE!!!","bold":true,"color":"yellow"},{"text":" | ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/10","bold":true,"color":"aqua"}]
+execute if score dummy csInRound matches 1.. run execute if score dummy csTNTTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"TNT Rain Starts in ","bold":true,"color":"red"},{"score":{"name":"dummy","objective":"csTNTTimer"},"bold":true,"color":"gold"},{"text":" Seconds ","bold":true,"color":"gold"},{"text":"| ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/12","bold":true,"color":"aqua"}]
+execute if score dummy csInRound matches 1.. run execute unless score dummy csTNTTimer matches 1.. run execute if score dummy csChaosTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"Total Chaos Starts in","bold":true,"color":"dark_purple"},{"text":" ","bold":true,"color":"red"},{"score":{"name":"dummy","objective":"csChaosTimer"},"bold":true,"color":"light_purple"},{"text":" Seconds ","bold":true,"color":"light_purple"},{"text":"| ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/12","bold":true,"color":"aqua"}]
+execute if score dummy csInRound matches 1.. run execute unless score dummy csChaosTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"TOTAL CHAOS ACTIVE!!!","bold":true,"color":"yellow"},{"text":" | ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/12","bold":true,"color":"aqua"}]
 
 #game start
-execute if score dummy csStartTimer matches 600 run say rules
 execute if score dummy csStartTimer matches 600 run gamerule keepInventory true
+
+execute if score dummy csStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy csStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy csStartTimer matches 600 run tellraw @a ["",{"text":"Welcome to Chaotic Spleef!","bold":true,"color":"gold"},{"text":"\n\n"},{"text":"- Battle it out in 12 rounds of spleef, where many things happen at once!","color":"green"}]
+execute if score dummy csStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy csStartTimer matches 540 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy csStartTimer matches 540 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy csStartTimer matches 540 run tellraw @a {"text":"- TNT will rain shortly after each round starts, then mobs will rain shortly after that.\n\n- Each round, a random event will occur! Use it to your advantage...","color":"green"}
+execute if score dummy csStartTimer matches 540 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy csStartTimer matches 420 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy csStartTimer matches 420 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy csStartTimer matches 420 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"Outlasting a player in any round - 2","color":"aqua"}]
+execute if score dummy csStartTimer matches 420 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy csStartTimer matches 330 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy csStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
+
 execute if score dummy csStartTimer matches 303 run tp @a[team=spec] @e[type=marker,tag=csGameSpawn,limit=1,sort=nearest]
 execute if score dummy csStartTimer matches 301 run scoreboard players operation dummy csAlivePlayers = dummy totalPlayers
 execute if score dummy csStartTimer matches 301 run scoreboard players add dummy csCurrentRound 1
@@ -70,6 +88,8 @@ execute if score dummy csStartTimer matches 301 run gamemode adventure @a[team=!
 
 # -> map reset (defined with rules in guide.txt)
 execute if score dummy csStartTimer matches 301 run execute as @e[type=marker,tag=csGameSpawn,limit=1] at @s run clone ~115 ~30 ~15 ~85 ~ ~-15 ~-15 ~ ~-15 
+
+execute if score dummy csStartTimer matches 301 run execute as @a at @s run function chaotic_spleef_ost:play
 
 execute if score dummy csStartTimer matches 301 run effect give @a[team=!spec] invisibility 15 4 true
 execute if score dummy csStartTimer matches 301 run effect give @a[team=!spec] weakness 15 4 true
@@ -89,7 +109,7 @@ execute if score dummy csStartTimer matches 40 run execute as @a at @s run plays
 execute if score dummy csStartTimer matches 20 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy csStartTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 execute if score dummy csStartTimer matches 1 run scoreboard players set dummy tickTimer 12
-execute if score dummy csStartTimer matches 1 run give @a[team=!spec] copper_pickaxe[custom_name=[{"text":"Copper Pickaxe","italic":false,"color":"gold"}],enchantment_glint_override=true,enchantments={efficiency:100},attribute_modifiers=[{type:attack_speed,amount:1000,slot:mainhand,operation:add_value,id:"1766278183546"}],can_break=[{blocks:terracotta},{blocks:black_terracotta},{blocks:blue_terracotta},{blocks:brown_terracotta},{blocks:cyan_terracotta},{blocks:gray_terracotta},{blocks:green_terracotta},{blocks:light_blue_terracotta},{blocks:white_terracotta},{blocks:light_gray_terracotta},{blocks:red_terracotta},{blocks:orange_terracotta},{blocks:yellow_terracotta},{blocks:lime_terracotta},{blocks:purple_terracotta},{blocks:magenta_terracotta},{blocks:pink_terracotta}],unbreakable={},tooltip_display={hidden_components:[unbreakable,attribute_modifiers,can_break,can_place_on,enchantments]}]
+execute if score dummy csStartTimer matches 1 run give @a[team=!spec] copper_pickaxe[custom_name=[{"text":"Spleefing Pickaxe","italic":false,"color":"gold"}],enchantment_glint_override=true,enchantments={efficiency:150},attribute_modifiers=[{type:attack_speed,amount:1000,slot:mainhand,operation:add_value,id:"1766278183546"}],can_break=[{blocks:terracotta},{blocks:black_terracotta},{blocks:blue_terracotta},{blocks:brown_terracotta},{blocks:cyan_terracotta},{blocks:gray_terracotta},{blocks:green_terracotta},{blocks:light_blue_terracotta},{blocks:white_terracotta},{blocks:light_gray_terracotta},{blocks:red_terracotta},{blocks:orange_terracotta},{blocks:yellow_terracotta},{blocks:lime_terracotta},{blocks:purple_terracotta},{blocks:magenta_terracotta},{blocks:pink_terracotta}],unbreakable={},tooltip_display={hidden_components:[unbreakable,attribute_modifiers,can_break,can_place_on,enchantments]}]
 execute if score dummy csStartTimer matches 1 run give @a[team=!spec] bow[custom_name=[{"text":"Punch Bow","italic":false,"color":"dark_purple"}],enchantment_glint_override=true,enchantments={infinity:1,punch:1},unbreakable={},tooltip_display={hidden_components:[unbreakable]}]
 execute if score dummy csStartTimer matches 1 run give @a[team=!spec] arrow 64
 execute if score dummy csStartTimer matches 0 run tellraw @a {"text":"The round has started!","color":"green"}
@@ -165,13 +185,14 @@ execute if score dummy csRoundCD matches 100 run execute as @a at @s run playsou
 execute if score dummy csRoundCD matches 100 run tellraw @a ["",{"selector":"@a[team=!spec,gamemode=adventure]","bold":true,"color":"aqua"},{"text":" won the round!","color":"green"}]
 
 
-execute if score dummy csRoundCD matches 1 run execute if score dummy csCurrentRound matches ..9 run scoreboard players set dummy csStartTimer 302
-execute if score dummy csRoundCD matches 37 run execute unless score dummy csCurrentRound matches ..9 run scoreboard players set dummy csEndSequence 401
+execute if score dummy csRoundCD matches 1 run execute if score dummy csCurrentRound matches ..11 run scoreboard players set dummy csStartTimer 302
+execute if score dummy csRoundCD matches 37 run execute unless score dummy csCurrentRound matches ..11 run scoreboard players set dummy csEndSequence 401
 
 
 #end seq
 execute if score dummy csEndSequence matches -1.. run scoreboard players remove dummy csEndSequence 1
 
+execute if score dummy csEndSequence matches 400 run execute as @a at @s run function chaotic_spleef_ost:stop
 execute if score dummy csEndSequence matches 400 run title @a title {"text":"Game Over!","bold":true,"color":"green"}
 execute if score dummy csEndSequence matches 400 run title @a times 0 100 10
 execute if score dummy csEndSequence matches 400 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.5 1
