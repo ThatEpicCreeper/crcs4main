@@ -67,6 +67,8 @@ execute if score dummy bsTimeLeft matches 1 run scoreboard players set @a[scores
 execute if score dummy bsTimeLeft matches 1 run execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 0.5 1
 execute if score dummy bsInOvertime matches 1 run bossbar set bs:timeleft name {"text":"Overtime!","bold":true,"color":"red"}
 execute if score dummy bsInOvertime matches 1 run effect give @a[scores={bsLivesLeft=1..}] glowing 10 4 true
+execute if score dummy bsTimeLeft matches 1..2 run execute as @a at @s run function buildoffshowdowniiost:stop
+execute if score dummy bsTimeLeft matches 1 run execute as @a at @s run function bs_dm_ost:play
 
 
 #display hud
@@ -124,10 +126,38 @@ function crc:buildoffshowdown/building
 #start timer
 execute unless score dummy bsStartTimer matches ..-101 run scoreboard players remove dummy bsStartTimer 1
 
-execute if score dummy bsStartTimer matches 900 run say game rules fill
+execute if score dummy bsStartTimer matches 900 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bsStartTimer matches 900 run tellraw @a ["",{"text":"Welcome to Buildoff Showdown II!","bold":true,"color":"red"},{"text":"\n\n"},{"text":"In this game, players attempt to survive to the end while eliminating others!","color":"green"}]
+execute if score dummy bsStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bsStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"- All players spawn with 3 lives (2 respawns)\n\n- When you lose all 3, you're out!","color":"green"}
+execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bsStartTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bsStartTimer matches 700 run tellraw @a {"text":"- The border will begin to shrink after 3 minutes.\n\n- 12 minutes after the game starts, overtime will begin!\n\n- All players' lives are reduced to 1 during overtime!","color":"green"}
+execute if score dummy bsStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bsStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bsStartTimer matches 600 run tellraw @a ["",{"text":"- Chests are scattered around the map with loot. Find these and gear up!\n\n- Collecting ","color":"green"},{"text":"bricks ","color":"red"},{"text":"from chests each grant ","color":"green"},{"text":"+5 Builds, ","color":"light_purple"},{"text":"allowing you to build on the map!","color":"green"}]
+execute if score dummy bsStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bsStartTimer matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bsStartTimer matches 500 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Overall Placements:","color":"dark_aqua"},{"text":"\n"},{"text":"1st - 20","color":"gold"},{"text":"\n"},{"text":"2nd - 12","color":"gray"},{"text":"\n"},{"text":"3rd - 8","color":"red"},{"text":"\n"},{"text":"4th - 6","color":"dark_gray"},{"text":"\n\n"},{"text":"- Outlast another players' life -> 1","color":"light_purple"},{"text":"\n"},{"text":"- Kill -> 5 (including outlast score)","color":"red"},{"text":"\n\n"},{"text":"- Retaining all 3 lives into overtime -> 3","color":"yellow"},{"text":"\n"},{"text":"- Retaining 2 lives into overtime -> 1","color":"aqua"}]
+execute if score dummy bsStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bsStartTimer matches 380 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bsStartTimer matches 380 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
+
 execute if score dummy bsStartTimer matches 300 run function crc:buildoffshowdown/randomchests
 execute if score dummy bsStartTimer matches 300 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy bsStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
+execute if score dummy bsStartTimer matches 256 run execute as @a at @s run function buildoffshowdowniiost:play
 execute if score dummy bsStartTimer matches 200 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]
 execute if score dummy bsStartTimer matches 100 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"5 seconds.","color":"gold"}]
 execute if score dummy bsStartTimer matches 80 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"4 seconds.","color":"gold"}]
@@ -158,6 +188,8 @@ execute if score dummy bsInGame matches 1.. run execute if score dummy bsPlayers
 #end sequence
 execute if score dummy bsEndSequence matches -1.. run scoreboard players remove dummy bsEndSequence 1
 
+execute if score dummy bsEndSequence matches 600 run execute as @a at @s run function buildoffshowdowniiost:stop
+execute if score dummy bsEndSequence matches 600 run execute as @a at @s run function bs_dm_ost:stop
 execute if score dummy bsEndSequence matches 600 run title @a title {"text":"Game Over!","bold":true,"color":"green"}
 execute if score dummy bsEndSequence matches 600 run title @a subtitle ["",{"selector":"@a[scores={bsLivesLeft=1..}]","bold":true,"color":"gold"},{"text":" has won!","bold":true,"color":"gold"}]
 execute if score dummy bsEndSequence matches 600 run title @a times 0 100 10
