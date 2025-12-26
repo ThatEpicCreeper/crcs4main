@@ -58,8 +58,26 @@ scoreboard players set @a bbOnDeath 0
 
 
 #game start
-execute if score dummy bbStartTimer matches 600 run say rules
 execute if score dummy bbStartTimer matches 600 run gamerule keepInventory true
+
+execute if score dummy bbStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bbStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bbStartTimer matches 600 run tellraw @a ["",{"text":"Welcome to Blitz Bombs!","bold":true,"color":"dark_red"},{"text":"\n\n"},{"text":"- Face off in a best of 9 (first to 5) game filled with explosions!","color":"gold"}]
+execute if score dummy bbStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bbStartTimer matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bbStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bbStartTimer matches 500 run tellraw @a {"text":"- Make your way through each randomly selected map, and blow up your opponent!\n\n- Be sure not to also blow yourself up in the process.....","color":"gold"}
+execute if score dummy bbStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bbStartTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bbStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy bbStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game:","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- +1 Point if you survive and kill your opponent.\n- No points are awarded if both players are eliminated at the same time. (within 1 tick)\n","color":"yellow"},{"text":"- First to 5 points will win Creeper Championship!","bold":true,"color":"yellow"}]
+execute if score dummy bbStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy bbStartTimer matches 330 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy bbStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
+
 execute if score dummy bbStartTimer matches 303 run tp @a[team=spec] @e[type=marker,tag=bbTeamOneSpawn,limit=1,sort=nearest]
 
 execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbRandomMap run random value 1..5
@@ -85,6 +103,7 @@ execute if score dummy bbStartTimer matches 301 run effect give @a[team=!spec] w
 execute if score dummy bbStartTimer matches 300 run effect give @a regeneration 1000 0 true
 execute if score dummy bbStartTimer matches 300 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy bbStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
+execute if score dummy bbStartTimer matches 256 run execute as @a at @s run function blitz_bombs_ost:play
 execute if score dummy bbStartTimer matches 200 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]
 execute if score dummy bbStartTimer matches 100 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"5 seconds.","color":"gold"}]
 execute if score dummy bbStartTimer matches 100 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
@@ -120,6 +139,7 @@ execute if score dummy bbInRound matches 1.. run execute unless score dummy bbTi
 execute if score dummy bbInRound matches 1.. run execute unless score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamTwoPlayersAlive matches 0 run scoreboard players add dummy bbTeamOneWins 1 
 execute if score dummy bbInRound matches 1.. run execute unless score dummy bbTieTimer matches 1.. run execute if score dummy bbTeamTwoPlayersAlive matches 0 run scoreboard players set dummy bbRoundCD 101
 
+execute if score dummy bbRoundCD matches 101 run execute as @a at @s run function blitz_bombs_ost:stop
 execute if score dummy bbRoundCD matches 101 run scoreboard players set dummy bbInRound 0
 execute if score dummy bbRoundCD matches 100 run execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 0.4 0.8
 execute if score dummy bbRoundCD matches 100 run clear @a

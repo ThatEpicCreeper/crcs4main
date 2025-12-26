@@ -70,3 +70,5 @@ gamerule doMobLoot true
 gamerule mobGriefing false
 worldborder set 999999
 scoreboard objectives setdisplay below_name
+
+execute as @a at @s run function blitz_bombs_ost:stop

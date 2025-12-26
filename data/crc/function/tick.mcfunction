@@ -16,3 +16,4 @@ function crc:chaoticspleef/tick
 #blitz bombs
 function crc:blitzbombs/tick
 
+kill @e[type=minecraft:arrow,nbt={inGround:1b}]
