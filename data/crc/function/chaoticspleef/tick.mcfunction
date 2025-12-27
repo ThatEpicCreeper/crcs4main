@@ -87,7 +87,7 @@ execute if score dummy csStartTimer matches 301 run scoreboard players add dummy
 execute if score dummy csStartTimer matches 301 run gamemode adventure @a[team=!spec]
 
 # -> map reset (defined with rules in guide.txt)
-execute if score dummy csStartTimer matches 301 run execute as @e[type=marker,tag=csGameSpawn,limit=1] at @s run clone ~115 ~30 ~15 ~85 ~ ~-15 ~-15 ~ ~-15 
+execute if score dummy csStartTimer matches 301 run execute as @e[type=marker,tag=csGameSpawn,limit=1] at @s run clone ~115 ~29 ~15 ~85 ~ ~-15 ~-15 ~ ~-15
 
 execute if score dummy csStartTimer matches 301 run execute as @a at @s run function chaotic_spleef_ost:play
 

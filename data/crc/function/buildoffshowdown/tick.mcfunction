@@ -39,7 +39,8 @@ execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix 
 execute if score dummy bsInGame matches 1.. run scoreboard players remove dummy bsTimeLeft 1
 execute if score dummy bsTimeLeft matches 10800 run tellraw @a {"text":"[Warning] The border is shrinking!","bold":true,"color":"red"}
 execute if score dummy bsTimeLeft matches 10800 run execute as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 1
-execute if score dummy bsTimeLeft matches 10799 run worldborder set 21 540
+execute if score dummy bsTimeLeft matches 10799 run worldborder set 36 540s
+execute if score dummy bsTimeLeft matches 1 run worldborder set 5 111s
 
 bossbar set bs:timeleft players @a
 execute if score dummy bsTimeLeft matches 10800.. run bossbar set bs:timeleft name {"text":"Border is Safe","bold":true,"color":"aqua"}
@@ -100,7 +101,7 @@ execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @a minecraft:health_boost 10000 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @a minecraft:instant_health 1 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run playsound minecraft:item.totem.use master @s ~ ~ ~ 0.6 2
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsDeathSequence 3
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsDeathSequence 5
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players add @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] thisGameScore 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run tellraw @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] ["",{"text":"+1 Score ","color":"green"},{"text":"(Survival)","color":"aqua"}]
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..,bsRespawnsLeft=0}] at @s run title @s title {"text":"No Respawns Left!","bold":true,"color":"red"}
