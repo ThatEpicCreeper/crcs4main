@@ -35,7 +35,7 @@ execute if score dummy pgPregameTimer matches 600 run gamemode adventure @a[team
 
 execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: Lava Run","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Make your way through the obstacles in each room\n- Lava will start to rise in each room, one after the other, shortly after the game begins.\n- Complete as many rooms as you can before the lava catches up!","color":"green"}]
+execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: Flood Escape","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Make your way through the obstacles in each room\n- Lava will start to rise in each room, one after the other, shortly after the game begins.\n- Complete as many rooms as you can before the lava catches up!","color":"green"}]
 execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5

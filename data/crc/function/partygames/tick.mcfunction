@@ -34,7 +34,7 @@ team modify pgDisplayGame color yellow
 team join pgDisplayGame Round:
 execute if score dummy partyGameNumber matches 1 run team modify pgDisplayGame suffix {"text":" One in the Chamber","color":"yellow"}
 execute if score dummy partyGameNumber matches 2 run team modify pgDisplayGame suffix {"text":" TNT Run","color":"yellow"}
-execute if score dummy partyGameNumber matches 3 run team modify pgDisplayGame suffix {"text":" Lava Run","color":"yellow"}
+execute if score dummy partyGameNumber matches 3 run team modify pgDisplayGame suffix {"text":" Flood Escape","color":"yellow"}
 
 #game explain
 execute if score dummy pgPregameTimer matches 900 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
@@ -44,7 +44,7 @@ execute if score dummy pgPregameTimer matches 900 run tellraw @a {"text":"======
 
 execute if score dummy pgPregameTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy pgPregameTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy pgPregameTimer matches 800 run tellraw @a ["",{"text":"The minigames this event are:","color":"aqua"},{"text":"\n\n"},{"text":"- One in the Chamber\n- TNT Run\n- Lava Run","color":"green"}]
+execute if score dummy pgPregameTimer matches 800 run tellraw @a ["",{"text":"The minigames this event are:","color":"aqua"},{"text":"\n\n"},{"text":"- One in the Chamber\n- TNT Run\n- Flood Escape","color":"green"}]
 execute if score dummy pgPregameTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy pgPregameTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
