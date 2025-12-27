@@ -203,6 +203,7 @@ execute if score dummy hrEndSequencing matches 500 run title @a title {"text":"T
 execute if score dummy hrEndSequencing matches 500 run execute as @a at @s run function hybridracersost:stop
 execute if score dummy hrEndSequencing matches 500 run title @a times 0 100 10
 execute if score dummy hrEndSequencing matches 500 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.5 1
+execute if score dummy hrEndSequencing matches 500 run scoreboard players set dummy hrDNFTimer -100
 
 execute if score dummy hrEndSequencing matches 500 run team modify player1 suffix ""
 execute if score dummy hrEndSequencing matches 500 run team modify player2 suffix ""
