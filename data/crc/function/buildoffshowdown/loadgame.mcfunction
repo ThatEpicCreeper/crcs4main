@@ -4,8 +4,8 @@ tp @a @e[type=armor_stand,limit=1,sort=random,tag=bsBusSpawn]
 
 execute as @a at @e[type=armor_stand,limit=1,sort=random,tag=bsBusSpawn] run spawnpoint @s ~ ~ ~
 
-gamerule fallDamage true
-gamerule keepInventory false
+gamerule fall_damage true
+gamerule keep_inventory false
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 

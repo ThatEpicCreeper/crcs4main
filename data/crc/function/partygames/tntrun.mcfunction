@@ -19,8 +19,8 @@ effect give @a weakness 2 4 true
 effect give @a night_vision 30 0 true
 
 #start timer
-execute if score dummy pgPregameTimer matches 600 run gamerule doTileDrops false
-execute if score dummy pgPregameTimer matches 600 run gamerule naturalRegeneration true
+execute if score dummy pgPregameTimer matches 600 run gamerule block_drops false
+execute if score dummy pgPregameTimer matches 600 run gamerule natural_health_regeneration true
 execute if score dummy pgPregameTimer matches 600 run scoreboard players operation dummy trAlivePlayers = dummy totalPlayers
 execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,limit=1,tag=trSpawn]
 

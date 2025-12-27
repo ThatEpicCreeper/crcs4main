@@ -54,7 +54,7 @@ execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run cle
 
 
 #game start
-execute if score dummy pgPregameTimer matches 600 run gamerule keepInventory true
+execute if score dummy pgPregameTimer matches 600 run gamerule keep_inventory true
 
 execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
@@ -87,7 +87,7 @@ execute if score dummy pgPregameTimer matches 20 run execute as @a at @s run pla
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run give @s copper_sword[custom_name=[{"text":"Weak Sword","italic":false,"color":"gold"}],lore=[[{"text":"stabby stabby","italic":false,"color":"gray"}]],attribute_modifiers=[{type:attack_damage,amount:3,slot:mainhand,operation:add_value,id:"1766191531026"},{type:attack_speed,amount:-2.4,slot:mainhand,operation:add_value,id:"1766191531027"}],unbreakable={},tooltip_display={hidden_components:[attribute_modifiers,enchantments,unbreakable]}]
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run give @s bow[custom_name=[{"text":"Bow","italic":false,"color":"red"}],lore=[[{"text":"pew pew pew","italic":false,"color":"gray"}]],enchantments={power:120},unbreakable={},tooltip_display={hidden_components:[attribute_modifiers,enchantments,unbreakable]}]
 execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run give @s arrow
-execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run gamerule naturalRegeneration false
+execute if score dummy pgPregameTimer matches 1 run execute as @a[team=!spec] at @s run gamerule natural_health_regeneration false
 execute if score dummy pgPregameTimer matches 1 run effect give @a regeneration 1000 0 true
 execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn1] at @s run setblock ~ ~-1 ~ glass
 execute if score dummy pgPregameTimer matches 2.. run execute as @e[type=marker,tag=respawn2] at @s run setblock ~ ~-1 ~ glass

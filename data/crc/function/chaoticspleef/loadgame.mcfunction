@@ -28,11 +28,11 @@ scoreboard players set @a csRoundsWon 0
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 
-gamerule keepInventory true
-gamerule naturalRegeneration true
-gamerule doMobLoot false
-gamerule doTileDrops false
-gamerule mobGriefing true
+gamerule keep_inventory true
+gamerule natural_health_regeneration true
+gamerule mob_drops false
+gamerule block_drops false
+gamerule mob_griefing true
 
 effect give @a regeneration 51 5 true
 effect give @a resistance 51 5 true

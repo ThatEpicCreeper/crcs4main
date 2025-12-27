@@ -58,7 +58,7 @@ scoreboard players set @a bbOnDeath 0
 
 
 #game start
-execute if score dummy bbStartTimer matches 600 run gamerule keepInventory true
+execute if score dummy bbStartTimer matches 600 run gamerule keep_inventory true
 
 execute if score dummy bbStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy bbStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}

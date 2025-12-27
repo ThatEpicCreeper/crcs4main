@@ -18,10 +18,10 @@ scoreboard players set dummy inGame 1
 scoreboard players set dummy inLobby 0
 scoreboard players set dummy inVoting 0
 
-gamerule fallDamage true
-gamerule keepInventory true
-gamerule naturalRegeneration false
-gamerule doTileDrops false
+gamerule fall_damage true
+gamerule keep_inventory true
+gamerule natural_health_regeneration false
+gamerule block_drops false
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 

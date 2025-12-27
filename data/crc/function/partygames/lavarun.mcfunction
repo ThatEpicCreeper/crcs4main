@@ -27,8 +27,8 @@ effect give @a weakness 2 4 true
 
 #start timer
 execute if score dummy pgPregameTimer matches 600 run say rules
-execute if score dummy pgPregameTimer matches 600 run gamerule doTileDrops false
-execute if score dummy pgPregameTimer matches 600 run gamerule naturalRegeneration false
+execute if score dummy pgPregameTimer matches 600 run gamerule block_drops false
+execute if score dummy pgPregameTimer matches 600 run gamerule natural_health_regeneration false
 execute if score dummy pgPregameTimer matches 600 run scoreboard players operation dummy lrAlivePlayers = dummy totalPlayers
 execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,limit=1,tag=lrSpawn]
 execute if score dummy pgPregameTimer matches 600 run gamemode adventure @a[team=!spec]

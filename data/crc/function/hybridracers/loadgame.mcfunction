@@ -10,8 +10,8 @@ scoreboard players set dummy maxCheckpoints 9
 scoreboard players set dummy maxLaps 4
 
 ##
-gamerule fallDamage false
-gamerule keepInventory true
+gamerule fall_damage false
+gamerule keep_inventory true
 effect give @a resistance 10000 4 true
 effect give @a regeneration 10000 4 true
 effect give @a saturation 10000 4 true

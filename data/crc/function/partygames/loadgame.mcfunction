@@ -31,8 +31,8 @@ scoreboard players set @e[type=marker] lrRiseTimer -1
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 
-gamerule keepInventory true
-gamerule naturalRegeneration false
+gamerule keep_inventory true
+gamerule natural_health_regeneration false
 
 effect give @a regeneration 51 5 true
 effect give @a resistance 51 5 true

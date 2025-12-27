@@ -61,7 +61,7 @@ execute if score dummy csInRound matches 1.. run execute unless score dummy csTN
 execute if score dummy csInRound matches 1.. run execute unless score dummy csChaosTimer matches 1.. run execute as @a at @s run title @s actionbar ["",{"text":"TOTAL CHAOS ACTIVE!!!","bold":true,"color":"yellow"},{"text":" | ","bold":true,"color":"dark_gray"},{"text":"Round: ","bold":true,"color":"dark_aqua"},{"score":{"name":"dummy","objective":"csCurrentRound"},"bold":true,"color":"aqua"},{"text":"/12","bold":true,"color":"aqua"}]
 
 #game start
-execute if score dummy csStartTimer matches 600 run gamerule keepInventory true
+execute if score dummy csStartTimer matches 600 run gamerule keep_inventory true
 
 execute if score dummy csStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy csStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}

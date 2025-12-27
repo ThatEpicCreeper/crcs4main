@@ -62,12 +62,12 @@ scoreboard players reset Round: mainInfo
 scoreboard players reset Ch mainInfo
 scoreboard players reset Bl mainInfo
 
-gamerule fallDamage false
-gamerule keepInventory true
-gamerule doTileDrops false
-gamerule naturalRegeneration true
-gamerule doMobLoot true
-gamerule mobGriefing false
+gamerule fall_damage false
+gamerule keep_inventory true
+gamerule block_drops false
+gamerule natural_health_regeneration true
+gamerule mob_drops true
+gamerule mob_griefing false
 worldborder set 999999
 scoreboard objectives setdisplay below_name
 
