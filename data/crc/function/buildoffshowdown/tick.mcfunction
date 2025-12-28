@@ -94,6 +94,12 @@ execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSeq
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s resistance 20 3 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @a minecraft:health_boost 10000 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @a minecraft:regeneration 10 5 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.head with minecraft:leather_helmet
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.chest with minecraft:leather_chestplate
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.legs with minecraft:leather_leggings
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.feet with minecraft:leather_boots
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run give @s wooden_sword 1
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run scoreboard players add @s bsBuildsLeft 10
 
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players remove @s bsLivesLeft 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players remove @s bsRespawnsLeft 1

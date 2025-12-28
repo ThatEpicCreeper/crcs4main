@@ -116,7 +116,7 @@ execute if score dummy bbStartTimer matches 40 run execute as @a at @s run plays
 execute if score dummy bbStartTimer matches 20 run tellraw @a ["",{"text":"The round will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy bbStartTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 
-execute if score dummy bbStartTimer matches 1 run worldborder set 5 83
+execute if score dummy bbStartTimer matches 1 run worldborder set 5 83s
 execute if score dummy bbStartTimer matches 1 run effect give @a weakness 1000 4 true
 execute if score dummy bbStartTimer matches 1 run give @a[gamemode=adventure] shield[custom_name=[{"text":"Shield","bold":true,"italic":false,"color":"aqua"}],damage=300]
 execute if score dummy bbStartTimer matches 0 run tellraw @a {"text":"The round has started!","color":"green"}
