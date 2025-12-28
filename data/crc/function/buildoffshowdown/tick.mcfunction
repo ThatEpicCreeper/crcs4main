@@ -86,14 +86,14 @@ execute as @a[scores={bsOnKill=1..}] at @s run scoreboard players set @s bsOnKil
 
 
 #on death
-execute unless score dummy bsInGame matches 1.. run execute if score @s bsDeathSequence matches 1.. run scoreboard players set @s bsDeathSequence 0
+#execute unless score dummy bsInGame matches 1.. run execute if score @s bsDeathSequence matches 1.. run scoreboard players set @s bsDeathSequence 0
 execute as @a at @s run execute if score @s bsDeathSequence matches 1.. run scoreboard players remove @s bsDeathSequence 1
 
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run execute at @e[type=armor_stand,tag=bsBusSpawn] run tp @s ~ ~-4.5 ~
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s slow_falling 50 0 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s resistance 20 3 true
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @a minecraft:health_boost 10000 4 true
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @a minecraft:regeneration 10 5 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:health_boost 10000 4 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:regeneration 10 5 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.head with minecraft:leather_helmet
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.chest with minecraft:leather_chestplate
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.legs with minecraft:leather_leggings
