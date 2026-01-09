@@ -80,7 +80,7 @@ execute if score dummy bbStartTimer matches 330 run tellraw @a {"text":"The game
 
 execute if score dummy bbStartTimer matches 303 run tp @a[team=spec] @e[type=marker,tag=bbTeamOneSpawn,limit=1,sort=nearest]
 
-execute if score dummy bbStartTimer matches 301 run execute store result score dummy bbRandomMap run random value 1..5
+execute if score dummy bbStartTimer matches 302 run execute store result score dummy bbRandomMap run random value 1..5
 
 execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 1 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-10 ~10 ~-10 ~-5 ~-10 ~-10 ~ ~-10
 execute if score dummy bbStartTimer matches 301 run execute if score dummy bbRandomMap matches 2 run execute as @e[type=marker,tag=bbMapCenter] at @s run clone ~10 ~-20 ~10 ~-10 ~-15 ~-10 ~-10 ~ ~-10
@@ -149,7 +149,7 @@ execute if score dummy bbRoundCD matches 100 run effect give @a[gamemode=adventu
 execute if score dummy bbRoundCD matches 100 run effect give @a[gamemode=adventure] resistance 5 4 true
 execute if score dummy bbRoundCD matches 100 run effect give @a[gamemode=adventure] regeneration 5 4 true
 
-execute if score dummy bbRoundCD matches 1 run scoreboard players set dummy bbStartTimer 302
+execute if score dummy bbRoundCD matches 1 run scoreboard players set dummy bbStartTimer 303
 
 #game end  (FT5)
 execute if score dummy bbRoundCD matches 99 run execute if score dummy bbTeamOneWins matches 5.. run execute as @r[tag=bbTeam1] at @s run function crc:blitzbombs/endevent

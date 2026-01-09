@@ -7,6 +7,7 @@ scoreboard objectives add trAlivePlayers dummy
 scoreboard objectives add trYLevel dummy
 scoreboard objectives add trGracePeriod dummy
 scoreboard objectives add trFinalPlacement dummy
+scoreboard objectives add useFeather minecraft.used:minecraft.feather
 
 #get y level
 execute as @a at @s run execute store result score @s trYLevel run data get entity @s Pos[1]

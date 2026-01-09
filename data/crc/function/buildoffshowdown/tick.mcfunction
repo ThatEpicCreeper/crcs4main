@@ -104,12 +104,12 @@ execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSeq
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players remove @s bsLivesLeft 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players remove @s bsRespawnsLeft 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run function crc:buildoffshowdown/deathinv
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @a minecraft:health_boost 10000 4 true
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @a minecraft:instant_health 1 4 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @s minecraft:health_boost 10000 4 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run effect give @s minecraft:instant_health 1 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run playsound minecraft:item.totem.use master @s ~ ~ ~ 0.6 2
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsDeathSequence 5
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players add @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] thisGameScore 1
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run tellraw @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] ["",{"text":"+1 Score ","color":"green"},{"text":"(Survival)","color":"aqua"}]
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsDeathSequence 9
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players add @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] thisGameScore 2
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..}] at @s run tellraw @a[team=!spec,distance=0.1..,scores={bsLivesLeft=1..}] ["",{"text":"+2 Score ","color":"green"},{"text":"(Survival)","color":"aqua"}]
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsOnDeath=1..,bsRespawnsLeft=0}] at @s run title @s title {"text":"No Respawns Left!","bold":true,"color":"red"}
 execute as @a[scores={bsOnDeath=1..}] at @s run scoreboard players set @s bsOnDeath 0
 
@@ -122,7 +122,7 @@ execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLef
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 3 run tellraw @s ["",{"text":"+8 Score ","color":"green"},{"text":"(Placed 3rd)","color":"aqua"}]
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 2 run scoreboard players add @s thisGameScore 12
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run execute if score dummy bsPlayersLeft matches 2 run tellraw @s ["",{"text":"+12 Score ","color":"green"},{"text":"(Placed 2nd)","color":"aqua"}]
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run scoreboard players operation @s bsFinalPlacement = dummy totalPlayers
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run scoreboard players operation @s bsFinalPlacement = dummy bsPlayersLeft
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run scoreboard players remove dummy bsPlayersLeft 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsLivesLeft=0}] at @s run gamemode spectator @s
 execute as @a[scores={bsLivesLeft=0}] at @s run scoreboard players set @s bsLivesLeft -1
@@ -155,7 +155,7 @@ execute if score dummy bsStartTimer matches 600 run tellraw @a {"text":"========
 
 execute if score dummy bsStartTimer matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy bsStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy bsStartTimer matches 500 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Overall Placements:","color":"dark_aqua"},{"text":"\n"},{"text":"1st - 20","color":"gold"},{"text":"\n"},{"text":"2nd - 12","color":"gray"},{"text":"\n"},{"text":"3rd - 8","color":"red"},{"text":"\n"},{"text":"4th - 6","color":"dark_gray"},{"text":"\n\n"},{"text":"- Outlast another players' life -> 1","color":"light_purple"},{"text":"\n"},{"text":"- Kill -> 5 (including outlast score)","color":"red"},{"text":"\n\n"},{"text":"- Retaining all 3 lives into overtime -> 3","color":"yellow"},{"text":"\n"},{"text":"- Retaining 2 lives into overtime -> 1","color":"aqua"}]
+execute if score dummy bsStartTimer matches 500 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Overall Placements:","color":"dark_aqua"},{"text":"\n"},{"text":"1st - 20","color":"gold"},{"text":"\n"},{"text":"2nd - 12","color":"gray"},{"text":"\n"},{"text":"3rd - 8","color":"red"},{"text":"\n"},{"text":"4th - 6","color":"dark_gray"},{"text":"\n\n"},{"text":"- Outlast another players' life -> 2","color":"light_purple"},{"text":"\n"},{"text":"- Kill -> 6 (including outlast score)","color":"red"},{"text":"\n\n"},{"text":"- Retaining all 3 lives into overtime -> 3","color":"yellow"},{"text":"\n"},{"text":"- Retaining 2 lives into overtime -> 1","color":"aqua"}]
 execute if score dummy bsStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy bsStartTimer matches 380 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5

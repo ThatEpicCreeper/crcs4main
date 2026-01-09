@@ -31,10 +31,10 @@ scoreboard players set @a oitcOnKill 0
 #on death
 execute as @a at @s run execute if score @s oitcDeathSequence matches 1.. run scoreboard players remove @s oitcDeathSequence 1
 
-execute as @a[team=!spec,scores={oitcOnDeath=1..}] at @s run scoreboard players set @s oitcDeathSequence 4
+execute as @a[team=!spec,scores={oitcOnDeath=1..}] at @s run scoreboard players set @s oitcDeathSequence 9
 scoreboard players set @a oitcOnDeath 0
 
-execute as @a at @s run execute if score @s oitcDeathSequence matches 1 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
+execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run clear @s arrow
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run give @s arrow
 execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s regeneration 1000 0 true

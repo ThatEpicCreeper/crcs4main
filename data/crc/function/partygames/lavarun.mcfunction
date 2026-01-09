@@ -58,7 +58,7 @@ execute if score dummy pgPregameTimer matches 40 run execute as @a at @s run pla
 execute if score dummy pgPregameTimer matches 20 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy pgPregameTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 execute if score dummy pgPregameTimer matches 1 run tp @a @e[type=armor_stand,limit=1,sort=nearest,tag=lrGameSpawn]
-execute if score dummy pgPregameTimer matches 1 run scoreboard players set dummy lrLavaTimer 4100
+execute if score dummy pgPregameTimer matches 1 run scoreboard players set dummy lrLavaTimer 8100
 execute if score dummy pgPregameTimer matches 0 run tellraw @a {"text":"The game has started!","color":"green"}
 execute if score dummy pgPregameTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy pgPregameTimer matches 0 run scoreboard players set dummy pgLavaRunInGame 1
@@ -76,61 +76,61 @@ execute as @e[type=marker,scores={lrRiseTimer=40}] at @s run fill ~8 ~8 ~8 ~-8 ~
 execute as @e[type=marker,scores={lrRiseTimer=10}] at @s run fill ~8 ~9 ~8 ~-8 ~9 ~-8 lava replace air
 
 #lava rise timer
-execute if score dummy lrLavaTimer matches 3630 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 3620 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 3610 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 3600 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 3600 run tellraw @a {"text":"Room #1 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 3600 run scoreboard players set @e[type=marker,tag=room1] lrRiseTimer 300
+execute if score dummy lrLavaTimer matches 7230 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 7220 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 7210 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 7200 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 7200 run tellraw @a {"text":"Room #1 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 7200 run scoreboard players set @e[type=marker,tag=room1] lrRiseTimer 300
+
+execute if score dummy lrLavaTimer matches 6430 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 6420 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 6410 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 6400 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 6400 run tellraw @a {"text":"Room #2 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 6400 run scoreboard players set @e[type=marker,tag=room2] lrRiseTimer 300
+
+execute if score dummy lrLavaTimer matches 5630 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 5620 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 5610 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 5600 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 5600 run tellraw @a {"text":"Room #3 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 5600 run scoreboard players set @e[type=marker,tag=room3] lrRiseTimer 300
+
+execute if score dummy lrLavaTimer matches 4830 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4820 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4810 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4800 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 4800 run tellraw @a {"text":"Room #4 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 4800 run scoreboard players set @e[type=marker,tag=room4] lrRiseTimer 300
+
+execute if score dummy lrLavaTimer matches 4030 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4020 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4010 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 4000 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 4000 run tellraw @a {"text":"Room #5 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 4000 run scoreboard players set @e[type=marker,tag=room5] lrRiseTimer 300
 
 execute if score dummy lrLavaTimer matches 3230 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 3220 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 3210 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 3200 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 3200 run tellraw @a {"text":"Room #2 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 3200 run scoreboard players set @e[type=marker,tag=room2] lrRiseTimer 300
-
-execute if score dummy lrLavaTimer matches 2830 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2820 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2810 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2800 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 2800 run tellraw @a {"text":"Room #3 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 2800 run scoreboard players set @e[type=marker,tag=room3] lrRiseTimer 300
+execute if score dummy lrLavaTimer matches 3200 run tellraw @a {"text":"Room #6 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 3200 run scoreboard players set @e[type=marker,tag=room6] lrRiseTimer 300
 
 execute if score dummy lrLavaTimer matches 2430 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 2420 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 2410 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 2400 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 2400 run tellraw @a {"text":"Room #4 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 2400 run scoreboard players set @e[type=marker,tag=room4] lrRiseTimer 300
-
-execute if score dummy lrLavaTimer matches 2030 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2020 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2010 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 2000 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 2000 run tellraw @a {"text":"Room #5 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 2000 run scoreboard players set @e[type=marker,tag=room5] lrRiseTimer 300
-
-execute if score dummy lrLavaTimer matches 1630 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 1620 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 1610 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 1600 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 1600 run tellraw @a {"text":"Room #6 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 1600 run scoreboard players set @e[type=marker,tag=room6] lrRiseTimer 300
+execute if score dummy lrLavaTimer matches 2400 run tellraw @a {"text":"Room #7 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 2400 run scoreboard players set @e[type=marker,tag=room7] lrRiseTimer 300
 
 execute if score dummy lrLavaTimer matches 1230 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 1220 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 1210 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 1200 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 1200 run tellraw @a {"text":"Room #7 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 1200 run scoreboard players set @e[type=marker,tag=room7] lrRiseTimer 300
-
-execute if score dummy lrLavaTimer matches 830 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 820 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 810 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 800 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 800 run tellraw @a {"text":"Room #8 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 800 run scoreboard players set @e[type=marker,tag=room8] lrRiseTimer 300
+execute if score dummy lrLavaTimer matches 1200 run tellraw @a {"text":"Room #8 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 1200 run scoreboard players set @e[type=marker,tag=room8] lrRiseTimer 300
 
 execute if score dummy lrLavaTimer matches 430 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 420 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
@@ -202,8 +202,8 @@ execute as @a[team=!spec,scores={lrInRoom=9},gamemode=adventure] at @s run execu
 execute as @a[team=!spec,scores={lrInRoom=9},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit9,distance=..0.6] run scoreboard players add @s lrCompletedRooms 1
 execute as @a[team=!spec,scores={lrInRoom=9},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit9,distance=..0.6] run scoreboard players set @s lrInRoom 10
 
-execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players add @s thisGameScore 2
-execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run tellraw @s ["",{"text":"+2 Score ","color":"green"},{"text":"(Completed a Room)","color":"aqua"}]
+execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players add @s thisGameScore 3
+execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run tellraw @s ["",{"text":"+3 Score ","color":"green"},{"text":"(Completed Final Room)","color":"aqua"}]
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.4 1
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run tellraw @a ["",{"selector":"@s","bold":true,"color":"gold"},{"text":" escaped the flooding rooms!","bold":true,"color":"gold"}]
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players add @s lrCompletedRooms 1
