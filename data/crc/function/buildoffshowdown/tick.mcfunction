@@ -35,6 +35,13 @@ team modify bsDisplayMap color yellow
 execute if score dummy bsInGame matches 1.. run team join bsDisplayMap Map
 execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix {"text":": Towns","color":"yellow"}
 
+#resistance warning
+execute if score dummy bsTimeLeft matches 13400 run tellraw @a {"text":"[Warning] Invulnerability period over in 10 seconds!","bold":true,"color":"red"}
+execute if score dummy bsTimeLeft matches 13400 run execute as @a at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.2 1.5
+
+execute if score dummy bsTimeLeft matches 13200 run tellraw @a {"text":"[Warning] Invulnerability period is over!","bold":true,"color":"red"}
+execute if score dummy bsTimeLeft matches 13200 run execute as @a at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.3 1
+
 #zone
 execute if score dummy bsInGame matches 1.. run scoreboard players remove dummy bsTimeLeft 1
 execute if score dummy bsTimeLeft matches 10800 run tellraw @a {"text":"[Warning] The border is shrinking!","bold":true,"color":"red"}
@@ -91,7 +98,7 @@ execute as @a at @s run execute if score @s bsDeathSequence matches 1.. run scor
 
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run execute at @e[type=armor_stand,tag=bsBusSpawn] run tp @s ~ ~-4.5 ~
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s slow_falling 50 0 true
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s resistance 20 3 true
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s resistance 20 2 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:health_boost 10000 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:regeneration 10 5 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.head with minecraft:leather_helmet
@@ -140,7 +147,7 @@ execute if score dummy bsStartTimer matches 900 run tellraw @a {"text":"========
 
 execute if score dummy bsStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"- All players spawn with 3 lives (2 respawns)\n\n- When you lose all 3, you're out!","color":"green"}
+execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"-There is a 60 second invulerability period when the game starts.\n\n- All players spawn with 3 lives (2 respawns)\n\n- When you lose all 3, you're out!","color":"green"}
 execute if score dummy bsStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy bsStartTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
@@ -181,6 +188,7 @@ execute if score dummy bsStartTimer matches 0 run scoreboard players set dummy b
 execute if score dummy bsStartTimer matches 0 run execute as @e[type=armor_stand,tag=bsBusSpawn] at @s run tp @a[team=!spec] ~ ~-4.5 ~
 execute if score dummy bsStartTimer matches 0 run effect give @a[team=!spec] minecraft:weakness 20 10 true
 execute if score dummy bsStartTimer matches 0 run effect give @a[team=!spec] slow_falling 50 0 true
+execute if score dummy bsStartTimer matches 0 run effect give @a[team=!spec] resistance 60 4 true
 
 #no slow falling
 execute if score dummy bsInGame matches 1.. run execute as @a at @s run execute unless block ~ ~-1 ~ air run effect clear @s slow_falling
@@ -205,10 +213,25 @@ execute if score dummy bsEndSequence matches 600 run clear @a
 execute if score dummy bsEndSequence matches 600 run scoreboard players set dummy bsInGame 0
 execute if score dummy bsEndSequence matches 600 run scoreboard players set dummy bsInOvertime 0
 
-execute if score dummy bsEndSequence matches 600 run team modify player1 suffix ""
-execute if score dummy bsEndSequence matches 600 run team modify player2 suffix ""
-execute if score dummy bsEndSequence matches 600 run team modify player3 suffix ""
-execute if score dummy bsEndSequence matches 600 run team modify player4 suffix ""
+execute if score dummy bsEndSequence matches 500 run team modify player1 suffix ""
+execute if score dummy bsEndSequence matches 500 run team modify player2 suffix ""
+execute if score dummy bsEndSequence matches 500 run team modify player3 suffix ""
+execute if score dummy bsEndSequence matches 500 run team modify player4 suffix ""
+
+execute if score dummy bsEndSequence matches 400 run team modify player1 suffix ""
+execute if score dummy bsEndSequence matches 400 run team modify player2 suffix ""
+execute if score dummy bsEndSequence matches 400 run team modify player3 suffix ""
+execute if score dummy bsEndSequence matches 400 run team modify player4 suffix ""
+
+execute if score dummy bsEndSequence matches 300 run team modify player1 suffix ""
+execute if score dummy bsEndSequence matches 300 run team modify player2 suffix ""
+execute if score dummy bsEndSequence matches 300 run team modify player3 suffix ""
+execute if score dummy bsEndSequence matches 300 run team modify player4 suffix ""
+
+execute if score dummy bsEndSequence matches 200 run team modify player1 suffix ""
+execute if score dummy bsEndSequence matches 200 run team modify player2 suffix ""
+execute if score dummy bsEndSequence matches 200 run team modify player3 suffix ""
+execute if score dummy bsEndSequence matches 200 run team modify player4 suffix ""
 
 execute if score dummy bsEndSequence matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy bsEndSequence matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}

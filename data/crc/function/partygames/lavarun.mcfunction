@@ -40,7 +40,7 @@ execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"======
 
 execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy pgPregameTimer matches 400 run tellraw @a ["",{"text":"Scoring for this minigame (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"Each room completed - 2","color":"aqua"}]
+execute if score dummy pgPregameTimer matches 400 run tellraw @a ["",{"text":"Scoring for this minigame (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"Each room completed - 2","color":"aqua"},{"text":"\n"},{"text":"Final room completion bonus - 1","color":"aqua"}]
 execute if score dummy pgPregameTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy pgPregameTimer matches 340 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
@@ -58,7 +58,7 @@ execute if score dummy pgPregameTimer matches 40 run execute as @a at @s run pla
 execute if score dummy pgPregameTimer matches 20 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"1 second.","color":"gold"}]
 execute if score dummy pgPregameTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 execute if score dummy pgPregameTimer matches 1 run tp @a @e[type=armor_stand,limit=1,sort=nearest,tag=lrGameSpawn]
-execute if score dummy pgPregameTimer matches 1 run scoreboard players set dummy lrLavaTimer 8100
+execute if score dummy pgPregameTimer matches 1 run scoreboard players set dummy lrLavaTimer 7777
 execute if score dummy pgPregameTimer matches 0 run tellraw @a {"text":"The game has started!","color":"green"}
 execute if score dummy pgPregameTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy pgPregameTimer matches 0 run scoreboard players set dummy pgLavaRunInGame 1
@@ -225,10 +225,15 @@ execute if score dummy lrEndSequence matches 400 run clear @a
 execute if score dummy lrEndSequence matches 400 run effect give @a resistance 45 4 true
 execute if score dummy lrEndSequence matches 400 run effect give @a regeneration 45 4 true
 
-execute if score dummy lrEndSequence matches 400 run team modify player1 suffix ""
-execute if score dummy lrEndSequence matches 400 run team modify player2 suffix ""
-execute if score dummy lrEndSequence matches 400 run team modify player3 suffix ""
-execute if score dummy lrEndSequence matches 400 run team modify player4 suffix ""
+execute if score dummy lrEndSequence matches 300 run team modify player1 suffix ""
+execute if score dummy lrEndSequence matches 300 run team modify player2 suffix ""
+execute if score dummy lrEndSequence matches 300 run team modify player3 suffix ""
+execute if score dummy lrEndSequence matches 300 run team modify player4 suffix ""
+
+execute if score dummy lrEndSequence matches 200 run team modify player1 suffix ""
+execute if score dummy lrEndSequence matches 200 run team modify player2 suffix ""
+execute if score dummy lrEndSequence matches 200 run team modify player3 suffix ""
+execute if score dummy lrEndSequence matches 200 run team modify player4 suffix ""
 
 execute if score dummy lrEndSequence matches 300 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy lrEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}

@@ -27,7 +27,7 @@ execute if score dummy pgPregameTimer matches 600 run tp @a @e[type=armor_stand,
 
 execute if score dummy pgPregameTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: TNT Run","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Run across layers of blocks as they disappear\n- Blocks disappear very shortly after you step on one, so keep moving!\n- Survive as long as possible, and outlast other players!","color":"green"},{"text":"\n\n "}]
+execute if score dummy pgPregameTimer matches 600 run tellraw @a ["",{"text":"Minigame: TNT Run","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"- Run across layers of blocks as they disappear\n- Blocks disappear very shortly after you step on one, so keep moving!\n- Survive as long as possible, and outlast other players!","color":"green"}]
 execute if score dummy pgPregameTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy pgPregameTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
@@ -54,7 +54,8 @@ execute if score dummy pgPregameTimer matches 1 run tp @a @e[type=armor_stand,li
 execute if score dummy pgPregameTimer matches 0 run tellraw @a {"text":"The game has started!","color":"green"}
 execute if score dummy pgPregameTimer matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute if score dummy pgPregameTimer matches 0 run scoreboard players set dummy pgTNTRunInGame 1
-
+execute if score dummy pgPregameTimer matches 0 run give @a[gamemode=!spectator] feather[custom_name=[{"text":"Levitate (3s)","italic":false,"color":"white"}],lore=[[{"text":"Use to gain levitation for 3s!","italic":false,"color":"gray"}],[{"text":"Wait... why are you reading this?","italic":false,"color":"dark_gray"}]],food={can_always_eat:1b,nutrition:1,saturation:1},consumable={consume_seconds:0.01},unbreakable={},tooltip_display={hidden_components:[unbreakable]}] 3
+execute if score dummy pgPregameTimer matches 0 run spawnpoint @a 250 78 180
 
 #disappear floor
 execute if score dummy trGracePeriod matches 0.. run scoreboard players remove dummy trGracePeriod 1
@@ -71,6 +72,10 @@ execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace light_gray_concrete_powder
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 8.. run fill ~0.299 ~-0.2 ~0.299 ~-0.299 ~2 ~-0.299 air replace gray_concrete_powder
 execute as @e[type=armor_stand,tag=disappearBlock] at @s run execute if score @s trDisappearTimer matches 9.. run kill @s
+
+#levitation
+execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={useFeather=1..}] at @s run effect give @s levitation 3 5 true
+scoreboard players set @a useFeather 0
 
 
 #fall off map
