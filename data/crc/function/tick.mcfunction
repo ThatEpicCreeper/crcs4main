@@ -16,4 +16,7 @@ function crc:chaoticspleef/tick
 #blitz bombs
 function crc:blitzbombs/tick
 
+#cryptic caves
+function crc:crypticcaves/tick
+
 kill @e[type=minecraft:arrow,nbt={inGround:1b}]

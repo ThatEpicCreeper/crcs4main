@@ -39,6 +39,8 @@ scoreboard players reset Cu mainInfo
 scoreboard players reset Pa mainInfo
 scoreboard players reset Round: mainInfo
 scoreboard players reset Ch mainInfo
+scoreboard players reset Pl mainInfo
+scoreboard players reset C mainInfo
 
 gamerule fall_damage false
 gamerule keep_inventory true
