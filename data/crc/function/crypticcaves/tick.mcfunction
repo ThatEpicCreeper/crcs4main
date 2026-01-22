@@ -13,6 +13,12 @@ scoreboard objectives add ccExited dummy
 scoreboard objectives add ccPlaceSeq dummy
 scoreboard objectives add ccPlayersLeft dummy
 scoreboard objectives add ccEndSequence dummy
+scoreboard objectives add ccRandomRoomVal dummy
+scoreboard objectives add ccTotalResource dummy
+scoreboard objectives add ccPercentageResource dummy
+scoreboard objectives add ccDecimalPercentage dummy
+scoreboard objectives add ccHelperPercentage dummy
+scoreboard objectives add ccOnDeath deathCount
 scoreboard objectives add ccPlaceGravel minecraft.used:minecraft.gravel
 scoreboard objectives add ccInCombat minecraft.custom:minecraft.damage_taken
 scoreboard objectives add ccBreakCopper minecraft.mined:minecraft.raw_copper_block
@@ -37,6 +43,11 @@ team join eventScoresDisp Pl
 execute if score dummy ccInGame matches 1.. run team modify eventScoresDisp suffix {"text":"ayer Status:","color":"gold"}
 
 execute if score dummy ccInGame matches 1.. run scoreboard players set Pl mainInfo 9
+
+#on death
+execute if score dummy ccInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if score @s ccOnDeath matches 1.. run tellraw @s {"text":"You died! 50% of your resources were lost to the Cryptic Caves...","bold":true,"color":"red"}
+execute if score dummy ccInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if score @s ccOnDeath matches 1.. run scoreboard players operation @s ccResource /= 2 constant
+execute if score dummy ccInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if score @s ccOnDeath matches 1.. run scoreboard players set @s ccOnDeath 0
 
 #in combat
 scoreboard players add dummy ccRegenTimer 1
@@ -178,9 +189,13 @@ execute if score dummy ccInGame matches 1.. run execute if score dummy ccTimeLef
 execute unless score dummy ccStartTimer matches ..-101 run scoreboard players remove dummy ccStartTimer 1
 
 execute if score dummy ccStartTimer matches 340 run tellraw @a {"text":"Standby as the dungeon generates...","color":"red"}
+execute if score dummy ccStartTimer matches 339 run execute as @e[type=marker,tag=ccRoomSpawn] at @s run fill ~ ~ ~ ~20 ~20 ~20 air
+execute if score dummy ccStartTimer matches 335 run function crc:crypticcaves/randomrooms
 
 execute if score dummy ccStartTimer matches 330 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy ccStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
+
+execute if score dummy ccStartTimer matches 300 run execute as @a[team=!spec] at @s run function crc:crypticcaves/items
 
 execute if score dummy ccStartTimer matches 300 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy ccStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
@@ -208,7 +223,28 @@ execute if score dummy ccEndSequence matches 500 run execute as @a at @s run fun
 execute if score dummy ccEndSequence matches 500 run title @a times 0 100 10
 execute if score dummy ccEndSequence matches 500 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.5 1
 execute if score dummy ccEndSequence matches 500 run gamemode spectator @a
+execute if score dummy ccEndSequence matches 500 run execute as @a[scores={ccExited=0},team=!spec] at @s run scoreboard players operation @s ccResource /= 4 constant
 execute if score dummy ccEndSequence matches 500 run tellraw @a[scores={ccExited=0},team=!spec] ["",{"text":"You were locked in the dungeon and lost 75% of your resources!","bold":true,"color":"red"},{"text":"\n","bold":true},{"text":"Don\'t be so greedy next time...","bold":true,"color":"dark_red"}]
+
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=player1] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=player2] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=player3] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=player4] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
+
+execute if score dummy ccEndSequence matches 498 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResource *= 120 constant
+execute if score dummy ccEndSequence matches 497 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResource /= dummy ccTotalResource
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s thisGameScore = @s ccResource
+
+execute if score dummy ccEndSequence matches 498 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage = @s ccResource
+execute if score dummy ccEndSequence matches 497 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage *= 100 constant
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccPercentageResource = dummy ccDecimalPercentage
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccPercentageResource /= dummy ccTotalResource
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage *= 100 constant
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccHelperPercentage = @s ccPercentageResource
+execute if score dummy ccEndSequence matches 495 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccHelperPercentage *= 100 constant
+execute if score dummy ccEndSequence matches 495 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage -= @s ccHelperPercentage
+
+execute if score dummy ccEndSequence matches 494 run execute as @a[team=!spec] at @s run tellraw @s ["",{"text":"+","color":"green"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"green"},{"text":" (","color":"aqua"},{"score":{"name":"@s","objective":"ccPercentageResource"},"color":"aqua"},{"text":".","color":"aqua"},{"score":{"name":"@s","objective":"ccDecimalPercentage"},"color":"aqua"},{"text":"%of total resources)","color":"aqua"}]
 
 execute if score dummy ccEndSequence matches 400 run team modify player1 suffix ""
 execute if score dummy ccEndSequence matches 400 run team modify player2 suffix ""

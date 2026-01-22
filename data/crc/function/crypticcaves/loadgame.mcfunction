@@ -8,6 +8,7 @@ tp @a @e[type=marker,limit=1,sort=random,tag=ccSpawnPos]
 gamerule fall_damage true
 gamerule keep_inventory true
 gamerule natural_health_regeneration false
+gamerule pvp false
 effect give @a resistance 50 4 true
 effect give @a instant_health 1 5 true
 effect give @a saturation 10000 4 true
@@ -40,6 +41,7 @@ scoreboard players set dummy ccGraceTimerSec 45
 scoreboard players set dummy ccTimeLeft 4800
 scoreboard players set dummy ccInGame 0
 scoreboard players set dummy ccGravelQueue 0
+scoreboard players set dummy ccTotalResource 0
 scoreboard players operation dummy ccPlayersLeft = dummy totalPlayers
 
 scoreboard players set @a ccResource 0

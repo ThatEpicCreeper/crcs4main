@@ -1,0 +1,34 @@
+#spawnpoint 
+
+- spawn at the *marker* with tag 'ccSpawnPos'
+- spawn platform 3x3 with center as *marker* with tag 'ccSpawnPlatform'
+
+
+#gravel placing spots
+
+- marked using *markers* with tag 'ccGravelPlacer'
+
+
+#gravel timer
+
+- place *markers* at the base of a timer, and another block lower, with tag 'ccGravelTimer'
+
+
+#respawn point
+
+- players respawn at the *marker* of tag 'ccRespawnPoint'
+
+
+#exit
+
+- players exit at the *markers* with tag 'ccExit'
+
+
+#rooms
+
+- rooms are randomised with *markers* placed at the north-west bottom corner (21x21x21 pastes south-west) with tag 'ccRoomSpawn'
+
+
+#building rooms
+
+- rooms are marked with structure blocks, save with 'roomN'

@@ -2,7 +2,7 @@
 #scoreboard vars
 scoreboard objectives add mainInfo dummy
 scoreboard objectives setdisplay sidebar mainInfo
-scoreboard objectives modify mainInfo displayname {"text": " Creeper Championship S4 - 1 ","bold":true,"color":"yellow"}
+scoreboard objectives modify mainInfo displayname {"text": " Creeper Championship S4 - 2 ","bold":true,"color":"yellow"}
 scoreboard players set  mainInfo 15
 scoreboard players set - mainInfo 10
 
@@ -32,6 +32,8 @@ scoreboard players set 9 constant 9
 scoreboard players set 10 constant 10
 scoreboard players set 11 constant 11
 scoreboard players set 12 constant 12
+scoreboard players set 100 constant 100
+scoreboard players set 120 constant 120
 scoreboard players set 1000 constant 1000
 
 #lobby

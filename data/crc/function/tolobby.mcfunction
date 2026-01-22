@@ -48,6 +48,7 @@ gamerule block_drops false
 gamerule natural_health_regeneration true
 gamerule mob_drops true
 gamerule mob_griefing false
+gamerule pvp true
 worldborder set 999999
 scoreboard objectives setdisplay below_name
 
