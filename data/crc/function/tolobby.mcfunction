@@ -57,4 +57,5 @@ execute as @a at @s run function hybridracersost:stop
 execute as @a at @s run function buildoffshowdowniiost:stop
 execute as @a at @s run function bs_dm_ost:stop
 execute as @a at @s run function chaotic_spleef_ost:stop
+execute as @a at @s run function cryptcavesost:stop
 

@@ -18,6 +18,7 @@ scoreboard objectives add ccTotalResource dummy
 scoreboard objectives add ccPercentageResource dummy
 scoreboard objectives add ccDecimalPercentage dummy
 scoreboard objectives add ccHelperPercentage dummy
+scoreboard objectives add ccResourceCollected dummy
 scoreboard objectives add ccOnDeath deathCount
 scoreboard objectives add ccPlaceGravel minecraft.used:minecraft.gravel
 scoreboard objectives add ccInCombat minecraft.custom:minecraft.damage_taken
@@ -26,6 +27,9 @@ scoreboard objectives add ccBreakIron minecraft.mined:minecraft.raw_iron_block
 scoreboard objectives add ccBreakGold minecraft.mined:minecraft.raw_gold_block
 scoreboard objectives add ccBreakSpawner minecraft.mined:minecraft.spawner
 scoreboard objectives add ccBreakGravel minecraft.mined:minecraft.gravel
+
+execute if score dummy ccInGame matches 1.. run effect give @a saturation 5 1 true
+execute if score dummy ccInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:gravel"}}]
 
 #display game
 team add ccDisplay
@@ -74,17 +78,17 @@ execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectato
 execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGold matches 1.. run playsound minecraft:block.note_block.harp master @s ~ ~ ~ 0.9 2
 execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGold matches 1.. run scoreboard players set @s ccBreakGold 0
 
-execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGravel matches 1.. run give @s gravel[custom_name=[{"text":"Gravel","italic":false,"color":"dark_gray"}],lore=[[{"text":"Place in the timer to add 20 seconds!","italic":false,"color":"gray"}]]]
-execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGravel matches 1.. run scoreboard players set @s ccBreakGold 0
+execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGravel matches 1.. run give @s gravel[custom_name=[{"text":"Gravel","italic":false,"color":"dark_gray"}],lore=[[{"text":"Place in the timer to add 20 seconds!","italic":false,"color":"gray"}]],can_place_on=[{blocks:cyan_wool}],max_stack_size=99,tooltip_display={hidden_components:[can_break,can_place_on,unbreakable]}]
+execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectator] at @s run execute if score @s ccBreakGravel matches 1.. run scoreboard players set @s ccBreakGravel 0
 
 #display resource
 execute as @a at @s run execute if score @s ccPlaceSeq matches 0.. run scoreboard players remove @s ccPlaceSeq 1
-execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=..0}] at @s run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResources"},"bold":true,"color":"yellow"}]
-execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=1..}] at @s run execute unless score dummy ccTimeLeft matches 4400.. run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResources"},"bold":true,"color":"yellow"},{"text":" (Gravel was added to Timer)","bold":true,"color":"light_purple"}]
-execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=1..}] at @s run execute if score dummy ccTimeLeft matches 4400.. run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResources"},"bold":true,"color":"yellow"},{"text":" (The Timer is Full!)","bold":true,"color":"light_purple"}]
+execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=..0}] at @s run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResource"},"bold":true,"color":"yellow"}]
+execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=1..}] at @s run execute unless score dummy ccTimeLeft matches 4400.. run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResource"},"bold":true,"color":"yellow"},{"text":" (Gravel was added to Timer)","bold":true,"color":"light_purple"}]
+execute if score dummy ccInGame matches 1.. run execute as @a[scores={ccPlaceSeq=1..}] at @s run execute if score dummy ccTimeLeft matches 4400.. run title @s actionbar ["",{"text":"Resources Collected: ","bold":true,"color":"gold"},{"score":{"name":"@s","objective":"ccResource"},"bold":true,"color":"yellow"},{"text":" (The Timer is Full!)","bold":true,"color":"light_purple"}]
 
 execute as @a at @s run execute if score @s ccPlaceGravel matches 1.. run scoreboard players set @s ccPlaceSeq 20
-execute as @a at @s run execute if score @s ccPlaceGravel matches 1.. run execute if score dummy ccTimeLeft matches 4400.. run give @s gravel[custom_name=[{"text":"Gravel","italic":false,"color":"dark_gray"}],lore=[[{"text":"Place in the timer to add 20 seconds!","italic":false,"color":"gray"}]]]
+execute as @a at @s run execute if score @s ccPlaceGravel matches 1.. run execute if score dummy ccTimeLeft matches 4400.. run give @s gravel[custom_name=[{"text":"Gravel","italic":false,"color":"dark_gray"}],lore=[[{"text":"Place in the timer to add 20 seconds!","italic":false,"color":"gray"}]],can_place_on=[{blocks:cyan_wool}],max_stack_size=99,tooltip_display={hidden_components:[can_break,can_place_on,unbreakable]}]
 execute as @a at @s run execute if score @s ccPlaceGravel matches 1.. run scoreboard players set @s ccPlaceGravel 0
 
 #grace timer
@@ -183,10 +187,37 @@ execute if score dummy ccInGame matches 1.. run execute as @a[gamemode=!spectato
 
 #end game
 execute if score dummy ccInGame matches 1.. run execute if score dummy ccPlayersLeft matches ..0 run scoreboard players set dummy ccEndSequence 501
+execute if score dummy ccInGame matches 1.. run execute if score dummy ccPlayersLeft matches ..0 run scoreboard players set dummy ccInGame 0
 execute if score dummy ccInGame matches 1.. run execute if score dummy ccTimeLeft matches ..0 run scoreboard players set dummy ccEndSequence 501
+execute if score dummy ccInGame matches 1.. run execute if score dummy ccTimeLeft matches ..0 run scoreboard players set dummy ccInGame 0
 
 #start timer
 execute unless score dummy ccStartTimer matches ..-101 run scoreboard players remove dummy ccStartTimer 1
+
+execute if score dummy ccStartTimer matches 900 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy ccStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy ccStartTimer matches 900 run tellraw @a ["",{"text":"Welcome to Cryptic Caves!","bold":true,"color":"gray"},{"text":"\n\n"},{"text":"- In this game, the objective is to collect as many resources as possible, and escape the dungeon!","color":"green"}]
+execute if score dummy ccStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy ccStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy ccStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy ccStartTimer matches 800 run tellraw @a {"text":"- Use your items to fight your way through monsters in the randomly generated dungeon...\n\n- Grab your pickaxe and break the valuable ores, and those pesky spawners!","color":"green"}
+execute if score dummy ccStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy ccStartTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy ccStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy ccStartTimer matches 700 run tellraw @a ["",{"text":"- Try your best not to die!\n\n- The ","color":"green"},{"text":"Cryptic Caves","color":"gray"},{"text":" will remove resources for those it deems unworthy...","color":"green"},{"text":"\n"},{"text":"(50% of resources are lost on death)","color":"red"}]
+execute if score dummy ccStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy ccStartTimer matches 630 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy ccStartTimer matches 630 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy ccStartTimer matches 630 run tellraw @a ["",{"text":"- Your time in the ","color":"green"},{"text":"Cryptic Caves ","color":"gray"},{"text":"is limited!\n\n- This is denoted by a gravel timer in the center.\n\n- If it runs out, all players who have not exited the dungeon will incur a significant penalty!","color":"green"},{"text":"\n"},{"text":"(-75% of resources)","color":"red"},{"text":"\n\n"},{"text":"- Gravel can be found around the map to be placed in the timer (or not...), each one adds 20 seconds, up to 4 minutes!","color":"green"}]
+execute if score dummy ccStartTimer matches 630 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy ccStartTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy ccStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy ccStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Mining Copper = +1 Resource","color":"red"},{"text":"\n"},{"text":"- Mining Iron = +3 Resource","color":"gray"},{"text":"\n"},{"text":"- Mining Gold = +5 Resource","color":"yellow"},{"text":"\n"},{"text":"- Mining a Spawner = +2 Resource","color":"dark_gray"},{"text":"\n\n"},{"text":"- 110 points are awarded in total.\n- At the end, players will earn a percentage of this total as points, based on one\'s resources collected, versus the total number of resources collected among all players.","color":"aqua"}]
+execute if score dummy ccStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy ccStartTimer matches 340 run tellraw @a {"text":"Standby as the dungeon generates...","color":"red"}
 execute if score dummy ccStartTimer matches 339 run execute as @e[type=marker,tag=ccRoomSpawn] at @s run fill ~ ~ ~ ~20 ~20 ~20 air
@@ -200,6 +231,7 @@ execute if score dummy ccStartTimer matches 300 run execute as @a[team=!spec] at
 execute if score dummy ccStartTimer matches 300 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"15 seconds.","color":"gold"}]
 execute if score dummy ccStartTimer matches 300 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 0.5
 execute if score dummy ccStartTimer matches 200 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"10 seconds.","color":"gold"}]
+execute if score dummy ccStartTimer matches 124 run execute as @a at @s run function cryptcavesost:play
 execute if score dummy ccStartTimer matches 100 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"5 seconds.","color":"gold"}]
 execute if score dummy ccStartTimer matches 80 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"4 seconds.","color":"gold"}]
 execute if score dummy ccStartTimer matches 60 run tellraw @a ["",{"text":"The game will begin in ","color":"aqua"},{"text":"3 seconds.","color":"gold"}]
@@ -213,13 +245,14 @@ execute if score dummy ccStartTimer matches 0 run execute as @a at @s run playso
 execute if score dummy ccStartTimer matches 0 run scoreboard players set dummy ccInGame 1
 execute if score dummy ccStartTimer matches 0 run scoreboard players set dummy tickTimer 11
 execute if score dummy ccStartTimer matches 0 run execute as @e[type=marker,tag=ccSpawnPlatform] at @s run fill ~1 ~ ~1 ~-1 ~ ~-1 air
+execute if score dummy ccStartTimer matches 0 run execute as @e[type=marker,tag=ccGravelTimer] at @s run fill ~ ~ ~ ~ ~12 ~ gravel
 
 #end seq
 execute unless score dummy ccEndSequence matches ..-5 run scoreboard players remove dummy ccEndSequence 1
 execute if score dummy ccEndSequence matches 501 run scoreboard players set dummy ccInGame 0
 
 execute if score dummy ccEndSequence matches 500 run title @a title {"text":"The Game has Ended!","bold":true,"color":"green"}
-execute if score dummy ccEndSequence matches 500 run execute as @a at @s run function hybridracersost:stop
+execute if score dummy ccEndSequence matches 500 run execute as @a at @s run function cryptcavesost:stop
 execute if score dummy ccEndSequence matches 500 run title @a times 0 100 10
 execute if score dummy ccEndSequence matches 500 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.5 1
 execute if score dummy ccEndSequence matches 500 run gamemode spectator @a
@@ -231,20 +264,26 @@ execute if score dummy ccEndSequence matches 499 run execute as @a[team=player2]
 execute if score dummy ccEndSequence matches 499 run execute as @a[team=player3] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
 execute if score dummy ccEndSequence matches 499 run execute as @a[team=player4] at @s run scoreboard players operation dummy ccTotalResource += @s ccResource
 
-execute if score dummy ccEndSequence matches 498 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResource *= 120 constant
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResourceCollected = @s ccResource
+
+execute if score dummy ccEndSequence matches 499 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage = @s ccResource
+
+execute if score dummy ccEndSequence matches 498 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResource *= 110 constant
 execute if score dummy ccEndSequence matches 497 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccResource /= dummy ccTotalResource
 execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s thisGameScore = @s ccResource
 
-execute if score dummy ccEndSequence matches 498 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage = @s ccResource
+
 execute if score dummy ccEndSequence matches 497 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage *= 100 constant
-execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccPercentageResource = dummy ccDecimalPercentage
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccPercentageResource = @s ccDecimalPercentage
 execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccPercentageResource /= dummy ccTotalResource
+execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage /= dummy ccTotalResource
 execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage *= 100 constant
 execute if score dummy ccEndSequence matches 496 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccHelperPercentage = @s ccPercentageResource
 execute if score dummy ccEndSequence matches 495 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccHelperPercentage *= 100 constant
 execute if score dummy ccEndSequence matches 495 run execute as @a[team=!spec] at @s run scoreboard players operation @s ccDecimalPercentage -= @s ccHelperPercentage
 
-execute if score dummy ccEndSequence matches 494 run execute as @a[team=!spec] at @s run tellraw @s ["",{"text":"+","color":"green"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"green"},{"text":" (","color":"aqua"},{"score":{"name":"@s","objective":"ccPercentageResource"},"color":"aqua"},{"text":".","color":"aqua"},{"score":{"name":"@s","objective":"ccDecimalPercentage"},"color":"aqua"},{"text":"%of total resources)","color":"aqua"}]
+execute if score dummy ccEndSequence matches 494 run execute as @a[team=!spec] at @s run tellraw @s ["",{"text":"+","color":"green"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"green"},{"text":" Score","color":"green"},{"text":" (","color":"aqua"},{"score":{"name":"@s","objective":"ccPercentageResource"},"color":"aqua"},{"text":"% of total resources)","color":"aqua"}]
+#execute if score dummy ccEndSequence matches 494 run execute as @a[team=!spec] at @s run tellraw @s ["",{"text":"+","color":"green"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"green"},{"text":" Score","color":"green"},{"text":" (","color":"aqua"},{"score":{"name":"@s","objective":"ccPercentageResource"},"color":"aqua"},{"text":".","color":"aqua"},{"score":{"name":"@s","objective":"ccDecimalPercentage"},"color":"aqua"},{"text":"% of total resources)","color":"aqua"}]
 
 execute if score dummy ccEndSequence matches 400 run team modify player1 suffix ""
 execute if score dummy ccEndSequence matches 400 run team modify player2 suffix ""
@@ -264,7 +303,7 @@ execute if score dummy ccEndSequence matches 400 run tellraw @a {"text":"=======
 
 execute if score dummy ccEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 execute if score dummy ccEndSequence matches 300 run tellraw @a {"text":"Resources Collected:","bold":true,"color":"gold"}
-execute if score dummy ccEndSequence matches 300 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"yellow"},{"text":" - ","color":"yellow"},{"score":{"name":"@s","objective":"ccResource"},"color":"yellow"}]
+execute if score dummy ccEndSequence matches 300 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"yellow"},{"text":" - ","color":"yellow"},{"score":{"name":"@s","objective":"ccResourceCollected"},"color":"yellow"}]
 execute if score dummy ccEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy ccEndSequence matches 200 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1

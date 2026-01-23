@@ -33,6 +33,7 @@ scoreboard players set 10 constant 10
 scoreboard players set 11 constant 11
 scoreboard players set 12 constant 12
 scoreboard players set 100 constant 100
+scoreboard players set 110 constant 110
 scoreboard players set 120 constant 120
 scoreboard players set 1000 constant 1000
 

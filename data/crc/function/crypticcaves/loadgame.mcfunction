@@ -8,6 +8,8 @@ tp @a @e[type=marker,limit=1,sort=random,tag=ccSpawnPos]
 gamerule fall_damage true
 gamerule keep_inventory true
 gamerule natural_health_regeneration false
+gamerule block_drops false
+gamerule mob_drops false
 gamerule pvp false
 effect give @a resistance 50 4 true
 effect give @a instant_health 1 5 true
@@ -50,3 +52,5 @@ scoreboard players set @a ccExited 0
 scoreboard players set @a ccPlaceSeq 0
 scoreboard players set @a ccPlaceGravel 0
 execute as @e[type=marker,tag=ccRespawnPoint,limit=1,sort=nearest] at @s run spawnpoint @a ~ ~ ~
+
+execute as @e[type=marker,tag=ccSpawnPlatform] at @s run fill ~1 ~ ~1 ~-1 ~ ~-1 gray_stained_glass
