@@ -12,6 +12,8 @@ scoreboard objectives add hrElytraCDA dummy
 scoreboard objectives add hrTridentCD dummy
 scoreboard objectives add hrTridentCDA dummy
 
+scoreboard objectives add hrInBoat dummy
+
 scoreboard objectives add hrBoatCD dummy
 
 
@@ -96,6 +98,10 @@ execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,x=-187,y=46,z=162,dz=80,dx=114,dy=34] at @s run execute unless entity @e[type=minecraft:oak_chest_boat,distance=..5] run execute unless items entity @s container.* oak_chest_boat run execute if entity @s run item replace entity @s container.0 with oak_chest_boat
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,scores={hrBoatCD=1}] at @s run title @s subtitle ""
 execute if score dummy hrInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:oak_chest_boat"}}]
+
+execute if score dummy hrInGame matches 1.. run scoreboard players set @a hrInBoat 0
+execute if score dummy hrInGame matches 1.. run execute as @a at @s on vehicle if entity @s[type=minecraft:oak_chest_boat] at @s run scoreboard players set @p hrInBoat 1
+execute if score dummy hrInGame matches 1.. run execute as @e[type=minecraft:oak_chest_boat] at @s unless entity @p[distance=..5,team=!spec] unless data entity @s Passengers[0] run kill @s
 
 execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec] at @s run execute unless items entity @s container.0 trident run execute unless items entity @s container.0 oak_chest_boat run item replace entity @s container.0 with gray_stained_glass_pane[custom_name=[{"text":"Reserved Item Slot","italic":false,"color":"dark_gray"}],lore=[[{"text":"Currently no item... please do not move this item!","italic":false,"color":"gray"}],[{"text":"It will be replaced with an item when necessary.","italic":false,"color":"gray"}]]]
 
