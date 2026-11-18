@@ -15,6 +15,8 @@ scoreboard objectives add oitcProtectedTimer dummy
 #saturation
 execute if score dummy pgOITCInGame matches 1.. run effect give @a saturation 10 0 true
 
+# no drop item in game
+execute if score dummy pgOITCInGame matches 1.. run function drops:nodrop
 
 #arrow check
 execute as @a at @s run execute store result score @s oitcArrowCount run clear @s minecraft:arrow 0
