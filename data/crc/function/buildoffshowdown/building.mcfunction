@@ -35,6 +35,19 @@ execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=45..134}] at @s
 execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=135..180}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace air
 execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-180..-135}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace air
 execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-134..-46}] at @s run fill ~1.1 ~ ~-2 ~1.1 ~3 ~2 bricks replace air
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-45..44}] at @s run fill ~2 ~ ~1.1 ~-2 ~3 ~1.1 bricks replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=45..134}] at @s run fill ~-1.1 ~ ~2 ~-1.1 ~3 ~-2 bricks replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=135..180}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-180..-135}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-134..-46}] at @s run fill ~1.1 ~ ~-2 ~1.1 ~3 ~2 bricks replace water
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-45..44}] at @s run fill ~2 ~ ~1.1 ~-2 ~3 ~1.1 bricks replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=45..134}] at @s run fill ~-1.1 ~ ~2 ~-1.1 ~3 ~-2 bricks replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=135..180}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-180..-135}] at @s run fill ~-2 ~ ~-1.1 ~2 ~3 ~-1.1 bricks replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..,playerYaw=-134..-46}] at @s run fill ~1.1 ~ ~-2 ~1.1 ~3 ~2 bricks replace lava
+
 execute as @a[scores={bsBuildsLeft=..0,bsBuildWall=1..}] at @s run tellraw @s {"text":"You have no builds remaining!","color":"red"}
 execute as @a[scores={bsBuildsLeft=..0,bsBuildWall=1..}] at @s run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 0.8 0.5
 execute as @a[scores={bsBuildsLeft=1..,bsBuildWall=1..}] at @s run scoreboard players add @s bsBuildsPlaced 1
@@ -44,6 +57,13 @@ scoreboard players set @a bsBuildWall 0
 #building floor/roof
 execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=-90..-1}] at @s run fill ~1 ~3 ~1 ~-1 ~3 ~-1 bricks replace air
 execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=0..90}] at @s run fill ~1 ~-1 ~1 ~-1 ~-1 ~-1 bricks replace air
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=-90..-1}] at @s run fill ~1 ~3 ~1 ~-1 ~3 ~-1 bricks replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=0..90}] at @s run fill ~1 ~-1 ~1 ~-1 ~-1 ~-1 bricks replace water
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=-90..-1}] at @s run fill ~1 ~3 ~1 ~-1 ~3 ~-1 bricks replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..,playerPitch=0..90}] at @s run fill ~1 ~-1 ~1 ~-1 ~-1 ~-1 bricks replace lava
+
 execute as @a[scores={bsBuildsLeft=..0,bsBuildFloorRoof=1..}] at @s run tellraw @s {"text":"You have no builds remaining!","color":"red"}
 execute as @a[scores={bsBuildsLeft=..0,bsBuildFloorRoof=1..}] at @s run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 0.8 0.5
 execute as @a[scores={bsBuildsLeft=1..,bsBuildFloorRoof=1..}] at @s run scoreboard players add @s bsBuildsPlaced 1
@@ -66,6 +86,39 @@ execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] 
 execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~1 ~ ~-1 ~1 ~ ~1 brick_stairs[facing=east] replace air
 execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~2 ~1 ~-1 ~2 ~1 ~1 brick_stairs[facing=east] replace air
 execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~3 ~2 ~-1 ~3 ~2 ~1 brick_stairs[facing=east] replace air
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~ ~1 ~-1 ~ ~1 brick_stairs[facing=south] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~1 ~2 ~-1 ~1 ~2 brick_stairs[facing=south] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~2 ~3 ~-1 ~2 ~3 brick_stairs[facing=south] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-1 ~ ~1 ~-1 ~ ~-1 brick_stairs[facing=west] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-2 ~1 ~1 ~-2 ~1 ~-1 brick_stairs[facing=west] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-3 ~2 ~1 ~-3 ~2 ~-1 brick_stairs[facing=west] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~ ~-1 ~1 ~ ~-1 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~1 ~-2 ~1 ~1 ~-2 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~2 ~-3 ~1 ~2 ~-3 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~ ~-1 ~1 ~ ~-1 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~1 ~-2 ~1 ~1 ~-2 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~2 ~-3 ~1 ~2 ~-3 brick_stairs[facing=north] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~1 ~ ~-1 ~1 ~ ~1 brick_stairs[facing=east] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~2 ~1 ~-1 ~2 ~1 ~1 brick_stairs[facing=east] replace water
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~3 ~2 ~-1 ~3 ~2 ~1 brick_stairs[facing=east] replace water
+
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~ ~1 ~-1 ~ ~1 brick_stairs[facing=south] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~1 ~2 ~-1 ~1 ~2 brick_stairs[facing=south] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-45..44}] at @s run fill ~1 ~2 ~3 ~-1 ~2 ~3 brick_stairs[facing=south] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-1 ~ ~1 ~-1 ~ ~-1 brick_stairs[facing=west] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-2 ~1 ~1 ~-2 ~1 ~-1 brick_stairs[facing=west] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=45..134}] at @s run fill ~-3 ~2 ~1 ~-3 ~2 ~-1 brick_stairs[facing=west] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~ ~-1 ~1 ~ ~-1 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~1 ~-2 ~1 ~1 ~-2 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=135..180}] at @s run fill ~-1 ~2 ~-3 ~1 ~2 ~-3 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~ ~-1 ~1 ~ ~-1 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~1 ~-2 ~1 ~1 ~-2 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-180..-135}] at @s run fill ~-1 ~2 ~-3 ~1 ~2 ~-3 brick_stairs[facing=north] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~1 ~ ~-1 ~1 ~ ~1 brick_stairs[facing=east] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~2 ~1 ~-1 ~2 ~1 ~1 brick_stairs[facing=east] replace lava
+execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..,playerYaw=-134..-46}] at @s run fill ~3 ~2 ~-1 ~3 ~2 ~1 brick_stairs[facing=east] replace lava
+
 execute as @a[scores={bsBuildsLeft=..0,bsBuildStairs=1..}] at @s run tellraw @s {"text":"You have no builds remaining!","color":"red"}
 execute as @a[scores={bsBuildsLeft=..0,bsBuildStairs=1..}] at @s run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 0.8 0.5
 execute as @a[scores={bsBuildsLeft=1..,bsBuildStairs=1..}] at @s run scoreboard players add @s bsBuildsPlaced 1
