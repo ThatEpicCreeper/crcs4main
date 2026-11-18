@@ -51,6 +51,7 @@ scoreboard players set @a ccExitSeq -10
 scoreboard players set @a ccExited 0
 scoreboard players set @a ccPlaceSeq 0
 scoreboard players set @a ccPlaceGravel 0
+scoreboard players set @a ccInCombat 0
 execute as @e[type=marker,tag=ccRespawnPoint,limit=1,sort=nearest] at @s run spawnpoint @a ~ ~ ~
 
 execute as @e[type=marker,tag=ccSpawnPlatform] at @s run fill ~1 ~ ~1 ~-1 ~ ~-1 gray_stained_glass

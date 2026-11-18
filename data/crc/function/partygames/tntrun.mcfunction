@@ -91,7 +91,7 @@ execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,g
 
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run scoreboard players remove dummy trAlivePlayers 1
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.22 2
-execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run tellraw @s ["",{"selector":"@s","bold":true,"color":"dark_red"},{"text":" fell off the map!","bold":true,"color":"red"}]
+execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"dark_red"},{"text":" fell off the map!","bold":true,"color":"red"}]
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=adventure,scores={trYLevel=..-60}] at @s run gamemode spectator @s
 execute if score dummy pgTNTRunInGame matches 1.. run execute as @a[team=!spec,gamemode=spectator,scores={trYLevel=..-60}] at @s run tp @s @r[team=!spec]
 

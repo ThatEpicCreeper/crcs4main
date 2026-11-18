@@ -132,19 +132,19 @@ execute if score dummy lrLavaTimer matches 1100 run execute as @a at @s run play
 execute if score dummy lrLavaTimer matches 1100 run tellraw @a {"text":"Room #8 is beginning to flood!","color":"red"}
 execute if score dummy lrLavaTimer matches 1100 run scoreboard players set @e[type=marker,tag=room8] lrRiseTimer 300
 
+execute if score dummy lrLavaTimer matches 730 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 720 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 710 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
+execute if score dummy lrLavaTimer matches 700 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
+execute if score dummy lrLavaTimer matches 700 run tellraw @a {"text":"Room #9 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 700 run scoreboard players set @e[type=marker,tag=room9] lrRiseTimer 300
+
 execute if score dummy lrLavaTimer matches 430 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 420 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 410 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
 execute if score dummy lrLavaTimer matches 400 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 400 run tellraw @a {"text":"Room #9 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 400 run scoreboard players set @e[type=marker,tag=room9] lrRiseTimer 300
-
-execute if score dummy lrLavaTimer matches 30 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 20 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 10 run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.5 2
-execute if score dummy lrLavaTimer matches 1 run execute as @a at @s run playsound minecraft:block.lava.extinguish master @s ~ ~ ~ 0.3 0.6
-execute if score dummy lrLavaTimer matches 1 run tellraw @a {"text":"Room #10 is beginning to flood!","color":"red"}
-execute if score dummy lrLavaTimer matches 1 run scoreboard players set @e[type=marker,tag=room10] lrRiseTimer 300
+execute if score dummy lrLavaTimer matches 400 run tellraw @a {"text":"Room #10 is beginning to flood!","color":"red"}
+execute if score dummy lrLavaTimer matches 400 run scoreboard players set @e[type=marker,tag=room10] lrRiseTimer 300
 
 
 #score give
@@ -207,7 +207,7 @@ execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run exec
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.4 1
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run tellraw @a ["",{"selector":"@s","bold":true,"color":"gold"},{"text":" escaped the flooding rooms!","bold":true,"color":"gold"}]
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players add @s lrCompletedRooms 1
-execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players remove @s lrAlivePlayers 1
+execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players remove dummy lrAlivePlayers 1
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run gamemode spectator @s
 execute as @a[team=!spec,scores={lrInRoom=10},gamemode=adventure] at @s run execute if entity @e[type=marker,tag=exit10,distance=..0.6] run scoreboard players set @s lrInRoom 11
 

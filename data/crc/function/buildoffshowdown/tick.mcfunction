@@ -33,7 +33,7 @@ team modify bsDisplay suffix {"text":"uildoff Showdown II","color":"gold"}
 team add bsDisplayMap
 team modify bsDisplayMap color yellow
 execute if score dummy bsInGame matches 1.. run team join bsDisplayMap Map
-execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix {"text":": Towns","color":"yellow"}
+execute if score dummy bsInGame matches 1.. run team modify bsDisplayMap suffix {"text":": Speedrun Showdown","color":"yellow"}
 
 #resistance warning
 execute if score dummy bsTimeLeft matches 13400 run tellraw @a {"text":"[Warning] Invulnerability period over in 10 seconds!","bold":true,"color":"red"}
@@ -102,8 +102,8 @@ execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSeq
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:health_boost 10000 4 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run effect give @s minecraft:regeneration 10 5 true
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.head with minecraft:leather_helmet
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.chest with minecraft:leather_chestplate
-execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.legs with minecraft:leather_leggings
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.chest with minecraft:copper_chestplate
+execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.legs with minecraft:copper_leggings
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run item replace entity @s armor.feet with minecraft:leather_boots
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run give @s wooden_sword 1
 execute if score dummy bsInGame matches 1.. run execute as @a[scores={bsDeathSequence=1}] at @s run scoreboard players add @s bsBuildsLeft 10

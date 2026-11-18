@@ -52,6 +52,18 @@ scoreboard objectives add hrL7Minutes dummy
 scoreboard objectives add hrL7Seconds dummy
 scoreboard objectives add hrL7Miliseconds dummy
 
+#race position
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if entity @e[type=marker,tag=racePos,limit=1,sort=nearest] run execute store result score @s hrRacePos run scoreboard players get @e[type=marker,tag=racePos,limit=1,sort=nearest] hrRacePos
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=2..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=3..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=4..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=5..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=6..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=7..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
+
+#find position
+execute if score dummy tickTimer matches 11 run function crc:hybridracers/findpos
+
 #display game
 team add hrDisplay
 team modify hrDisplay color gold
@@ -89,19 +101,6 @@ function crc:hybridracers/mechanics
 function crc:hybridracers/items
 execute unless score dummy hrInGame matches 1.. run kill @e[type=item,nbt={Item:{id:"minecraft:yellow_dye"}}]
 execute if score dummy hrInGame matches 1.. run effect give @a minecraft:water_breathing 10 4 true
-
-
-#race position
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator] at @s run execute if entity @e[type=marker,tag=racePos,limit=1,sort=nearest] run execute store result score @s hrRacePos run scoreboard players get @e[type=marker,tag=racePos,limit=1,sort=nearest] hrRacePos
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=2..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=3..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=4..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=5..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=6..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-execute if score dummy hrInGame matches 1.. run execute as @a[team=!spec,gamemode=!spectator,scores={lap=7..}] at @s run scoreboard players operation @s hrRacePos += 1000 constant
-
-#find position
-execute if score dummy tickTimer matches 11 run function crc:hybridracers/findpos
 
 #start timer
 execute unless score dummy hrStartTimer matches ..-101 run scoreboard players remove dummy hrStartTimer 1

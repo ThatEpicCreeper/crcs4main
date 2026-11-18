@@ -30,7 +30,7 @@ team modify csDisplay suffix {"text":"aotic Spleef","color":"gold"}
 team add csDisplayMap
 team modify csDisplayMap color yellow
 execute if score dummy csInRound matches 1.. run team join csDisplayMap Map:
-execute if score dummy csInRound matches 1.. run team modify csDisplayMap suffix {"text":" Isolated Island","color":"yellow"}
+execute if score dummy csInRound matches 1.. run team modify csDisplayMap suffix {"text":" Downtown","color":"yellow"}
 
 #remove score
 execute if score dummy tickTimer matches 11 run execute if score dummy csTNTTimer matches 1.. run scoreboard players remove dummy csTNTTimer 1 
@@ -52,6 +52,7 @@ execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemo
 execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemode=adventure] at @s run execute if block ~ ~-0.25 ~ obsidian run tellraw @a ["",{"selector":"@s","bold":true,"color":"red"},{"text":" fell off!","color":"red"}]
 execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemode=adventure] at @s run execute if block ~ ~-0.25 ~ obsidian run scoreboard players add @a[team=!spec,distance=0.1..,gamemode=adventure] thisGameScore 2
 execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemode=adventure] at @s run execute if block ~ ~-0.25 ~ obsidian run tellraw @a[team=!spec,distance=0.1..,gamemode=adventure] ["",{"text":"+2 Score ","color":"green"},{"text":"(Survival)","color":"aqua"}]
+execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemode=adventure] at @s run execute if block ~ ~-0.25 ~ obsidian run effect clear @s
 execute if score dummy csInRound matches 1.. run execute as @a[team=!spec,gamemode=adventure] at @s run execute if block ~ ~-0.25 ~ obsidian run gamemode spectator @s
 # scoreboard players set @a csOnDeath 0
 
@@ -91,6 +92,7 @@ execute if score dummy csStartTimer matches 301 run execute as @e[type=marker,ta
 
 execute if score dummy csStartTimer matches 301 run execute as @a at @s run function chaotic_spleef_ost:play
 
+execute if score dummy csStartTimer matches 301 run effect clear @a minecraft:nausea
 execute if score dummy csStartTimer matches 301 run effect give @a[team=!spec] invisibility 15 4 true
 execute if score dummy csStartTimer matches 301 run effect give @a[team=!spec] weakness 15 4 true
 execute if score dummy csStartTimer matches 301 run execute store result score dummy csRandomEvent run random value 1..8
@@ -129,7 +131,7 @@ execute if score dummy csStartTimer matches 0 run execute if score dummy csRando
 
 execute if score dummy csStartTimer matches 0 run execute if score dummy csRandomEvent matches 3 run tellraw @a ["",{"text":"[Event] ","bold":true,"color":"red"},{"text":"Charged Creeper Chaos!","color":"gold"}]
 
-execute if score dummy csInRound matches 1 run execute if score dummy csRandomEvent matches 4 run effect give @a nausea 2 3 true
+execute if score dummy csInRound matches 1 run execute if score dummy csRandomEvent matches 4 run execute if score dummy csStartTimer matches 0 run effect give @a[gamemode=!spectator] nausea 500 3 true
 execute if score dummy csStartTimer matches 0 run execute if score dummy csRandomEvent matches 4 run tellraw @a ["",{"text":"[Event] ","bold":true,"color":"red"},{"text":"Drunk Party....","color":"gold"}]
 
 execute if score dummy csInRound matches 1 run execute if score dummy csRandomEvent matches 5 run effect give @a slowness 2 2 true
