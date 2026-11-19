@@ -179,7 +179,7 @@ execute if score dummy inGame matches 0 run scoreboard players set Event mainInf
 execute unless score dummy inGame matches 0 run scoreboard players reset Event mainInfo
 
 ##player scores
-execute if score dummy inGame matches 0 run scoreboard players set @a[tag=!spec] mainInfo 8
+execute if score dummy inGame matches 0 run scoreboard players set @a[team=!spec] mainInfo 8
 
 #show advert
 scoreboard players set = mainInfo 7
