@@ -1,0 +1,10 @@
+
+# spawnpoint of lobby
+
+- defined with *marker* of tag 'thLobby'
+
+# spawnpoint of maps
+
+- defined with *marker* of  tag 'thMapSpawnN' , where N is the number order of the maps (1, 2, 3, 4, 5)
+
+

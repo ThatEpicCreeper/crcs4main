@@ -19,4 +19,7 @@ function crc:blitzbombs/tick
 #cryptic caves
 function crc:crypticcaves/tick
 
+#target hunters
+function crc:targethunters/tick
+
 kill @e[type=minecraft:arrow,nbt={inGround:1b}]

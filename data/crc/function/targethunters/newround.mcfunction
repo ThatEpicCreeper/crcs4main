@@ -1,0 +1,21 @@
+scoreboard players set dummy thTurnCD 341
+scoreboard players operation dummy thCurrentRound += 1 constant
+
+gamemode adventure @a[team=!spec]
+
+# tp to map
+execute if score dummy thCurrentRound matches 1 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn1]
+execute if score dummy thCurrentRound matches 2 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn2]
+execute if score dummy thCurrentRound matches 3 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn3]
+execute if score dummy thCurrentRound matches 4 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn4]
+execute if score dummy thCurrentRound matches 5 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn5]
+
+execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 1 1
+
+effect give @a[team=!spec] minecraft:speed 20 2 true
+effect give @a[team=!spec] minecraft:saturation 20 2 true
+effect give @a[team=!spec] minecraft:regeneration 20 4 true
+effect give @a[team=!spec] minecraft:resistance 20 4 true
+effect give @a[team=!spec] minecraft:fire_resistance 20 2 true
+
+
