@@ -17,5 +17,9 @@ effect give @a[team=!spec] minecraft:saturation 20 2 true
 effect give @a[team=!spec] minecraft:regeneration 20 4 true
 effect give @a[team=!spec] minecraft:resistance 20 4 true
 effect give @a[team=!spec] minecraft:fire_resistance 20 2 true
+effect give @a[team=!spec] minecraft:invisibility 32 2 true
 
-
+# title msg
+title @a times 0 100 10
+title @a title {"text":"20s Preparation Time...","bold":true,"color":"dark_red"}
+title @a subtitle {"text":"Spread out on the map!","bold":true,"color":"red"}
