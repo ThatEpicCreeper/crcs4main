@@ -5,6 +5,9 @@ tp @a @e[type=marker,limit=1,sort=random,tag=thLobby]
 
 gamerule fall_damage false
 gamerule keep_inventory true
+
+gamerule mob_drops false
+
 effect give @a resistance 10000 4 true
 effect give @a regeneration 10000 4 true
 effect give @a saturation 10000 4 true

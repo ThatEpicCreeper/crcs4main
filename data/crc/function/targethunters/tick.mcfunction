@@ -23,6 +23,9 @@ scoreboard objectives add thTotalKills totalKillCount
 scoreboard objectives add thStarsFound dummy
 scoreboard objectives add thRoundsSurvived dummy
 scoreboard objectives add thRoundsWon dummy
+scoreboard objectives add thRevealChestTime dummy
+scoreboard objectives add thUseCopperChest minecraft.used:minecraft.copper_chest
+scoreboard objectives add thUseTarget minecraft.used:minecraft.target
 scoreboard objectives add thUseGlowInkSac minecraft.used:minecraft.glow_ink_sac
 scoreboard objectives add thUseLightGrayDye minecraft.used:minecraft.light_gray_dye
 scoreboard objectives add thUsePrismarineCrystals minecraft.used:minecraft.prismarine_crystals
@@ -44,7 +47,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thCurrent
 execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 2 run team modify thDisplayRound suffix {"text":" 2/5 (Winter Wonderland)","color":"yellow"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 3 run team modify thDisplayRound suffix {"text":" 3/5 (Secret Garden)","color":"yellow"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 4 run team modify thDisplayRound suffix {"text":" 4/5 (Space Station)","color":"yellow"}
-execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 5 run team modify thDisplayRound suffix {"text":" 5/5 (Subway Station)","color":"yellow"}
+execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 5 run team modify thDisplayRound suffix {"text":" 5/5 (The Office)","color":"yellow"}
 
 ## =
 
@@ -61,6 +64,26 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrism
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrismarineCrystals=1..}] at @s run tellraw @a ["",{"selector":"@a[tag=thTarget]","color":"gold"},{"text":" used Speed Boost! (7s)","color":"gold"}]
 scoreboard players set @a thUsePrismarineCrystals 0
 
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest1] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest2] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest3] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest4] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest5] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest6] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest7] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest8] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest9] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest10] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run scoreboard players set dummy thRevealChestTime 240
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"aqua"},{"text":" used Reveal Chests! ","color":"aqua"},{"text":"Chest locations will be revealed for 12s.","color":"green"}]
+scoreboard players set @a thUseCopperChest 0
+
+execute if score dummy thInGame matches 1.. run execute if score dummy thRevealChestTime matches 1 run execute as @e[type=shulker] at @s run kill @s
+
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseTarget=1..}] at @s run effect give @a[tag=thTarget] glowing 3 1 true
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseTarget=1..}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"red"},{"text":" used Eagle Eyes! ","color":"red"},{"text":"The target will glow for 3s.","color":"gold"}]
+scoreboard players set @a thUseTarget 0
+
 
 # on death
 execute as @a at @s run execute if score @s thDeathSequence matches 1.. run scoreboard players remove @s thDeathSequence 1
@@ -72,6 +95,7 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSeq
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 5 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn5]
 
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.8 2
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run scoreboard players set dummy thRevealChestTime 2
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run tellraw @a {"text":"The target has been eliminated!","color":"red"}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches ..3 run scoreboard players set dummy thTurnCD 141
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run clear @a
@@ -86,7 +110,7 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run gamemode spectator @a[team=!spec]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a ["",{"text":"Round winner: ","color":"light_purple"},{"selector":"@a[scores={thDMQual=1..}]","color":"red"},{"text":"!","color":"red"}]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a times 0 100 10
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a subtitle {"text":"won the round!","bold":true,"color":"aqua"}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a subtitle {"text":"won the round!","bold":true,"color":"dark_aqua"}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a title {"selector":"@a[scores={thDMQual=1..}]","bold":true,"color":"blue"}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a[scores={thDMQual=1..}] ["",{"text":"+5 Score ","color":"green"},{"text":"(Round Win)","color":"aqua"}]
@@ -126,6 +150,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 
 # survive round
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.8 1
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run scoreboard players set dummy thRevealChestTime 2
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run tellraw @a {"text":"The target has survived the round!","color":"aqua"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches ..3 run scoreboard players set dummy thTurnCD 141
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run clear @a
@@ -140,7 +165,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run gamemode spectator @a[team=!spec]
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a ["",{"text":"Round winner: ","color":"light_purple"},{"selector":"@a[scores={thDMQual=1..}]","color":"red"},{"text":"!","color":"red"}]
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a times 0 100 10
-execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a subtitle {"text":"won the round!","bold":true,"color":"aqua"}
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a subtitle {"text":"won the round!","bold":true,"color":"dark_aqua"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a title {"selector":"@a[scores={thDMQual=1..}]","bold":true,"color":"blue"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a[scores={thDMQual=1..}] ["",{"text":"+5 Score ","color":"green"},{"text":"(Round Win)","color":"aqua"}]
@@ -162,6 +187,7 @@ execute if score dummy thInGame matches 1.. run scoreboard players set Cu mainIn
 execute unless score dummy thTurnCD matches ..-101 run scoreboard players remove dummy thTurnCD 1
 execute unless score dummy thRoundCD matches ..-101 run scoreboard players remove dummy thRoundCD 1
 execute unless score dummy thRoundTimeLeft matches ..-101 run scoreboard players remove dummy thRoundTimeLeft 1
+execute unless score dummy thRevealChestTime matches ..-101 run scoreboard players remove dummy thRevealChestTime 1
 
 #start timer
 execute unless score dummy thStartTimer matches ..-101 run scoreboard players remove dummy thStartTimer 1
@@ -221,7 +247,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thInDeath
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run gamemode spectator @a[team=!spec]
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run tellraw @a ["",{"text":"Deathmatch winner: ","color":"light_purple"},{"selector":"@a[scores={thDMQual=1..}]","color":"red"},{"text":"!","color":"red"}]
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run title @a times 0 100 10
-execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run title @a subtitle {"text":"won the round!","bold":true,"color":"aqua"}
+execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run title @a subtitle {"text":"won the round!","bold":true,"color":"dark_aqua"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run title @a title {"selector":"@a[scores={thDMQual=1..}]","bold":true,"color":"blue"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players set dummy thRoundCD 141
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5

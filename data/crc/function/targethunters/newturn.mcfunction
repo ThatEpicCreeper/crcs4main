@@ -26,6 +26,9 @@ tellraw @a[tag=thTarget] ["",{"text":"You are the target! ","bold":true,"color":
 give @a[tag=!thTarget,team=!spec] iron_sword[custom_name=[{"text":"Hunter\'s Knife","italic":false,"color":"red"}],enchantment_glint_override=true,enchantments={unbreaking:1},unbreakable={},tooltip_display={hidden_components:[attribute_modifiers,enchantments,unbreakable]}]
 give @a[tag=thTarget] tripwire_hook[custom_name=[{"text":"Chest Key","italic":false,"color":"gold"}],lore=[[{"text":"Hold this to unlock and search chests!","italic":false,"color":"gray"}]],enchantment_glint_override=true,unbreakable={},tooltip_display={hidden_components:[enchantments,unbreakable]}]
 
+give @a[tag=thTarget] copper_chest[custom_name=[{"text":"Reveal Chest Locations (12s)","italic":false,"color":"green"}],lore=[[{"text":"Makes chests around the map glow!","italic":false,"color":"gray"}]],food={nutrition:0,saturation:0,can_always_eat:1b},consumable={consume_seconds:0.1}]
+give @a[tag=!thTarget,team=!spec] target[custom_name=[{"text":"Eagle Eyes (3s)","italic":false,"color":"red"}],lore=[[{"text":"Reveal the target with glowing!","italic":false,"color":"gray"}]],food={nutrition:0,saturation:0,can_always_eat:1b},consumable={consume_seconds:0.1}]
+
 tellraw @a {"text":"Invisibility will wear off in 5s.","color":"green"}
 
 title @a times 0 80 10
