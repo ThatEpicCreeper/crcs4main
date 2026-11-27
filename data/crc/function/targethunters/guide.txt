@@ -7,4 +7,7 @@
 
 - defined with *marker* of  tag 'thMapSpawnN' , where N is the number order of the maps (1, 2, 3, 4, 5)
 
+# chest spawns
+
+- defined with *marker* of tag 'thChestN' , where N is the number of the chest (1-10 inclusive)
 

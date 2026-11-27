@@ -18,6 +18,10 @@ scoreboard objectives add thOnDeath deathCount
 scoreboard objectives add thOnKill totalKillCount
 scoreboard objectives add thDeathSequence dummy
 scoreboard objectives add thEndSequence dummy
+scoreboard objectives add thRandomChestRoll dummy
+scoreboard objectives add thUseGlowInkSac minecraft.used:minecraft.glow_ink_sac
+scoreboard objectives add thUseLightGrayDye minecraft.used:minecraft.light_gray_dye
+scoreboard objectives add thUsePrismarineCrystals minecraft.used:minecraft.prismarine_crystals
 
 
 #display game
@@ -39,6 +43,20 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thCurrent
 execute if score dummy thInGame matches 1.. run execute if score dummy thCurrentRound matches 5 run team modify thDisplayRound suffix {"text":" 5/5 (Subway Station)","color":"yellow"}
 
 ## =
+
+# use abilities
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseGlowInkSac=1..}] at @s run effect give @a[tag=!thTarget,team=!spec] glowing 8 1 true
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseGlowInkSac=1..}] at @s run tellraw @a ["",{"selector":"@a[tag=thTarget]","color":"aqua"},{"text":" used Hunter Glowing! ","color":"aqua"},{"text":"All hunters will now glow for 8s.","color":"green"}]
+scoreboard players set @a thUseGlowInkSac 0
+
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseLightGrayDye=1..}] at @s run effect give @s invisibility 5 1 true
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseLightGrayDye=1..}] at @s run tellraw @a ["",{"selector":"@a[tag=thTarget]","color":"gray"},{"text":" used Invisibility! (5s)","color":"gray"}]
+scoreboard players set @a thUseLightGrayDye 0
+
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrismarineCrystals=1..}] at @s run effect give @s speed 7 1 true
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrismarineCrystals=1..}] at @s run tellraw @a ["",{"selector":"@a[tag=thTarget]","color":"gold"},{"text":" used Speed Boost! (7s)","color":"gold"}]
+scoreboard players set @a thUsePrismarineCrystals 0
+
 
 # on death
 execute as @a at @s run execute if score @s thDeathSequence matches 1.. run scoreboard players remove @s thDeathSequence 1
@@ -92,6 +110,13 @@ execute if score dummy thInGame matches 1.. run execute as @a[tag=!thTarget] at 
 execute if score dummy thInGame matches 1.. run execute as @a[tag=thTarget] at @s run attribute @s minecraft:knockback_resistance modifier remove th_kb_resist
 execute if score dummy thInGame matches 1.. run execute as @a[tag=thTarget] at @s run effect give @s minecraft:weakness 1 4 true
 execute if score dummy thInGame matches 1.. run effect give @a night_vision 30 1 true
+
+# skip round nether star
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run execute as @a at @s run playsound minecraft:item.totem.use master @s ~ ~ ~ 0.7 1
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run tellraw @a ["",{"text":"The Target ","color":"red"},{"text":"has found the ","color":"gold"},{"text":"Nether Star!","color":"yellow"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players add @s thisGameScore 3
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run tellraw @s ["",{"text":"+3 Score ","color":"green"},{"text":"(Found Nether Star)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players set dummy thRoundTimeLeft 1
 
 # survive round
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.8 1
@@ -180,4 +205,10 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thInDeath
 
 # to next round
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches ..4 run function crc:targethunters/newround
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches 5.. run scoreboard players set dummy thEndSequence 900
+
+# end sequence
+execute unless score dummy thEndSequence matches ..-101 run scoreboard players remove dummy thEndSequence 1
+
+
 
