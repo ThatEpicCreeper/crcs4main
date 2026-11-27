@@ -1,11 +1,14 @@
 scoreboard players set dummy thTurnCD 541
 scoreboard players operation dummy thCurrentRound += 1 constant
 scoreboard players set dummy thCurrentTurn 0
+scoreboard players set dummy thInDeathmatch 0
 scoreboard players set dummy thInRound 1
 scoreboard players set dummy thPlayersLeft 4
 scoreboard players set @a[team=!spec] thDMQual 1
 
 gamemode adventure @a[team=!spec]
+
+clear @a
 
 # tp to map
 execute if score dummy thCurrentRound matches 1 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn1]
