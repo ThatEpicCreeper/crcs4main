@@ -34,5 +34,10 @@ scoreboard players set dummy inVoting 0
 
 scoreboard players set dummy thCurrentRound 0
 
+scoreboard players set @a thTotalKills 0
+scoreboard players set @a thStarsFound 0
+scoreboard players set @a thRoundsSurvived 0
+scoreboard players set @a thRoundsWon 0
+
 scoreboard players set @a thisGameScore 0
 scoreboard players set @a hudSkipCD 1101

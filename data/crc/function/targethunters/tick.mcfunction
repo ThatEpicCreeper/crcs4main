@@ -19,6 +19,10 @@ scoreboard objectives add thOnKill totalKillCount
 scoreboard objectives add thDeathSequence dummy
 scoreboard objectives add thEndSequence dummy
 scoreboard objectives add thRandomChestRoll dummy
+scoreboard objectives add thTotalKills totalKillCount
+scoreboard objectives add thStarsFound dummy
+scoreboard objectives add thRoundsSurvived dummy
+scoreboard objectives add thRoundsWon dummy
 scoreboard objectives add thUseGlowInkSac minecraft.used:minecraft.glow_ink_sac
 scoreboard objectives add thUseLightGrayDye minecraft.used:minecraft.light_gray_dye
 scoreboard objectives add thUsePrismarineCrystals minecraft.used:minecraft.prismarine_crystals
@@ -86,6 +90,7 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a title {"selector":"@a[scores={thDMQual=1..}]","bold":true,"color":"blue"}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a[scores={thDMQual=1..}] ["",{"text":"+5 Score ","color":"green"},{"text":"(Round Win)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thRoundsWon 1
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players set dummy thRoundCD 141
 
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run tag @a remove thTarget
@@ -116,6 +121,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run tellraw @a ["",{"text":"The Target ","color":"red"},{"text":"has found the ","color":"gold"},{"text":"Nether Star!","color":"yellow"}]
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players add @s thisGameScore 3
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run tellraw @s ["",{"text":"+3 Score ","color":"green"},{"text":"(Found Nether Star)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players add @s thStarsFound 1
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players set dummy thRoundTimeLeft 1
 
 # survive round
@@ -126,6 +132,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run effect clear @a
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run scoreboard players add @a[tag=thTarget] thisGameScore 4
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run tellraw @a[tag=thTarget] ["",{"text":"+4 Score ","color":"green"},{"text":"(Survived The Hunt)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run scoreboard players add @a[tag=thTarget] thRoundsSurvived 1
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute if score dummy thPlayersLeft matches 2.. run function crc:targethunters/startdeathmatch
 
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 0.7 1
@@ -137,6 +144,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run title @a title {"selector":"@a[scores={thDMQual=1..}]","bold":true,"color":"blue"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run tellraw @a[scores={thDMQual=1..}] ["",{"text":"+5 Score ","color":"green"},{"text":"(Round Win)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players add @a[scores={thDMQual=1..}] thRoundsWon 1
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches 4.. run execute unless score dummy thPlayersLeft matches 2.. run scoreboard players set dummy thRoundCD 141
 
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run tag @a remove thTarget
@@ -163,12 +171,30 @@ execute if score dummy thStartTimer matches 900 run tellraw @a {"text":"========
 execute if score dummy thStartTimer matches 900 run tellraw @a ["",{"text":"Welcome to Target Hunters!","bold":true,"color":"aqua"},{"text":"\n\n"},{"text":"In this game, the target must survive the hunt, while the hunters eliminate them!","color":"green"}]
 execute if score dummy thStartTimer matches 900 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
-# execute if score dummy thStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
-# execute if score dummy thStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
-# execute if score dummy thStartTimer matches 800 run tellraw @a ["",{"text":"Cross each checkpoint and the finish line the required number of times to finish!\n\nYou will obtain an item after crossing a checkpoint.","color":"green"},{"text":"\n "}]
-# execute if score dummy thStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 800 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy thStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 800 run tellraw @a ["",{"text":"Each player will take turns being the target once per round. \n\nThe target can outrun the hunters for the duration of the round, or search for the nether star to skip it!","color":"green"}]
+execute if score dummy thStartTimer matches 800 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
+execute if score dummy thStartTimer matches 700 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy thStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 700 run tellraw @a ["",{"text":"Skipping a round with a nether star will earn you additional points, on top of the standard survival points. \nChests also contain random powerups that can be used by the target.","color":"green"}]
+execute if score dummy thStartTimer matches 700 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
+execute if score dummy thStartTimer matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy thStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 600 run tellraw @a ["",{"text":"The hunters must eliminate the target before the time runs out! \nEliminating a player during the target phase will earn an additional point.","color":"green"}]
+execute if score dummy thStartTimer matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thStartTimer matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy thStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 500 run tellraw @a ["",{"text":"Any player who survived their round will qualify for deathmatch. \nIf there is at least two players remaining, a free-for-all pvp deathmatch will start, to determine a winner.","color":"green"}]
+execute if score dummy thStartTimer matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thStartTimer matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
+execute if score dummy thStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thStartTimer matches 400 run tellraw @a ["",{"text":"Scoring for this game (unmultiplied):","bold":true,"color":"green"},{"text":"\n\n"},{"text":"- Surviving a round as the target -> 4","color":"aqua"},{"text":"\n"},{"text":"- Finding the nether star -> 3","color":"yellow"},{"text":"\n\n"},{"text":"- Killing the target -> 2","color":"gold"},{"text":"\n"},{"text":"- Kill a player during deathmatch -> 1","color":"red"},{"text":"\n\n"},{"text":"- Deathmatch winner/only target survivor -> 5","color":"light_purple"}]
+execute if score dummy thStartTimer matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
 execute if score dummy thStartTimer matches 330 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.5 1.5
 execute if score dummy thStartTimer matches 330 run tellraw @a {"text":"The game will begin shortly...","color":"red"}
@@ -200,15 +226,50 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thInDeath
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players set dummy thRoundCD 141
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players add @a[scores={thDMQual=1..}] thisGameScore 5
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run tellraw @a[scores={thDMQual=1..}] ["",{"text":"+5 Score ","color":"green"},{"text":"(Round Win)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players add @a[scores={thDMQual=1..}] thRoundsWon 1
 execute if score dummy thInGame matches 1.. run execute if score dummy thInDeathmatch matches 1.. run execute if score dummy thPlayersLeft matches ..1 run scoreboard players set dummy thInDeathmatch 0
 
 
 # to next round
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches ..4 run function crc:targethunters/newround
-execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches 5.. run scoreboard players set dummy thEndSequence 900
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches 5.. run scoreboard players set dummy thEndSequence 700
 
 # end sequence
 execute unless score dummy thEndSequence matches ..-101 run scoreboard players remove dummy thEndSequence 1
 
+execute if score dummy thEndSequence matches 690..700 run scoreboard players set dummy thInGame 0
 
+execute if score dummy thEndSequence matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thEndSequence matches 600 run tellraw @a {"text":"Kills Per Player:","bold":true,"color":"red"}
+execute if score dummy thEndSequence matches 600 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"gold"},{"text":" - ","color":"gold"},{"score":{"name":"@s","objective":"thTotalKills"},"color":"gold"}]
+execute if score dummy thEndSequence matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
 
+execute if score dummy thEndSequence matches 500 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thEndSequence matches 500 run tellraw @a {"text":"Total Turns Survived as Target:","bold":true,"color":"dark_aqua"}
+execute if score dummy thEndSequence matches 500 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"aqua"},{"text":" - ","color":"aqua"},{"score":{"name":"@s","objective":"thRoundsSurvived"},"color":"aqua"}]
+execute if score dummy thEndSequence matches 500 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thEndSequence matches 400 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thEndSequence matches 400 run tellraw @a {"text":"Nether Stars Found:","bold":true,"color":"gold"}
+execute if score dummy thEndSequence matches 400 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"yellow"},{"text":" - ","color":"yellow"},{"score":{"name":"@s","objective":"thStarsFound"},"color":"yellow"}]
+execute if score dummy thEndSequence matches 400 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thEndSequence matches 300 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thEndSequence matches 300 run tellraw @a {"text":"Rounds Won:","bold":true,"color":"dark_green"}
+execute if score dummy thEndSequence matches 300 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"green"},{"text":" - ","color":"green"},{"score":{"name":"@s","objective":"thRoundsWon"},"color":"green"}]
+execute if score dummy thEndSequence matches 300 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thEndSequence matches 200 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 200 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+execute if score dummy thEndSequence matches 200 run tellraw @a {"text":"Scores this game (unmultiplied):","bold":true,"color":"green"}
+execute if score dummy thEndSequence matches 200 run execute as @a[team=!spec] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"aqua"},{"text":" - ","color":"aqua"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"aqua"}]
+execute if score dummy thEndSequence matches 200 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}
+
+execute if score dummy thEndSequence matches 100 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
+execute if score dummy thEndSequence matches 100 run tellraw @a {"text":"Returning to lobby in 5 seconds...","color":"red"}
+
+execute if score dummy thEndSequence matches 1 run function crc:tolobby
