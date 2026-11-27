@@ -103,6 +103,8 @@ execute if score dummy bbInGame matches 1.. run execute as @r[team=player1,tag=b
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player1,scores={ccExited=0}] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"text":"In Dungeon","bold":true,"color":"red"}]
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player1,scores={ccExited=1}] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"text":"Exited","bold":true,"color":"green"}]
 
+execute if score dummy thInGame matches 1.. run execute as @r[team=player1] at @s run team modify player1 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
+
 team add player2
 team modify player2 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
@@ -117,6 +119,8 @@ execute if score dummy bbInGame matches 1.. run execute as @r[team=player2,tag=b
 
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player2,scores={ccExited=0}] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"text":"In Dungeon","bold":true,"color":"red"}]
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player2,scores={ccExited=1}] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"text":"Exited","bold":true,"color":"green"}]
+
+execute if score dummy thInGame matches 1.. run execute as @r[team=player2] at @s run team modify player2 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 
 team add player3
 team modify player3 color light_purple
@@ -133,6 +137,8 @@ execute if score dummy bbInGame matches 1.. run execute as @r[team=player3,tag=b
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player3,scores={ccExited=0}] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"text":"In Dungeon","bold":true,"color":"red"}]
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player3,scores={ccExited=1}] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"text":"Exited","bold":true,"color":"green"}]
 
+execute if score dummy csInGame matches 1.. run execute as @r[team=player3] at @s run team modify player3 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
+
 team add player4
 team modify player4 color light_purple
 execute unless score dummy inGame matches 1 run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"#FF89FB"},{"score":{"name":"@s","objective":"personalScore"},"color":"#FF89FB"}]
@@ -147,6 +153,8 @@ execute if score dummy bbInGame matches 1.. run execute as @r[team=player4,tag=b
 
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player4,scores={ccExited=0}] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"text":"In Dungeon","bold":true,"color":"red"}]
 execute if score dummy ccInGame matches 1.. run execute as @r[team=player4,scores={ccExited=1}] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"text":"Exited","bold":true,"color":"green"}]
+
+execute if score dummy csInGame matches 1.. run execute as @r[team=player4] at @s run team modify player4 suffix ["",{"text":" - ","color":"blue"},{"score":{"name":"@s","objective":"thisGameScore"},"color":"blue"}]
 
 team add spec
 team modify spec color gray

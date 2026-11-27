@@ -116,6 +116,8 @@ execute unless score dummy pgOITCInGame matches 1 run bossbar set party:oitc vis
 bossbar set party:oitc max 6000
 
 
+execute if score dummy pgOITCInGame matches 1 run function drops:nodrop
+
 #end seq
 execute if score dummy oitcEndSequence matches 0.. run scoreboard players remove dummy oitcEndSequence 1
 
