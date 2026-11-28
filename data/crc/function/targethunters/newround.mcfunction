@@ -9,6 +9,7 @@ scoreboard players set @a[team=!spec] thDMQual 1
 gamemode adventure @a[team=!spec]
 
 clear @a
+effect clear @a
 
 # tp to map
 execute if score dummy thCurrentRound matches 1 run tp @a @e[type=marker,limit=1,sort=random,tag=thMapSpawn1]

@@ -1,7 +1,5 @@
 #scoreboard vars
 scoreboard objectives add thCurrentRound dummy
-scoreboard objectives add thOnDeath dummy
-scoreboard objectives add thOnKill dummy
 scoreboard objectives add thInGame dummy
 scoreboard objectives add thInRound dummy
 scoreboard objectives add thInDeathmatch dummy
@@ -64,16 +62,16 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrism
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thUsePrismarineCrystals=1..}] at @s run tellraw @a ["",{"selector":"@a[tag=thTarget]","color":"gold"},{"text":" used Speed Boost! (7s)","color":"gold"}]
 scoreboard players set @a thUsePrismarineCrystals 0
 
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest1] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest2] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest3] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest4] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest5] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest6] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest7] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest8] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest9] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest10] at @s run summon minecraft:shulker ~ ~-1 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest1] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest2] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest3] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest4] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest5] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest6] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest7] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest8] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest9] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run execute as @e[type=marker,tag=thChest10] at @s run summon minecraft:shulker ~ ~-2 ~ {NoAI:1b,Invulnerable:1b,Glowing:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0b,duration:-1,show_particles:0b}]}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run scoreboard players set dummy thRevealChestTime 240
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseCopperChest=1..}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"aqua"},{"text":" used Reveal Chests! ","color":"aqua"},{"text":"Chest locations will be revealed for 12s.","color":"green"}]
 scoreboard players set @a thUseCopperChest 0
@@ -84,6 +82,14 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseTarge
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thUseTarget=1..}] at @s run tellraw @a ["",{"selector":"@s","bold":true,"color":"red"},{"text":" used Eagle Eyes! ","color":"red"},{"text":"The target will glow for 3s.","color":"gold"}]
 scoreboard players set @a thUseTarget 0
 
+# on kill
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run execute if score dummy thRoundTimeLeft matches 1.. run scoreboard players add @s thisGameScore 1
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run execute if score dummy thRoundTimeLeft matches 1.. run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Target Kill Bonus)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run scoreboard players add @s thisGameScore 1
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Kill)","color":"aqua"}]
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run effect give @s instant_health 1 4 true
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run effect give @s saturation 1 4 true
+execute as @a[scores={thOnKill=1..}] at @s run scoreboard players set @s thOnKill 0
 
 # on death
 execute as @a at @s run execute if score @s thDeathSequence matches 1.. run scoreboard players remove @s thDeathSequence 1
@@ -93,8 +99,10 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSeq
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 3 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn3]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 4 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn4]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 5 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn5]
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run gamemode spectator @s
 
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.8 2
+execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run bossbar set targethunters:timeleft visible false
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run scoreboard players set dummy thRevealChestTime 2
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run tellraw @a {"text":"The target has been eliminated!","color":"red"}
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute unless score dummy thInDeathmatch matches 1.. run execute if score dummy thCurrentTurn matches ..3 run scoreboard players set dummy thTurnCD 141
@@ -120,15 +128,6 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run tag @a remove thTarget
 execute as @a[scores={thOnDeath=1..}] at @s run scoreboard players set @s thOnDeath 0
 
-# on kill
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run execute if score dummy thRoundTimeLeft matches 1.. run scoreboard players add @s thisGameScore 1
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run execute if score dummy thRoundTimeLeft matches 1.. run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Target Kill Bonus)","color":"aqua"}]
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run scoreboard players add @s thisGameScore 1
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Kill)","color":"aqua"}]
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run effect give @s instant_health 1 4 true
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnKill=1..}] at @s run effect give @s saturation 1 4 true
-execute as @a[scores={thOnKill=1..}] at @s run scoreboard players set @s thOnKill 0
-
 # show target
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run title @a actionbar ["",{"text":"Target: ","bold":true,"color":"gold"},{"selector":"@a[tag=thTarget]","color":"yellow"}]
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run title @a actionbar ["",{"text":"","bold":true,"color":"gold"}]
@@ -137,7 +136,7 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute as @a[tag=!thTarget] at @s run attribute @s minecraft:knockback_resistance modifier add th_kb_resist 100 add_value
 execute if score dummy thInGame matches 1.. run execute as @a[tag=!thTarget] at @s run effect give @s minecraft:resistance 1 4 true
 execute if score dummy thInGame matches 1.. run execute as @a[tag=thTarget] at @s run attribute @s minecraft:knockback_resistance modifier remove th_kb_resist
-execute if score dummy thInGame matches 1.. run execute as @a[tag=thTarget] at @s run effect give @s minecraft:weakness 1 4 true
+execute if score dummy thInGame matches 1.. run execute unless score dummy thInDeathmatch matches 1.. run execute as @a[tag=thTarget] at @s run effect give @s minecraft:weakness 1 4 true
 execute if score dummy thInGame matches 1.. run effect give @a night_vision 30 1 true
 
 # skip round nether star
@@ -148,8 +147,10 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTi
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players add @s thStarsFound 1
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1.. run execute as @a[tag=thTarget] at @s run execute if items entity @s container.* minecraft:nether_star run scoreboard players set dummy thRoundTimeLeft 1
 
+
 # survive round
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.8 1
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute as @a at @s run bossbar set targethunters:timeleft visible false
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run scoreboard players set dummy thRevealChestTime 2
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run tellraw @a {"text":"The target has survived the round!","color":"aqua"}
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundTimeLeft matches 1 run execute if score dummy thCurrentTurn matches ..3 run scoreboard players set dummy thTurnCD 141
@@ -188,6 +189,15 @@ execute unless score dummy thTurnCD matches ..-101 run scoreboard players remove
 execute unless score dummy thRoundCD matches ..-101 run scoreboard players remove dummy thRoundCD 1
 execute unless score dummy thRoundTimeLeft matches ..-101 run scoreboard players remove dummy thRoundTimeLeft 1
 execute unless score dummy thRevealChestTime matches ..-101 run scoreboard players remove dummy thRevealChestTime 1
+
+# time left
+bossbar add targethunters:timeleft {"text":"Round Time Remaining","bold":true,"color":"red"}
+bossbar set targethunters:timeleft color red
+bossbar set targethunters:timeleft style notched_6
+bossbar set targethunters:timeleft name {"text":"Round Time Remaining","bold":true,"color":"red"}
+bossbar set targethunters:timeleft max 1200
+bossbar set targethunters:timeleft players @a
+execute store result bossbar targethunters:timeleft value run scoreboard players get dummy thRoundTimeLeft
 
 #start timer
 execute unless score dummy thStartTimer matches ..-101 run scoreboard players remove dummy thStartTimer 1
@@ -257,13 +267,19 @@ execute if score dummy thInGame matches 1.. run execute if score dummy thInDeath
 
 
 # to next round
-execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches ..4 run function crc:targethunters/newround
 execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches 5.. run scoreboard players set dummy thEndSequence 700
+execute if score dummy thInGame matches 1.. run execute if score dummy thRoundCD matches 1 run execute if score dummy thCurrentRound matches ..4 run function crc:targethunters/newround
+
 
 # end sequence
 execute unless score dummy thEndSequence matches ..-101 run scoreboard players remove dummy thEndSequence 1
 
 execute if score dummy thEndSequence matches 690..700 run scoreboard players set dummy thInGame 0
+
+execute if score dummy thEndSequence matches 10.. run team modify player1 suffix ""
+execute if score dummy thEndSequence matches 10.. run team modify player2 suffix ""
+execute if score dummy thEndSequence matches 10.. run team modify player3 suffix ""
+execute if score dummy thEndSequence matches 10.. run team modify player4 suffix ""
 
 execute if score dummy thEndSequence matches 600 run execute as @a at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 1 1
 execute if score dummy thEndSequence matches 600 run tellraw @a {"text":"====================","bold":true,"color":"dark_gray"}

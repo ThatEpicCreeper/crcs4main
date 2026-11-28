@@ -23,36 +23,36 @@ execute as @a at @s run execute store result score @s oitcArrowCount run clear @
 
 
 #on kill
-execute as @a at @s run execute if score @s oitcOnKill matches 1.. run scoreboard players add @s thisGameScore 1
-execute as @a at @s run execute if score @s oitcOnKill matches 1.. run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Kill)","color":"aqua"}]
-execute as @a at @s run execute if score @s oitcOnKill matches 1.. run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.5 2
-execute as @a at @s run execute if score @s oitcOnKill matches 1.. run execute unless score @s oitcArrowCount matches 1.. run give @s arrow 1
-execute as @a at @s run execute if score @s oitcOnKill matches 1.. run effect give @s regeneration 5 2 true
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcOnKill matches 1.. run scoreboard players add @s thisGameScore 1
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcOnKill matches 1.. run tellraw @s ["",{"text":"+1 Score ","color":"green"},{"text":"(Kill)","color":"aqua"}]
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcOnKill matches 1.. run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.5 2
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcOnKill matches 1.. run execute unless score @s oitcArrowCount matches 1.. run give @s arrow 1
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcOnKill matches 1.. run effect give @s regeneration 5 2 true
 scoreboard players set @a oitcOnKill 0
 
 #on death
 execute as @a at @s run execute if score @s oitcDeathSequence matches 1.. run scoreboard players remove @s oitcDeathSequence 1
 
-execute as @a[team=!spec,scores={oitcOnDeath=1..}] at @s run scoreboard players set @s oitcDeathSequence 9
+execute if score dummy pgOITCInGame matches 1 run execute as @a[team=!spec,scores={oitcOnDeath=1..}] at @s run scoreboard players set @s oitcDeathSequence 9
 scoreboard players set @a oitcOnDeath 0
 
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run clear @s arrow
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run give @s arrow
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s regeneration 1000 0 true
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s resistance 3 4 true
-execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run scoreboard players set @s oitcProtectedTimer 61
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run tp @s @e[type=marker,tag=respawnGen,limit=1,sort=random]
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run clear @s arrow
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run give @s arrow
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s regeneration 1000 0 true
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run effect give @s resistance 3 4 true
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcDeathSequence matches 2 run scoreboard players set @s oitcProtectedTimer 61
 
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 0.. run scoreboard players remove @s oitcProtectedTimer 1
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.head with minecraft:iron_helmet
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.chest with minecraft:iron_chestplate
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.legs with minecraft:iron_leggings
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.feet with minecraft:iron_boots
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 0.. run scoreboard players remove @s oitcProtectedTimer 1
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.head with minecraft:iron_helmet
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.chest with minecraft:iron_chestplate
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.legs with minecraft:iron_leggings
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 60 run item replace entity @s armor.feet with minecraft:iron_boots
 
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_helmet
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_chestplate
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_leggings
-execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_boots
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_helmet
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_chestplate
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_leggings
+execute if score dummy pgOITCInGame matches 1 run execute as @a at @s run execute if score @s oitcProtectedTimer matches 1 run clear @s iron_boots
 
 
 #game start

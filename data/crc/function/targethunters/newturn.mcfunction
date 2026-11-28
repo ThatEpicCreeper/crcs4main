@@ -35,3 +35,5 @@ title @a times 0 80 10
 title @a title {"selector":"@a[tag=thTarget]","color":"red"}
 title @a subtitle {"text":"is the new target!","bold":true,"color":"red"}
 
+bossbar set targethunters:timeleft visible true
+

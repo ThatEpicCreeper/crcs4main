@@ -31,7 +31,6 @@ team modify pgDisplay suffix {"text":"rty Arena","color":"gold"}
 
 team add pgDisplayGame
 team modify pgDisplayGame color yellow
-team join pgDisplayGame Round:
 execute if score dummy partyGameNumber matches 1 run team modify pgDisplayGame suffix {"text":" One in the Chamber","color":"yellow"}
 execute if score dummy partyGameNumber matches 2 run team modify pgDisplayGame suffix {"text":" TNT Run","color":"yellow"}
 execute if score dummy partyGameNumber matches 3 run team modify pgDisplayGame suffix {"text":" Flood Escape","color":"yellow"}

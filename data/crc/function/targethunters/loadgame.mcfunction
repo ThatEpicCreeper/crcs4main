@@ -20,6 +20,8 @@ team modify player2 suffix ""
 team modify player3 suffix ""
 team modify player4 suffix ""
 
+team join thDisplayRound Round:
+
 gamemode adventure @a[team=!spec]
 gamemode spectator @a[team=spec]
 
@@ -44,3 +46,5 @@ scoreboard players set @a thRoundsWon 0
 
 scoreboard players set @a thisGameScore 0
 scoreboard players set @a hudSkipCD 1101
+
+bossbar set targethunters:timeleft visible false

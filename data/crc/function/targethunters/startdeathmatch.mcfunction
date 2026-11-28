@@ -18,3 +18,5 @@ title @a title {"text":"Deathmatch!","bold":true,"color":"dark_red"}
 
 effect give @a glowing 10000 1 true
 tellraw @a ["",{"text":"Hint: ","color":"aqua"},{"text":"Killing a player will restore all of your health!","color":"green"}]
+
+bossbar set targethunters:timeleft visible false

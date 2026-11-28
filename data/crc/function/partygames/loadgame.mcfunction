@@ -45,6 +45,8 @@ team modify player2 suffix ""
 team modify player3 suffix ""
 team modify player4 suffix ""
 
+team join pgDisplayGame Round:
+
 
 
 

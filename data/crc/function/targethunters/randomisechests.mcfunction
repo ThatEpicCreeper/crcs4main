@@ -63,3 +63,17 @@ execute if score star2ChestRoll thRandomChestRoll matches 2 run execute as @e[ty
 execute if score star2ChestRoll thRandomChestRoll matches 3 run execute as @e[type=marker,tag=thChest8] at @s run clone 41 51 4 41 51 4 ~ ~ ~
 execute if score star2ChestRoll thRandomChestRoll matches 4 run execute as @e[type=marker,tag=thChest9] at @s run clone 41 51 4 41 51 4 ~ ~ ~
 execute if score star2ChestRoll thRandomChestRoll matches 5 run execute as @e[type=marker,tag=thChest10] at @s run clone 41 51 4 41 51 4 ~ ~ ~
+
+# lock chests
+execute as @e[type=marker,tag=thChest1] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest2] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest3] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest4] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest5] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest6] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest7] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest8] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest9] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+execute as @e[type=marker,tag=thChest10] at @s run data merge block ~ ~ ~ {lock:{items:"tripwire_hook",count:1}}
+
+
