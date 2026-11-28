@@ -99,7 +99,7 @@ execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSeq
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 3 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn3]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 4 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn4]
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run execute if score dummy thCurrentRound matches 5 run tp @s @e[type=marker,limit=1,sort=random,tag=thMapSpawn5]
-execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run gamemode spectator @s
+#execute if score dummy thInGame matches 1.. run execute as @a[scores={thDeathSequence=1..}] at @s run gamemode spectator @s
 
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run execute as @a at @s run playsound minecraft:entity.wither.death master @s ~ ~ ~ 0.8 2
 execute if score dummy thInGame matches 1.. run execute as @a[scores={thOnDeath=1..}] at @s run bossbar set targethunters:timeleft visible false
