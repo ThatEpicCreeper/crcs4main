@@ -7,6 +7,8 @@ scoreboard players set dummy thInDeathmatch 1
 effect give @a instant_health 1 5 true
 effect give @a saturation 2 5 true
 
+gamemode spectator @a[scores={thDMQual=0}]
+
 give @a[team=!spec] iron_sword[custom_name=[{"text":"Hunter\'s Knife","italic":false,"color":"red"}],enchantment_glint_override=true,enchantments={unbreaking:1},unbreakable={},tooltip_display={hidden_components:[attribute_modifiers,enchantments,unbreakable]}]
 
 execute as @a at @s run execute if score @s thDMQual matches 0 run gamemode spectator @s
